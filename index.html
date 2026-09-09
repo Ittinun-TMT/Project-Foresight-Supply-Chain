@@ -217,7 +217,22 @@ footer{border-top:2px solid var(--navy);margin-top:30px;padding-top:14px;font-si
 .src .row{display:grid;grid-template-columns:96px 1fr;gap:3px 12px}
 .src .row dt{font-weight:600;color:var(--navy-70)}
 .kpi .src{margin:9px 0 0;padding:8px 11px;font-size:11.3px;line-height:1.6;border-left-width:3px}
-.sid{display:inline-block;font-weight:600;color:var(--orange);font-variant-numeric:tabular-nums}
+.sid{display:inline-block;font-weight:600;color:var(--orange);font-variant-numeric:tabular-nums;
+  cursor:pointer;border-bottom:1px dotted var(--orange);padding:0 1px}
+.sid:hover{background:var(--orange);color:#fff;border-bottom-color:transparent}
+#siglist summary .id.sid{border-bottom:1px dotted var(--orange)}
+
+/* ---------- signal tooltip ---------- */
+#tip{position:fixed;z-index:200;max-width:360px;background:var(--navy);color:#fff;
+  padding:10px 13px;font-size:12px;line-height:1.6;box-shadow:0 8px 22px -8px rgba(12,56,67,.7);
+  pointer-events:none;opacity:0;transform:translateY(-4px);transition:opacity .12s ease,transform .12s ease}
+#tip.on{opacity:1;transform:translateY(0)}
+#tip .tid{font-size:13px;font-weight:600;color:var(--amber);margin-bottom:2px}
+#tip .tmeta{font-size:10.5px;color:#8bbade;margin-bottom:6px;letter-spacing:.2px}
+#tip .ttitle{font-weight:600;margin-bottom:5px}
+#tip .tnum{color:var(--amber);font-size:11.5px}
+#tip .thint{margin-top:7px;padding-top:6px;border-top:1px solid rgba(255,255,255,.2);font-size:10.5px;color:#a8c4cc}
+details.sig.flash{outline:3px solid var(--orange);outline-offset:1px}
 
 /* ---------- executive summary page ---------- */
 .lede{border:1px solid var(--navy);border-left:6px solid var(--orange);padding:15px 18px;margin:0 0 18px;font-size:15.5px;line-height:1.65}
@@ -893,7 +908,7 @@ footer{border-top:2px solid var(--navy);margin-top:30px;padding-top:14px;font-si
  var tb=document.getElementById('ssbody');
  tb.innerHTML=R.map(function(r){
    var hot=(r[3]==='a'&&r[8]==='สูง')?' class="rowwatch"':'';
-   return '<tr'+hot+'><td><b style="color:#ff6a05">'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+r[2]+'</td>'+
+   return '<tr'+hot+'><td><span class="sid">'+r[0]+'</span></td><td>'+r[1]+'</td><td>'+r[2]+'</td>'+
      '<td class="num">'+m[r[3]]+'</td><td class="num">'+m[r[4]]+'</td><td class="num">'+m[r[5]]+'</td>'+
      '<td>'+r[6]+'</td><td>'+(r[7]==='ต้าน'?'<span class="tag" style="border-color:#8bbade;background:#8bbade">ต้าน</span>':'<span class="tag alarm">สนับสนุน</span>')+'</td>'+
      '<td>'+r[8]+'</td><td>'+r[9]+'</td></tr>';
@@ -1516,7 +1531,7 @@ window.DEPTS=[
 
     h+='<h3 class="sub">1 · Signal ที่แผนกนี้ส่งเข้ามาในรอบนี้ ('+d.n+' รายการ)</h3><div class="scroll"><table>'+
        '<thead><tr><th style="width:50px">ID</th><th style="width:80px">วันที่</th><th>สิ่งที่พบ</th><th style="width:270px">ตัวเลข / ขนาดผลกระทบ</th><th style="width:90px">กลไก</th></tr></thead><tbody>';
-    d.sig.forEach(function(s){h+='<tr><td><b style="color:#ff6a05">'+s[0]+'</b></td><td>'+s[1]+'</td><td>'+s[2]+'</td><td>'+s[3]+'</td><td>'+s[4]+'</td></tr>'});
+    d.sig.forEach(function(s){h+='<tr><td><span class="sid">'+s[0]+'</span></td><td>'+s[1]+'</td><td>'+s[2]+'</td><td>'+s[3]+'</td><td>'+s[4]+'</td></tr>'});
     h+='</tbody></table></div>';
 
     h+='<h3 class="sub">2 · ตัวเลขและเส้นเตือนที่แผนกนี้เป็นเจ้าของ</h3><div class="scroll"><table>'+
@@ -1643,8 +1658,8 @@ window.DEPTS=[
   <div class="note">รหัส Signal ID (S01–S17) <b>สร้างขึ้นในการวิเคราะห์นี้</b> เพราะไฟล์ต้นฉบับไม่มีคอลัมน์รหัส · คอลัมน์ "กลไก" และ "ทิศทางต่อ Margin" ก็เป็น <b>การจัดกลุ่มโดยผู้วิเคราะห์</b> ด้วยเหตุผลเดียวกัน (ดู Data Gap ข้อ 1–3)</div>
 
   <div id="siglist">
-<details class="sig" data-dept="Transportation" data-month="2026-08">
-<summary><span class="id">S01</span><span class="dp">Transportation</span><span class="ti">ราคา FG ปรับตัวลดลง 30 สตางค์ — แผ่น แบน ท่อ ซี</span><span style="font-size:11.5px;color:#5b7b84">17 ส.ค. 2026</span></summary>
+<details class="sig" id="sig-S01" data-dept="Transportation" data-month="2026-08">
+<summary><span class="id sid">S01</span><span class="dp">Transportation</span><span class="ti">ราคา FG ปรับตัวลดลง 30 สตางค์ — แผ่น แบน ท่อ ซี</span><span style="font-size:11.5px;color:#5b7b84">17 ส.ค. 2026</span></summary>
 <div class="sigbody"><dl>
 <dt>สิ่งที่สังเกตเห็น</dt><dd>ไม่ได้ระบุในไฟล์</dd>
 <dt>แหล่งอ้างอิง</dt><dd>Price List · ความน่าเชื่อถือแหล่ง: High</dd>
@@ -1661,8 +1676,8 @@ window.DEPTS=[
 <dt>ข้อสังเกตจากการวิเคราะห์</dt><dd>ไฟล์จัดทิศทางเป็น <b>Positive</b> แต่ราคาขายที่ลดลงเป็นลบต่อ Margin → ดู Divergence D3 · Signal นี้ยังขาด Observable Fact, Evidence, Action และ Status ทั้งหมด เป็น Signal ที่ข้อมูลไม่ครบที่สุดในรอบนี้</dd>
 </dl></div>
 </details>
-<details class="sig" data-dept="Logistics" data-month="2026-08">
-<summary><span class="id">S02</span><span class="dp">Logistics</span><span class="ti">เครื่องจักร CF2 เสียเกิน 3 สัปดาห์</span><span style="font-size:11.5px;color:#5b7b84">18 ส.ค. 2026</span></summary>
+<details class="sig" id="sig-S02" data-dept="Logistics" data-month="2026-08">
+<summary><span class="id sid">S02</span><span class="dp">Logistics</span><span class="ti">เครื่องจักร CF2 เสียเกิน 3 สัปดาห์</span><span style="font-size:11.5px;color:#5b7b84">18 ส.ค. 2026</span></summary>
 <div class="sigbody"><dl>
 <dt>สิ่งที่สังเกตเห็น</dt><dd>ปริมาณ Stock คงคลังของกลุ่มที่ปรับ Group เหลือขายน้อยกว่า 7 วัน</dd>
 <dt>แหล่งอ้างอิง</dt><dd>Planning · ความน่าเชื่อถือแหล่ง: Medium</dd>
@@ -1679,8 +1694,8 @@ window.DEPTS=[
 <dt>ข้อสังเกตจากการวิเคราะห์</dt><dd>แม้ Status = Closed แต่ยังนับเป็น Signal ยืนยัน Supply Shock เพราะสาเหตุ (กำลังผลิตหาย) ยังส่งผลต่อสต๊อกในรอบนี้</dd>
 </dl></div>
 </details>
-<details class="sig" data-dept="Product Planning" data-month="2026-08">
-<summary><span class="id">S03</span><span class="dp">Product Planning</span><span class="ti">กำลังการผลิตท่อและตัวซี ลดลง 10–20%</span><span style="font-size:11.5px;color:#5b7b84">18 ส.ค. 2026</span></summary>
+<details class="sig" id="sig-S03" data-dept="Product Planning" data-month="2026-08">
+<summary><span class="id sid">S03</span><span class="dp">Product Planning</span><span class="ti">กำลังการผลิตท่อและตัวซี ลดลง 10–20%</span><span style="font-size:11.5px;color:#5b7b84">18 ส.ค. 2026</span></summary>
 <div class="sigbody"><dl>
 <dt>สิ่งที่สังเกตเห็น</dt><dd>แผนผลิตปรับเปลี่ยนบ่อย ภาพรวม Stock อยู่ในเกณฑ์ Minimum</dd>
 <dt>แหล่งอ้างอิง</dt><dd>Production · ความน่าเชื่อถือแหล่ง: High</dd>
@@ -1697,8 +1712,8 @@ window.DEPTS=[
 <dt>ข้อสังเกตจากการวิเคราะห์</dt><dd>เป็น Signal ที่ป้อน Tripwire ข้อ 7 (ผลผลิต 85% &lt; เกณฑ์เตือนภัย 90%)</dd>
 </dl></div>
 </details>
-<details class="sig" data-dept="Material Planning" data-month="2026-08">
-<summary><span class="id">S04</span><span class="dp">Material Planning</span><span class="ti">ความต้องการที่เน้นใช้ Stay Flat มากขึ้น</span><span style="font-size:11.5px;color:#5b7b84">18 ส.ค. 2026</span></summary>
+<details class="sig" id="sig-S04" data-dept="Material Planning" data-month="2026-08">
+<summary><span class="id sid">S04</span><span class="dp">Material Planning</span><span class="ti">ความต้องการที่เน้นใช้ Stay Flat มากขึ้น</span><span style="font-size:11.5px;color:#5b7b84">18 ส.ค. 2026</span></summary>
 <div class="sigbody"><dl>
 <dt>สิ่งที่สังเกตเห็น</dt><dd>Lead time ในการรอคิวตัดมากขึ้น</dd>
 <dt>แหล่งอ้างอิง</dt><dd>Planning · ความน่าเชื่อถือแหล่ง: High</dd>
@@ -1715,8 +1730,8 @@ window.DEPTS=[
 <dt>ข้อสังเกตจากการวิเคราะห์</dt><dd>ควรเพิ่มตัวเลข: จำนวนวันรอคิวตัดเฉลี่ย และปริมาณงานในคิว (ตัน) เพื่อทำเป็น Tripwire ได้</dd>
 </dl></div>
 </details>
-<details class="sig" data-dept="Material Planning" data-month="2026-08">
-<summary><span class="id">S05</span><span class="dp">Material Planning</span><span class="ti">Lead Time การส่งมอบของ Mill รวดเร็ว พร้อมส่ง</span><span style="font-size:11.5px;color:#5b7b84">18 ส.ค. 2026</span></summary>
+<details class="sig" id="sig-S05" data-dept="Material Planning" data-month="2026-08">
+<summary><span class="id sid">S05</span><span class="dp">Material Planning</span><span class="ti">Lead Time การส่งมอบของ Mill รวดเร็ว พร้อมส่ง</span><span style="font-size:11.5px;color:#5b7b84">18 ส.ค. 2026</span></summary>
 <div class="sigbody"><dl>
 <dt>สิ่งที่สังเกตเห็น</dt><dd>Mill มีแผนผลิตให้ก่อนล่วงหน้า 1–2 สัปดาห์ / ข้อมูลม้วนที่พร้อมส่งมีมากขึ้น</dd>
 <dt>แหล่งอ้างอิง</dt><dd>Mill · ความน่าเชื่อถือแหล่ง: Medium</dd>
@@ -1733,8 +1748,8 @@ window.DEPTS=[
 <dt>ข้อสังเกตจากการวิเคราะห์</dt><dd><b>Signal นี้ล้าสมัย</b> — ลงวันที่ 18 ส.ค. ก่อน GJS ประกาศ Shutdown (2 ก.ย.) 15 วัน ดู Divergence D2 · เพดาน 35,000 ตัน ยังขัดกับสต๊อกจริง 36,750 ตัน ดู D4</dd>
 </dl></div>
 </details>
-<details class="sig" data-dept="Procurement" data-month="2026-08">
-<summary><span class="id">S06</span><span class="dp">Procurement</span><span class="ti">G Group &amp; SSI ประกาศขึ้นราคาเหล็ก HRC 0.80 บาท/กก.</span><span style="font-size:11.5px;color:#5b7b84">19 ส.ค. 2026</span></summary>
+<details class="sig" id="sig-S06" data-dept="Procurement" data-month="2026-08">
+<summary><span class="id sid">S06</span><span class="dp">Procurement</span><span class="ti">G Group &amp; SSI ประกาศขึ้นราคาเหล็ก HRC 0.80 บาท/กก.</span><span style="font-size:11.5px;color:#5b7b84">19 ส.ค. 2026</span></summary>
 <div class="sigbody"><dl>
 <dt>สิ่งที่สังเกตเห็น</dt><dd>Quota เดือน Sep'26 ประกาศปรับเพิ่มราคา HRC 0.80 บาท/กก. จากราคาปัจจุบัน</dd>
 <dt>แหล่งอ้างอิง</dt><dd>Supplier (NS-SUS, SSI) · ความน่าเชื่อถือแหล่ง: High</dd>
@@ -1751,8 +1766,8 @@ window.DEPTS=[
 <dt>ข้อสังเกตจากการวิเคราะห์</dt><dd><b>เป็น Signal ที่มีข้อมูลตัวเลขครบที่สุดในไฟล์</b> — เป็นฐานของการคำนวณ Inventory Days, Sensitivity และ Inventory Lag Effect เกือบทั้งหมด</dd>
 </dl></div>
 </details>
-<details class="sig" data-dept="Sale&Marketing" data-month="2026-08">
-<summary><span class="id">S07</span><span class="dp">Sale&Marketing</span><span class="ti">ปริมาณการใช้ Beam SM520 เข้ามาเพิ่มขึ้น</span><span style="font-size:11.5px;color:#5b7b84">19 ส.ค. 2026</span></summary>
+<details class="sig" id="sig-S07" data-dept="Sale&Marketing" data-month="2026-08">
+<summary><span class="id sid">S07</span><span class="dp">Sale&Marketing</span><span class="ti">ปริมาณการใช้ Beam SM520 เข้ามาเพิ่มขึ้น</span><span style="font-size:11.5px;color:#5b7b84">19 ส.ค. 2026</span></summary>
 <div class="sigbody"><dl>
 <dt>สิ่งที่สังเกตเห็น</dt><dd>ลูกค้ามีความต้องการใช้ Beam SM520 เพิ่มขึ้น จากโครงการใหม่ Data Center / การเพิ่มปริมาณงาน และมีแนวโน้มสั่งซื้อเพิ่มขึ้น</dd>
 <dt>แหล่งอ้างอิง</dt><dd>Customer / Sales Forecast / Project Information · ความน่าเชื่อถือแหล่ง: Medium</dd>
@@ -1769,8 +1784,8 @@ window.DEPTS=[
 <dt>ข้อสังเกตจากการวิเคราะห์</dt><dd>Data Center เป็นเซกเมนต์ที่ Over supply Canvas ระบุไว้เป็นตลาดเป้าหมายด้วย → ควรตั้งเป็น Segment ติดตามถาวร</dd>
 </dl></div>
 </details>
-<details class="sig" data-dept="Sale&Marketing" data-month="2026-08">
-<summary><span class="id">S08</span><span class="dp">Sale&Marketing</span><span class="ti">ปริมาณการใช้ท่อ GI ในตลาดเพิ่มขึ้น และมีหลายไซต์มากขึ้น</span><span style="font-size:11.5px;color:#5b7b84">22 ส.ค. 2026</span></summary>
+<details class="sig" id="sig-S08" data-dept="Sale&Marketing" data-month="2026-08">
+<summary><span class="id sid">S08</span><span class="dp">Sale&Marketing</span><span class="ti">ปริมาณการใช้ท่อ GI ในตลาดเพิ่มขึ้น และมีหลายไซต์มากขึ้น</span><span style="font-size:11.5px;color:#5b7b84">22 ส.ค. 2026</span></summary>
 <div class="sigbody"><dl>
 <dt>สิ่งที่สังเกตเห็น</dt><dd>ลูกค้ามีการเก็บสต๊อกท่อ GI เพิ่มขึ้น / ลูกค้ามีฟีดแบ็กว่าปริมาณท่อ GI ที่ TMT ผลิตไม่เพียงพอกับความต้องการ</dd>
 <dt>แหล่งอ้างอิง</dt><dd>Customer · ความน่าเชื่อถือแหล่ง: High</dd>
@@ -1787,8 +1802,8 @@ window.DEPTS=[
 <dt>ข้อสังเกตจากการวิเคราะห์</dt><dd><b>ลูกค้าเก็บสต๊อกเอง = สัญญาณ Restocking</b> ซึ่งขยาย Bullwhip · ควรระวังว่าดีมานด์ส่วนหนึ่งเป็นการเติมสต๊อก ไม่ใช่การใช้จริง</dd>
 </dl></div>
 </details>
-<details class="sig" data-dept="Procurement" data-month="2026-08">
-<summary><span class="id">S09</span><span class="dp">Procurement</span><span class="ti">สั่งซื้อ HRC — G Group &amp; SSI Shipment Sep'26 ราคาปรับเพิ่ม 0.30 บาท/กก.</span><span style="font-size:11.5px;color:#5b7b84">31 ส.ค. 2026</span></summary>
+<details class="sig" id="sig-S09" data-dept="Procurement" data-month="2026-08">
+<summary><span class="id sid">S09</span><span class="dp">Procurement</span><span class="ti">สั่งซื้อ HRC — G Group &amp; SSI Shipment Sep'26 ราคาปรับเพิ่ม 0.30 บาท/กก.</span><span style="font-size:11.5px;color:#5b7b84">31 ส.ค. 2026</span></summary>
 <div class="sigbody"><dl>
 <dt>สิ่งที่สังเกตเห็น</dt><dd>G Group &amp; SSI ปรับราคาเหล็ก HRC เพิ่มขึ้น 0.30 บาท/กก.</dd>
 <dt>แหล่งอ้างอิง</dt><dd>Supplier (NS-SUS, SSI) · ความน่าเชื่อถือแหล่ง: High</dd>
@@ -1805,8 +1820,8 @@ window.DEPTS=[
 <dt>ข้อสังเกตจากการวิเคราะห์</dt><dd><b>Signal ที่สำคัญที่สุดของรอบนี้</b> — ให้ทั้งปริมาณขายจริง (ฐานคำนวณทุกอย่าง) และหลักฐานว่าส่งผ่านต้นทุนไม่ครบ</dd>
 </dl></div>
 </details>
-<details class="sig" data-dept="Procurement" data-month="2026-09">
-<summary><span class="id">S10</span><span class="dp">Procurement</span><span class="ti">ราคาเหล็กต่างประเทศทุกประเภทปรับขึ้น $10/ตัน</span><span style="font-size:11.5px;color:#5b7b84">1 ก.ย. 2026</span></summary>
+<details class="sig" id="sig-S10" data-dept="Procurement" data-month="2026-09">
+<summary><span class="id sid">S10</span><span class="dp">Procurement</span><span class="ti">ราคาเหล็กต่างประเทศทุกประเภทปรับขึ้น $10/ตัน</span><span style="font-size:11.5px;color:#5b7b84">1 ก.ย. 2026</span></summary>
 <div class="sigbody"><dl>
 <dt>สิ่งที่สังเกตเห็น</dt><dd>ราคาเหล็กทุกประเภทในตลาดต่างประเทศปรับขึ้น $10/ตัน เมื่อเทียบกับราคาก่อนหน้า</dd>
 <dt>แหล่งอ้างอิง</dt><dd>SBB · ความน่าเชื่อถือแหล่ง: High</dd>
@@ -1823,8 +1838,8 @@ window.DEPTS=[
 <dt>ข้อสังเกตจากการวิเคราะห์</dt><dd>ระบุสาเหตุเป็น Coking Coal ขาขึ้น → เป็น Leading Indicator ต้นน้ำที่ควรติดตามเป็นราคาจริง ไม่ใช่เชิงคุณภาพ · <b>ไม่ระบุ Incoterm ของ $610</b></dd>
 </dl></div>
 </details>
-<details class="sig" data-dept="Procurement" data-month="2026-09">
-<summary><span class="id">S11</span><span class="dp">Procurement</span><span class="ti">Mill GJ Steel มีแผน Shutdown 23 ก.ย. – 6 ต.ค. (2 สัปดาห์)</span><span style="font-size:11.5px;color:#5b7b84">2 ก.ย. 2026</span></summary>
+<details class="sig" id="sig-S11" data-dept="Procurement" data-month="2026-09">
+<summary><span class="id sid">S11</span><span class="dp">Procurement</span><span class="ti">Mill GJ Steel มีแผน Shutdown 23 ก.ย. – 6 ต.ค. (2 สัปดาห์)</span><span style="font-size:11.5px;color:#5b7b84">2 ก.ย. 2026</span></summary>
 <div class="sigbody"><dl>
 <dt>สิ่งที่สังเกตเห็น</dt><dd>GJ Steel แจ้งแผนหยุดเดินเครื่องจักร 2 สัปดาห์ ตั้งแต่ 23 ก.ย. ถึง 6 ต.ค.</dd>
 <dt>แหล่งอ้างอิง</dt><dd>Supplier (ฝ่ายขาย NS-SUS) · ความน่าเชื่อถือแหล่ง: High</dd>
@@ -1841,8 +1856,8 @@ window.DEPTS=[
 <dt>ข้อสังเกตจากการวิเคราะห์</dt><dd><b>เป็น Tripwire ที่อยู่ในสถานะเตือนภัยเพราะยังวัดไม่ได้</b> — ตัวเลข Pre-build ระบุเป็น 'X ตัน (รอตัวเลข)' ทำให้ประเมินความเสี่ยงขาด HRC ช่วง 23 ก.ย.–6 ต.ค. ไม่ได้เลย เหลือเวลา 14 วัน</dd>
 </dl></div>
 </details>
-<details class="sig" data-dept="Procurement" data-month="2026-09">
-<summary><span class="id">S12</span><span class="dp">Procurement</span><span class="ti">SSI มีรถขนส่งจำกัด จึงเสนอ Option ขนส่งทางเรือเพิ่ม</span><span style="font-size:11.5px;color:#5b7b84">2 ก.ย. 2026</span></summary>
+<details class="sig" id="sig-S12" data-dept="Procurement" data-month="2026-09">
+<summary><span class="id sid">S12</span><span class="dp">Procurement</span><span class="ti">SSI มีรถขนส่งจำกัด จึงเสนอ Option ขนส่งทางเรือเพิ่ม</span><span style="font-size:11.5px;color:#5b7b84">2 ก.ย. 2026</span></summary>
 <div class="sigbody"><dl>
 <dt>สิ่งที่สังเกตเห็น</dt><dd>SSI มีรถขนส่งจำกัด จึงเสนอ Option Load ม้วน Barge เพิ่มอีก 5,000 ตัน Load 4/9/26 เข้าวันที่ 11/9/26</dd>
 <dt>แหล่งอ้างอิง</dt><dd>Supplier (ฝ่ายจัดส่ง SSI) · ความน่าเชื่อถือแหล่ง: High</dd>
@@ -1859,8 +1874,8 @@ window.DEPTS=[
 <dt>ข้อสังเกตจากการวิเคราะห์</dt><dd>การเปลี่ยนโหมดขนส่งของ Supplier เป็น Leading Indicator ของความตึงตัวฝั่ง Supply · <b>ต้องตัดสินใจภายใน 11 ก.ย.</b></dd>
 </dl></div>
 </details>
-<details class="sig" data-dept="Services" data-month="2026-09">
-<summary><span class="id">S13</span><span class="dp">Services</span><span class="ti">รายงานค้างส่งสินค้า ยอดค้างส่ง 33,643 ตัน</span><span style="font-size:11.5px;color:#5b7b84">2 ก.ย. 2026</span></summary>
+<details class="sig" id="sig-S13" data-dept="Services" data-month="2026-09">
+<summary><span class="id sid">S13</span><span class="dp">Services</span><span class="ti">รายงานค้างส่งสินค้า ยอดค้างส่ง 33,643 ตัน</span><span style="font-size:11.5px;color:#5b7b84">2 ก.ย. 2026</span></summary>
 <div class="sigbody"><dl>
 <dt>สิ่งที่สังเกตเห็น</dt><dd>ปริมาณการขนส่งสินค้ายังอยู่ในระดับปกติ ยังอยู่ในปริมาณที่รับได้ 3,200–3,300 ตัน/วัน</dd>
 <dt>แหล่งอ้างอิง</dt><dd>SAP ZSDR0003_N — รายงานค้างส่ง · ความน่าเชื่อถือแหล่ง: Medium</dd>
@@ -1877,8 +1892,8 @@ window.DEPTS=[
 <dt>ข้อสังเกตจากการวิเคราะห์</dt><dd>ไฟล์จัดทิศทางเป็น <b>Positive</b> โดยมองที่ปริมาณจัดส่งที่ทำได้ แต่ยอดค้าง 33,643 ตัน เทียบสต๊อก FG 23,697 ตัน คือความเสี่ยงส่งมอบ → ดู Divergence D5</dd>
 </dl></div>
 </details>
-<details class="sig" data-dept="Product Planning" data-month="2026-09">
-<summary><span class="id">S14</span><span class="dp">Product Planning</span><span class="ti">ปริมาณ Stock FG = 23,697 ตัน (แจกแจง 6 กลุ่ม)</span><span style="font-size:11.5px;color:#5b7b84">2 ก.ย. 2026</span></summary>
+<details class="sig" id="sig-S14" data-dept="Product Planning" data-month="2026-09">
+<summary><span class="id sid">S14</span><span class="dp">Product Planning</span><span class="ti">ปริมาณ Stock FG = 23,697 ตัน (แจกแจง 6 กลุ่ม)</span><span style="font-size:11.5px;color:#5b7b84">2 ก.ย. 2026</span></summary>
 <div class="sigbody"><dl>
 <dt>สิ่งที่สังเกตเห็น</dt><dd>Stock FG เหล็กแผ่น STD, เหล็กแบน STD, ตัวซีดำ อยู่ระดับ Minimum Stock และท่อดำอยู่ระดับ Medium Stock</dd>
 <dt>แหล่งอ้างอิง</dt><dd>SAP — Stock Report · ความน่าเชื่อถือแหล่ง: Medium</dd>
@@ -1895,8 +1910,8 @@ window.DEPTS=[
 <dt>ข้อสังเกตจากการวิเคราะห์</dt><dd>เป็นฐานของ Tripwire ข้อ 2 (Inventory Days FG 13.7 วัน &lt; เกณฑ์เตือนภัย 15 วัน) · <b>ต้องสอบทานตัวเลขรวมก่อนใช้ตั้ง Safety Stock</b></dd>
 </dl></div>
 </details>
-<details class="sig" data-dept="Sale&Marketing" data-month="2026-09">
-<summary><span class="id">S15</span><span class="dp">Sale&Marketing</span><span class="ti">ลูกค้าลงเครื่องทำ PEB ทำให้ใช้เหล็กเกรดพิเศษ SM490YA / A572GR50 / SM520 ส่วนใหญ่เป็น Plate</span><span style="font-size:11.5px;color:#5b7b84">7 ก.ย. 2026</span></summary>
+<details class="sig" id="sig-S15" data-dept="Sale&Marketing" data-month="2026-09">
+<summary><span class="id sid">S15</span><span class="dp">Sale&Marketing</span><span class="ti">ลูกค้าลงเครื่องทำ PEB ทำให้ใช้เหล็กเกรดพิเศษ SM490YA / A572GR50 / SM520 ส่วนใหญ่เป็น Plate</span><span style="font-size:11.5px;color:#5b7b84">7 ก.ย. 2026</span></summary>
 <div class="sigbody"><dl>
 <dt>สิ่งที่สังเกตเห็น</dt><dd>ลูกค้ามีเครื่องจักรสำหรับผลิต PEB (Pre-Engineered Building) และมีการสั่งซื้อ/ใช้งานเหล็กเกรด SM490YA, A572GR50, SM520 สำหรับงาน PEB</dd>
 <dt>แหล่งอ้างอิง</dt><dd>Customer / Sales Visit / Customer Interview · ความน่าเชื่อถือแหล่ง: High — ข้อมูลจากลูกค้าโดยตรง</dd>
@@ -1913,8 +1928,8 @@ window.DEPTS=[
 <dt>ข้อสังเกตจากการวิเคราะห์</dt><dd>เกรดพิเศษคือกลุ่มที่ <b>อ่อนไหวต่อสเปกมากกว่าราคา</b> → เป็นจุดที่ควรส่งผ่านต้นทุนได้เต็ม และเป็นเกราะป้องกัน Price War ในระยะ 3 เดือน</dd>
 </dl></div>
 </details>
-<details class="sig" data-dept="Sale&Marketing" data-month="2026-09">
-<summary><span class="id">S16</span><span class="dp">Sale&Marketing</span><span class="ti">ผู้ผลิต Plate SPM / LPN เริ่มวิ่งตรงลูกค้ามากขึ้น พร้อมพันธมิตรแหล่งทุนใหม่</span><span style="font-size:11.5px;color:#5b7b84">7 ก.ย. 2026</span></summary>
+<details class="sig" id="sig-S16" data-dept="Sale&Marketing" data-month="2026-09">
+<summary><span class="id sid">S16</span><span class="dp">Sale&Marketing</span><span class="ti">ผู้ผลิต Plate SPM / LPN เริ่มวิ่งตรงลูกค้ามากขึ้น พร้อมพันธมิตรแหล่งทุนใหม่</span><span style="font-size:11.5px;color:#5b7b84">7 ก.ย. 2026</span></summary>
 <div class="sigbody"><dl>
 <dt>สิ่งที่สังเกตเห็น</dt><dd>ผู้ผลิต Plate SPM / LPN เริ่มทำตลาดและเพิ่มกิจกรรมทางธุรกิจมากขึ้น รวมถึงร่วมมือกับพันธมิตรเพื่อหาแหล่งเงินทุนและขยายโอกาสทางธุรกิจ (SPM ร่วมไทยสตีลเชลที่มีมารูเบนีถือหุ้น / LPN ร่วมกับ Nippon)</dd>
 <dt>แหล่งอ้างอิง</dt><dd>Customer / Sales Visit / Customer Interview · ความน่าเชื่อถือแหล่ง: Medium</dd>
@@ -1931,8 +1946,8 @@ window.DEPTS=[
 <dt>ข้อสังเกตจากการวิเคราะห์</dt><dd>คู่แข่งที่มีแหล่งทุนใหม่ = ความสามารถในการอดทนกับ Margin ต่ำนานขึ้น → เป็นตัวจุดชนวน Price War ที่มีน้ำหนักสูงในกรอบ 3 เดือน</dd>
 </dl></div>
 </details>
-<details class="sig" data-dept="Sale&Marketing" data-month="2026-09">
-<summary><span class="id">S17</span><span class="dp">Sale&Marketing</span><span class="ti">งบประจำปีของงานราชการน้อยลง — กลุ่มเสาไฟส่องสว่าง กลุ่มงานถนน</span><span style="font-size:11.5px;color:#5b7b84">7 ก.ย. 2026</span></summary>
+<details class="sig" id="sig-S17" data-dept="Sale&Marketing" data-month="2026-09">
+<summary><span class="id sid">S17</span><span class="dp">Sale&Marketing</span><span class="ti">งบประจำปีของงานราชการน้อยลง — กลุ่มเสาไฟส่องสว่าง กลุ่มงานถนน</span><span style="font-size:11.5px;color:#5b7b84">7 ก.ย. 2026</span></summary>
 <div class="sigbody"><dl>
 <dt>สิ่งที่สังเกตเห็น</dt><dd>งบประมาณงานราชการกลุ่มเสาไฟส่องสว่างและงานถนนมีแนวโน้มลดลง ส่งผลให้จำนวนโครงการและความต้องการใช้วัสดุอาจลดลง</dd>
 <dt>แหล่งอ้างอิง</dt><dd>Government / Market Demand · ความน่าเชื่อถือแหล่ง: Medium</dd>
@@ -2521,19 +2536,19 @@ window.DEPTS=[
       <h4>เกิดอะไรขึ้น</h4>
       <div class="big">ของขาด ไม่ใช่ของล้น</div>
       <p>Signal 17 รายการจาก 7 แผนก ชี้ตรงกันว่าขายเร็วกว่าที่ผลิตได้ — สต๊อกสินค้าอยู่ระดับต่ำสุด ยอดค้างส่ง 33,643 ตัน และโรงงาน GJ Steel จะหยุดซ่อม 2 สัปดาห์เริ่ม 23 ก.ย.</p>
-      <div class="src"><span class="lab">ที่มา</span>ยืนยันข้ามแผนกโดย 6 แผนก · <span class="sid">S02 S03 S08 S11 S13 S14</span></div>
+      <div class="src"><span class="lab">ที่มา</span>ยืนยันข้ามแผนกโดย 6 แผนก · S02 S03 S08 S11 S13 S14</div>
     </div>
     <div class="t">
       <h4>กระทบเงินเท่าไร</h4>
       <div class="big">−20.7 ล้านบาท / เดือน</div>
       <p>มาจากการส่งผ่านต้นทุนไม่ครบเพียงเรื่องเดียว ซึ่งเป็นจุดรั่วที่ใหญ่ที่สุดและ<b>แก้ได้ทันที</b> เพราะภาวะของขาดกำลังให้อำนาจต่อรองราคากับลูกค้า</p>
-      <div class="src"><span class="lab">ที่มา</span>400 บาท/ตัน × 51,800 ตัน/เดือน · <span class="sid">S01 S09</span></div>
+      <div class="src"><span class="lab">ที่มา</span>400 บาท/ตัน × 51,800 ตัน/เดือน · S01 S09</div>
     </div>
     <div class="t">
       <h4>ต้องทำอะไร</h4>
       <div class="big">ขึ้นราคา + ล็อกวัตถุดิบ</div>
       <p>สองเรื่องภายในสัปดาห์นี้ — ทบทวน Price List ให้ปิดช่องว่างอย่างน้อยครึ่งหนึ่ง และยืนยันปริมาณเหล็กที่สั่งผลิตล่วงหน้ากับ GJ Steel ก่อนโรงงานหยุด</p>
-      <div class="src"><span class="lab">ที่มา</span>เหลือเวลา 14 วันถึงวันที่ 23 ก.ย. · <span class="sid">S09 S10 S11</span></div>
+      <div class="src"><span class="lab">ที่มา</span>เหลือเวลา 14 วันถึงวันที่ 23 ก.ย. · S09 S10 S11</div>
     </div>
   </div>
 </section>
@@ -2810,6 +2825,130 @@ window.DEPTS=[
     curM = b.getAttribute('data-m'); applyFilter();
   });});
   applyFilter();
+
+  /* ---- Signal tooltip on hover (Sxx) ---- */
+  var SIG = {
+    S01:["Transportation","17 ส.ค. 2026","ราคา FG ปรับลดลง 0.30 บาท/กก. (แผ่น แบน ท่อ ซี)","−300 บาท/ตัน · แหล่ง: Price List"],
+    S02:["Logistics","18 ส.ค. 2026","เครื่องจักร CF2 เสียเกิน 3 สัปดาห์","สต๊อกกลุ่มที่ปรับ Group เหลือขาย &lt; 7 วัน"],
+    S03:["Product Planning","18 ส.ค. 2026","กำลังการผลิตท่อและตัวซี ลดลง 10–20%","ผลผลิตท่อเดือน ก.ค. = 85% ของแผน"],
+    S04:["Material Planning","18 ส.ค. 2026","ความต้องการงานผ่านเครื่อง Stay Flat มากขึ้น","คิวตัด Overload · ไม่มีตัวเลขวันรอ"],
+    S05:["Material Planning","18 ส.ค. 2026","Lead Time การส่งมอบของ Mill รวดเร็ว พร้อมส่ง","เพดานม้วนคงคลัง 35,000 ตัน · ล้าสมัยแล้ว"],
+    S06:["Procurement","19 ส.ค. 2026","G Group &amp; SSI ประกาศขึ้นราคา HRC 0.80 บาท/กก.","สต๊อก HRC 36,750 ตัน @ 19.48 · P/O 24,670 ตัน @ 19.30"],
+    S07:["Sale &amp; Marketing","19 ส.ค. 2026","ปริมาณการใช้ Beam SM520 เพิ่มขึ้น (โครงการ Data Center)","ยังไม่มี Forecast เป็นตัน"],
+    S08:["Sale &amp; Marketing","22 ส.ค. 2026","ท่อ GI ตลาดใช้เพิ่มหลายไซต์ · TMT ผลิตไม่พอขาย","สต๊อกท่อ GI ปัจจุบัน 4,907 ตัน"],
+    S09:["Procurement","31 ส.ค. 2026","สั่งซื้อ HRC ก.ย. ราคาขึ้น 0.30 · ขึ้น Price List 0.20 บาท/กก.","ยอดขายจริง 51,800 ตัน (ประเมินไว้ 50,000)"],
+    S10:["Procurement","1 ก.ย. 2026","ราคาเหล็กต่างประเทศทุกประเภทขึ้น $10/ตัน (Coking Coal)","GI Coil นำเข้า $590 → $610/ตัน · ขึ้น GI Price List 0.10"],
+    S11:["Procurement","2 ก.ย. 2026","GJ Steel มีแผน Shutdown 23 ก.ย. – 6 ต.ค. (2 สัปดาห์)","ปริมาณ Pre-build = X ตัน (รอตัวเลข)"],
+    S12:["Procurement","2 ก.ย. 2026","SSI รถขนส่งจำกัด จึงเสนอ Option ขนส่งทางเรือเพิ่ม","Barge 5,000 ตัน · Load 4/9 เข้า 11/9"],
+    S13:["Services","2 ก.ย. 2026","รายงานค้างส่งสินค้า 33,643 ตัน","Con&amp;Fab 12,525 · Factory 11,084 · Dealer 10,024 · = 10.4 วัน"],
+    S14:["Product Planning","2 ก.ย. 2026","Stock FG 23,697 ตัน อยู่ระดับ Minimum และลดต่อเนื่อง","Inventory Days 13.7 วัน · ผลรวมรายกลุ่มได้ 27,665 (ขัดกัน)"],
+    S15:["Sale &amp; Marketing","7 ก.ย. 2026","ลูกค้าลงเครื่องทำ PEB ใช้เหล็กเกรดพิเศษ","SM490YA / A572GR50 / SM520 · ส่วนใหญ่เป็น Plate"],
+    S16:["Sale &amp; Marketing","7 ก.ย. 2026","ผู้ผลิต Plate SPM/LPN เริ่มวิ่งตรงลูกค้ามากขึ้น","ได้พันธมิตรแหล่งทุนใหม่ (Marubeni / Nippon)"],
+    S17:["Sale &amp; Marketing","7 ก.ย. 2026","งบประจำปีงานราชการลดลง — เสาไฟส่องสว่าง งานถนน","ยังไม่มีสัดส่วนยอดขายกลุ่มนี้"]
+  };
+  /* auto-wrap bare Sxx tokens so every mention is hoverable */
+  var RX = /\bS(?:0[1-9]|1[0-7])\b/g;
+  var SKIP = {SCRIPT:1, STYLE:1, TEXTAREA:1, svg:1};
+  var tagging = false;
+  function tagSignals(root){
+    if(!root || tagging) return;
+    tagging = true;
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if(!n.nodeValue || !RX.test(n.nodeValue)) return NodeFilter.FILTER_REJECT;
+        var p = n.parentNode;
+        while(p && p !== root){
+          if(SKIP[p.nodeName] || (p.classList && p.classList.contains('sid'))) return NodeFilter.FILTER_REJECT;
+          p = p.parentNode;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var nodes = [], n;
+    while((n = walker.nextNode())) nodes.push(n);
+    nodes.forEach(function(node){
+      var txt = node.nodeValue, frag = document.createDocumentFragment(), last = 0, m;
+      RX.lastIndex = 0;
+      while((m = RX.exec(txt))){
+        if(m.index > last) frag.appendChild(document.createTextNode(txt.slice(last, m.index)));
+        var s = document.createElement('span');
+        s.className = 'sid'; s.textContent = m[0];
+        frag.appendChild(s);
+        last = m.index + m[0].length;
+      }
+      if(last < txt.length) frag.appendChild(document.createTextNode(txt.slice(last)));
+      node.parentNode.replaceChild(frag, node);
+    });
+    tagging = false;
+  }
+  tagSignals(document.getElementById('main'));
+  var dbody = document.getElementById('dbody');
+  if(dbody && window.MutationObserver){
+    new MutationObserver(function(){ if(!tagging) tagSignals(dbody); })
+      .observe(dbody, {childList:true, subtree:false});
+  }
+
+  var tip = document.createElement('div');
+  tip.id = 'tip'; document.body.appendChild(tip);
+  var tipFor = null;
+  function hideTip(){ tip.classList.remove('on'); tipFor = null; }
+  function showTip(el){
+    var id = (el.textContent || '').trim();
+    var d = SIG[id];
+    if(!d){ var mm = id.match(/S(?:0[1-9]|1[0-7])/); if(mm){ id = mm[0]; d = SIG[id]; } }
+    if(!d) return;
+    tipFor = el;
+    tip.innerHTML = '<div class="tid">' + id + '</div>' +
+      '<div class="tmeta">' + d[0] + ' &nbsp;·&nbsp; พบสัญญาณ ' + d[1] + '</div>' +
+      '<div class="ttitle">' + d[2] + '</div>' +
+      '<div class="tnum">' + d[3] + '</div>' +
+      '<div class="thint">คลิกเพื่อเปิดรายละเอียดเต็มในหน้า Signal View</div>';
+    tip.classList.add('on');
+    var r = el.getBoundingClientRect();
+    var tw = tip.offsetWidth, th = tip.offsetHeight;
+    var x = r.left, y = r.bottom + 8;
+    if(x + tw > window.innerWidth - 12) x = window.innerWidth - tw - 12;
+    if(x < 12) x = 12;
+    if(y + th > window.innerHeight - 12) y = r.top - th - 8;
+    if(y < 8) y = 8;
+    tip.style.left = x + 'px'; tip.style.top = y + 'px';
+  }
+  function gotoSignal(id){
+    var d = document.getElementById('sig-' + id);
+    if(!d) return;
+    var nav = document.querySelector('#sbnav button[data-t="p5"]');
+    if(nav) nav.click();
+    var ab = document.querySelector('#fmonth button[data-m="all"]');
+    var db = document.querySelector('#fdept button[data-f="all"]');
+    if(ab) ab.click();
+    if(db) db.click();
+    d.open = true;
+    setTimeout(function(){
+      d.scrollIntoView({block:'center', behavior:'smooth'});
+      d.classList.add('flash');
+      setTimeout(function(){ d.classList.remove('flash'); }, 1600);
+    }, 60);
+  }
+  document.addEventListener('mouseover', function(e){
+    var el = e.target.closest ? e.target.closest('.sid') : null;
+    if(el){ if(el !== tipFor) showTip(el); }
+    else if(tipFor) hideTip();
+  });
+  document.addEventListener('click', function(e){
+    var el = e.target.closest ? e.target.closest('.sid') : null;
+    if(!el) return;
+    var id = (el.textContent || '').trim();
+    if(!SIG[id]){ var m2 = id.match(/S(?:0[1-9]|1[0-7])/); if(m2) id = m2[0]; }
+    if(!SIG[id]) return;
+    if(el.closest('#siglist')) return;   /* already on the row itself */
+    e.preventDefault();
+    hideTip();
+    gotoSignal(id);
+  });
+  window.addEventListener('scroll', function(){
+    if(tipFor && document.body.contains(tipFor)) showTip(tipFor); else if(tipFor) hideTip();
+  }, true);
+  document.documentElement.addEventListener('mouseleave', hideTip);
 })();
 </script>
 </body>
