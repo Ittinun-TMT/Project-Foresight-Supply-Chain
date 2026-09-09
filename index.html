@@ -197,6 +197,51 @@ footer{border-top:2px solid var(--navy);margin-top:30px;padding-top:14px;font-si
 .qlist{counter-reset:q;padding:0;margin:0;list-style:none}
 .qlist li{counter-increment:q;position:relative;padding:7px 0 7px 34px;border-bottom:1px solid var(--line);font-size:12.5px}
 .qlist li:before{content:counter(q);position:absolute;left:0;top:7px;width:22px;height:22px;line-height:22px;text-align:center;background:var(--navy);color:#fff;font-size:11px;font-weight:600}
+
+/* ---------- number provenance ---------- */
+.src{border-left:3px solid var(--orange);background:var(--gray);padding:7px 11px;margin:9px 0;font-size:11.5px;line-height:1.55}
+.src b{color:var(--navy)}
+.src .lab{display:inline-block;background:var(--navy);color:#fff;font-size:9.5px;font-weight:600;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.src .row{display:grid;grid-template-columns:78px 1fr;gap:2px 10px}
+.src .row dt{font-weight:600;color:var(--navy-70)}
+.kpi .src{margin:6px 0 0;padding:6px 9px;font-size:10.8px;border-left-width:2px}
+.sid{display:inline-block;font-weight:600;color:var(--orange);font-variant-numeric:tabular-nums}
+
+/* ---------- executive summary page ---------- */
+.lede{border:1px solid var(--navy);border-left:6px solid var(--orange);padding:15px 18px;margin:0 0 18px;font-size:15.5px;line-height:1.65}
+.lede b{color:var(--orange)}
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 6px}
+@media(max-width:1000px){.tri{grid-template-columns:1fr}}
+.tri .t{border:1px solid var(--line);border-top:4px solid var(--navy);padding:13px 15px}
+.tri .t:nth-child(2){border-top-color:var(--amber)}
+.tri .t:nth-child(3){border-top-color:var(--orange)}
+.tri .t h4{font-size:11.5px;color:var(--navy-70);font-weight:600;letter-spacing:.4px;margin-bottom:7px}
+.tri .t .big{font-size:17px;font-weight:600;line-height:1.4;margin-bottom:7px}
+.tri .t p{font-size:12.5px;margin:0;line-height:1.6}
+.five{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:1200px){.five{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.five{grid-template-columns:1fr}}
+.five .f{border:1px solid var(--line);padding:12px 13px;display:flex;flex-direction:column}
+.five .f .lbl{font-size:11.5px;color:var(--navy-70);font-weight:600;min-height:34px;line-height:1.4}
+.five .f .val{font-size:27px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.15;margin:4px 0 1px}
+.five .f .unit{font-size:11.5px;color:var(--navy-70);margin-bottom:8px}
+.five .f.neg .val{color:var(--orange)}
+.five .f.pos .val{color:var(--navy)}
+.five .f .from{margin-top:auto;font-size:10.8px;line-height:1.5;color:var(--navy-70);border-top:1px dotted var(--line);padding-top:6px}
+.five .f .from b{color:var(--navy)}
+.bal{display:grid;grid-template-columns:150px 1fr 130px;gap:12px;align-items:center;font-size:12.5px;margin:7px 0}
+@media(max-width:760px){.bal{grid-template-columns:1fr}}
+.bal .bar{height:26px;background:var(--gray);position:relative}
+.bal .bar i{position:absolute;left:0;top:0;bottom:0;display:block}
+.act{border:1px solid var(--line);margin:0 0 -1px;display:grid;grid-template-columns:34px 1fr 210px 105px;gap:0;align-items:stretch}
+@media(max-width:900px){.act{grid-template-columns:34px 1fr}}
+.act>div{padding:11px 12px;border-right:1px solid var(--line)}
+.act>div:last-child{border-right:0}
+.act .no{background:var(--orange);color:#fff;font-weight:600;text-align:center;font-size:14px;padding:11px 0}
+.act .who{font-size:12px;color:var(--navy-70)}
+.act .due{font-size:12px;font-weight:600}
+.act .txt{font-size:12.5px;line-height:1.6}
+.act .txt b{color:var(--navy)}
 @media print{#sb{display:none}#main{margin-left:0}.align{position:static}.panel{display:block!important}section.card{break-inside:avoid}}
 </style>
 </head>
@@ -217,6 +262,7 @@ footer{border-top:2px solid var(--navy);margin-top:30px;padding-top:14px;font-si
     <button data-t="p5" title="Signal View"><span class="num">7</span><span class="lbl">Signal View</span></button>
     <button data-t="p6" title="โอกาส–อุปสรรค และ Convergence"><span class="num">8</span><span class="lbl">โอกาส–อุปสรรค<br>&amp; Convergence</span></button>
     <button data-t="p7" title="Data Gap และเป้าหมาย"><span class="num">9</span><span class="lbl">Data Gap &amp; เป้าหมาย</span></button>
+    <button data-t="p10" title="สรุปรวมสำหรับผู้บริหาร — อ่าน 3 นาที"><span class="num">10</span><span class="lbl">สรุปรวมผู้บริหาร<br>อ่าน 3 นาที</span></button>
   </nav>
   <div class="sbfoot">อัปเดต 9 ก.ย. 2026<br>Signal 17 รายการ · 7 แผนก<br>Data Completeness 69%</div>
 </aside>
@@ -263,32 +309,32 @@ footer{border-top:2px solid var(--navy);margin-top:30px;padding-top:14px;font-si
     <div class="kpi hot">
       <div class="k">ช่องว่างการส่งผ่านต้นทุน (Pass-through Gap) สะสม</div>
       <div class="v">−400</div><div class="u">บาท/ตัน <span class="tag est">ประมาณการ</span></div>
-      <div class="f">(−0.30 ลดราคา 17 ส.ค.) + (+0.20 ขึ้นราคา 31 ส.ค.) − (+0.30 ต้นทุน HRC) = −0.40 บาท/กก.</div>
+      <div class="src"><b>ที่มา:</b> <span class="sid">S01</span> ราคา FG ลด 0.30 (17 ส.ค.) · <span class="sid">S09</span> ขึ้น Price List 0.20 และต้นทุน HRC ขึ้น 0.30<br><b>สูตร:</b> (−0.30 + 0.20) − 0.30 = −0.40 บาท/กก. → ×1,000 = −400 บาท/ตัน</div>
     </div>
     <div class="kpi hot">
       <div class="k">มูลค่า Margin ที่หายต่อเดือน ณ ปริมาณขาย ส.ค.</div>
       <div class="v">−20.7</div><div class="u">ล้านบาท/เดือน <span class="tag est">ประมาณการ</span></div>
-      <div class="f">400 บาท/ตัน × 51,800 ตัน/เดือน ÷ 1,000,000</div>
+      <div class="src"><b>ที่มา:</b> ช่องว่าง 400 บาท/ตัน (การ์ดซ้าย) · <span class="sid">S09</span> ปริมาณขายจริง ส.ค. 51,800 ตัน<br><b>สูตร:</b> 400 × 51,800 ÷ 1,000,000 = 20.7 ล้านบาท/เดือน</div>
     </div>
     <div class="kpi warn">
       <div class="k">Days of Price Exposure (RM + FG)</div>
       <div class="v">35.0</div><div class="u">วัน <span class="tag est">ประมาณการ</span></div>
-      <div class="f">HRC 21.3 วัน + FG 13.7 วัน · ถ้ารวม P/O ที่จบราคาแล้ว = 49.3 วัน</div>
+      <div class="src"><b>ที่มา:</b> <span class="sid">S06</span> สต๊อก HRC 36,750 ตัน · <span class="sid">S14</span> สต๊อก FG 23,697 ตัน · <span class="sid">S09</span> ขายวันละ 1,727 ตัน<br><b>สูตร:</b> (36,750 ÷ 1,727) + (23,697 ÷ 1,727) = 21.3 + 13.7 = 35.0 วัน · รวม P/O 24,670 ตัน = 49.3 วัน</div>
     </div>
     <div class="kpi hot">
       <div class="k">ยอดค้างส่งที่สต๊อก FG คลุมไม่ถึง</div>
       <div class="v">9,946</div><div class="u">ตัน <span class="tag est">ประมาณการ</span></div>
-      <div class="f">ค้างส่ง 33,643 ตัน − Stock FG 23,697 ตัน (ต้องมาจากการผลิตเท่านั้น)</div>
+      <div class="src"><b>ที่มา:</b> <span class="sid">S13</span> ยอดค้างส่ง 33,643 ตัน (SAP ZSDR0003_N) · <span class="sid">S14</span> สต๊อก FG 23,697 ตัน<br><b>สูตร:</b> 33,643 − 23,697 = 9,946 ตัน ที่ต้องมาจากการผลิตเท่านั้น</div>
     </div>
     <div class="kpi">
       <div class="k">กำไรพิเศษจากสต๊อก HRC (ยังไม่รับรู้)</div>
       <div class="v">+4.4</div><div class="u">ล้านบาท <span class="tag est">ประมาณการ</span></div>
-      <div class="f">(19.60 ราคาซื้อใหม่ − 19.48 ต้นทุนสต๊อก) × 36,750 ตัน</div>
+      <div class="src"><b>ที่มา:</b> <span class="sid">S06</span> ต้นทุนสต๊อก 19.48 บาท/กก. บนสต๊อก 36,750 ตัน · <span class="sid">S09</span> ราคาซื้อใหม่ = P/O 19.30 + 0.30 = 19.60<br><b>สูตร:</b> (19.60 − 19.48) × 36,750 ÷ 1,000 = 4.41 ล้านบาท (ยังไม่รับรู้ จนกว่าจะขายออก)</div>
     </div>
     <div class="kpi warn">
       <div class="k">ปริมาณสั่งผลิตล่วงหน้ากับ GJ Steel ก่อน Shutdown</div>
       <div class="v"><span class="wait">รอข้อมูล</span></div><div class="u">&nbsp;<span class="tag none">ไม่มีข้อมูล</span></div>
-      <div class="f">ไฟล์ Signal ระบุ "X ตัน (รอตัวเลข)" — เหลือเวลา 14 วัน</div>
+      <div class="src"><b>ที่มา:</b> <span class="sid">S11</span> ระบุ Internal Evidence ว่า "ส่ง Size สั่งผลิตล่วงหน้าให้ GJS แล้วจำนวน X ตัน (รอตัวเลข)"<br><b>ทำไมสำคัญ:</b> ไม่มีตัวเลขนี้ = ประเมินความเสี่ยงขาด HRC ช่วง 23 ก.ย. – 6 ต.ค. ไม่ได้ · เหลือเวลา 14 วัน</div>
     </div>
   </div>
 
@@ -353,6 +399,15 @@ footer{border-top:2px solid var(--navy);margin-top:30px;padding-top:14px;font-si
       <rect x="580" y="292" width="20" height="3" fill="#8bbade"/><text x="606" y="297">ราคาที่ Supplier ประกาศ (ยังไม่เกิดจริง)</text>
     </g>
   </svg>
+  </div>
+  <div class="src"><span class="lab">ที่มาของกราฟ</span>
+    <div class="row">
+      <dt>แกนตั้ง</dt><dd>การเปลี่ยนแปลงราคาแบบสะสม (บาท/กก.) ตั้งต้นที่ 0 ณ 16 ส.ค. 2026 — ไม่ใช่ระดับราคา เพราะไฟล์ Signal ให้มาแต่การเปลี่ยนแปลง</dd>
+      <dt>เส้นส้ม</dt><dd>ราคาขาย FG · <span class="sid">S01</span> 17 ส.ค. ลด 0.30 → <span class="sid">S09</span> 31 ส.ค. ขึ้น 0.20 → สุทธิ −0.10</dd>
+      <dt>เส้นกรมท่า</dt><dd>ต้นทุน HRC · <span class="sid">S09</span> 31 ส.ค. ขึ้น 0.30 บาท/กก. (Shipment Sep)</dd>
+      <dt>เส้นประฟ้า</dt><dd>ราคาที่ Supplier ประกาศ · <span class="sid">S06</span> 19 ส.ค. ประกาศ 0.80 บาท/กก. ซึ่งไม่เกิดจริง</dd>
+      <dt>ช่องว่าง 0.40</dt><dd>ระยะห่างสองเส้นที่ปลายกราฟ = (−0.10) − (+0.30)</dd>
+    </div>
   </div>
   <div class="cap"><b>ตัวเลขนี้บอกอะไร:</b> ทุกจุดบนกราฟมาจากไฟล์ Signal จริง <span class="tag real">ข้อมูลจริง</span> —
   เส้นส้ม (ราคาขาย) อยู่ใต้เส้นกรมท่า (ต้นทุน) ห่างกัน 0.40 บาท/กก. แปลว่า Metal Spread ถูกบีบลงจริง ไม่ใช่ความรู้สึก
@@ -464,6 +519,15 @@ footer{border-top:2px solid var(--navy);margin-top:30px;padding-top:14px;font-si
         <b>เกณฑ์ยืนยัน (Instruction ข้อ 4.2):</b> ยกระดับเป็น "เกิดขึ้นแล้ว" ได้ต่อเมื่อมี Signal จาก ≥2 แผนกที่ไม่เกี่ยวข้องกัน ชี้ทางเดียวกัน<br>
         <b>วิธีให้ค่าความน่าจะเป็น:</b> ประเมินเชิงคุณภาพจาก (ก) จำนวนแผนกที่ยืนยัน (ข) ระยะเวลาหน่วงของ Signal เทียบกรอบเวลา (ค) มี Trigger ที่วัดได้แล้วหรือยัง — <b>ไม่ใช่แบบจำลองสถิติ</b> <span class="tag est">ประมาณการ</span>
       </div>
+    </div>
+  </div>
+  <div class="src"><span class="lab">ที่มาของกราฟ</span>
+    <div class="row">
+      <dt>4 แกน</dt><dd>4 Scenario จาก Scenario Canvas ของบริษัท — Supply Shock / Growth Market (Over Demand) / Cost Crisis (Price War) / Over supply</dd>
+      <dt>3 รูปทรง</dt><dd>ความน่าจะเป็นในกรอบ 2 สัปดาห์ / 1 เดือน / 3 เดือน · ยิ่งยื่นออกไกลจากจุดกลาง = โอกาสเกิดสูง</dd>
+      <dt>ค่าที่ใช้</dt><dd>ประเมินจาก 3 อย่าง — จำนวนแผนกที่ Signal ชี้ทางเดียวกัน, เวลาหน่วงของ Signal เทียบกรอบเวลา, และจำนวน Trigger ที่วัดได้ผ่านแล้ว (รายละเอียดในหน้า 3)</dd>
+      <dt>สถานะยืนยัน</dt><dd>ตามเกณฑ์ Instruction ข้อ 4.2 — ต้องมี Signal จาก ≥2 แผนกที่ไม่เกี่ยวข้องกันชี้ทางเดียวกัน</dd>
+      <dt>ข้อจำกัด</dt><dd><b>ไม่ใช่แบบจำลองสถิติ</b> — ห้ามนำ % ไปคูณเป็นค่าคาดหวังทางการเงิน (สมมติฐาน A12)</dd>
     </div>
   </div>
   <div class="cap"><b>ตัวเลขนี้บอกอะไร:</b> รูปทรงเรดาร์เอียงไปทาง <b>บน–ขวา</b> (Supply Shock + Over Demand) ทั้งใน 2 สัปดาห์และ 1 เดือน แปลว่าความเสี่ยงระยะสั้นคือ "ของไม่พอขาย" ไม่ใช่ "ของล้น"
@@ -908,6 +972,15 @@ footer{border-top:2px solid var(--navy);margin-top:30px;padding-top:14px;font-si
       <div class="note">ทั้งหมด <span class="tag est">ประมาณการ</span> ยกเว้นตัวเลขปริมาณและราคาที่ยกมาจากไฟล์ Signal โดยตรง ซึ่งเป็น <span class="tag real">ข้อมูลจริง</span></div>
     </div>
   </div>
+  <div class="src"><span class="lab">ที่มาของกราฟ</span>
+    <div class="row">
+      <dt>แกนนอน</dt><dd>Inventory Days = ปริมาณสต๊อก ÷ อัตราขายต่อวัน 1,727 ตัน (<span class="sid">S09</span>) · เส้นแบ่ง 30 วันตั้งจากดุลพินิจ</dd>
+      <dt>แกนตั้ง</dt><dd>ทิศทางราคาตลาด · ปัจจุบันเป็นขาขึ้นจาก <span class="sid">S09</span> HRC +0.30 และ <span class="sid">S10</span> ต่างประเทศ +$10/ตัน</dd>
+      <dt>จุดกรมท่า</dt><dd>สต๊อก HRC 36,750 ตัน (<span class="sid">S06</span>) ÷ 1,727 = 21.3 วัน</dd>
+      <dt>จุดส้ม</dt><dd>สต๊อก FG 23,697 ตัน (<span class="sid">S14</span>) ÷ 1,727 = 13.7 วัน</dd>
+      <dt>ควอดรันต์</dt><dd>กรอบคิดตาม Instruction ข้อ 3.2 (Inventory Lag Effect) — ราคาขึ้น+สต๊อกสูง = กำไรพิเศษ · ราคาลง+สต๊อกสูง = ขาดทุนจากสต๊อก</dd>
+    </div>
+  </div>
   <div class="cap"><b>ตัวเลขนี้บอกอะไร:</b> ขณะนี้ TMT อยู่ในควอดรันต์ที่ดีที่สุด — สต๊อกไม่สูงและราคากำลังขึ้น จึงได้กำไรพิเศษจากสต๊อกประมาณ 4.4 ล้านบาท
   แต่ระยะห่างจากควอดรันต์ล่างขวา (ขาดทุนจากสต๊อก) คือ <b>35 วัน</b> เท่านั้น — ถ้าราคาโลกกลับทิศภายในเดือนหน้าและ TMT เพิ่งเติมสต๊อกเต็มไปแล้ว จะย้ายควอดรันต์ทันที<br>
   <b>ควรทำอะไรต่อ:</b> เติมสต๊อกเพื่อรับ Shutdown ได้ แต่ <b>อย่าเกิน Days of Price Exposure 45 วัน</b> และให้เติมด้วยของที่มีคำสั่งซื้อรองรับ (ยอดค้างส่ง 33,643 ตัน) ก่อนของเก็งสต๊อก</div>
@@ -1103,6 +1176,13 @@ footer{border-top:2px solid var(--navy);margin-top:30px;padding-top:14px;font-si
     <text x="568" y="211" font-size="12" font-weight="700" fill="#0c3843">ต้นทุน HRC ที่ซื้อวันนี้เข้า P&amp;L เต็ม (35–49 วัน)</text>
     <text x="60" y="35" font-size="12.5" font-weight="700" fill="#0c3843">เวลาหน่วงของ Signal เทียบเหตุการณ์ที่กำหนดหน้าต่างการตัดสินใจ</text>
   </svg>
+  </div>
+  <div class="src"><span class="lab">ที่มาของแผนภาพ</span>
+    <div class="row">
+      <dt>3 แถบ</dt><dd>จำนวน Signal ในแต่ละช่วงเวลาหน่วง มาจากคอลัมน์ "Impact Lead Time" ในไฟล์ Signal โดยตรง — 0–4 สัปดาห์ 10 รายการ · 4–12 สัปดาห์ 2 รายการ · 3–12 เดือน 5 รายการ</dd>
+      <dt>เส้นส้ม</dt><dd>วันเริ่มและวันจบ Shutdown ของ GJ Steel · <span class="sid">S11</span> ระบุ 23 ก.ย. – 6 ต.ค.</dd>
+      <dt>เส้นกรมท่า</dt><dd>วันที่ต้นทุนซื้อวันนี้เข้า P&amp;L เต็ม = Days of Price Exposure 35–49 วัน (จาก <span class="sid">S06</span> <span class="sid">S09</span> <span class="sid">S14</span>)</dd>
+    </div>
   </div>
   <div class="grid3">
     <div>
@@ -1511,6 +1591,14 @@ window.DEPTS=[
   <div class="note act"><b>สองช่องว่างที่เป็นความเสี่ยงเชิงระบบ:</b><br>
   <b>1. คอลัมน์ Credit = 0 ทั้งกระดาน</b> ทั้งที่ Scenario Canvas ทั้ง Cost Crisis และ Over Supply ระบุตรงกันว่า "ลูกค้าขอขยายเครดิต / ชำระเงินล่าช้า / ความเสี่ยงเก็บเงินสูงขึ้น" เป็น Trigger หลัก → ถ้ามีปัญหาสภาพคล่องเกิดขึ้น Dashboard นี้จะไม่เห็นเลยจนกว่าจะปรากฏใน P&amp;L<br>
   <b>2. คอลัมน์ Policy มีเพียง 1</b> และไม่มี Signal ใดพูดถึง AD/CVD/Safeguard, มอก., หรือการหลบเลี่ยงมาตรการ ทั้งที่เป็นตัวแปรที่เปลี่ยนกลไกทั้งระบบทันที</div>
+  <div class="src"><span class="lab">ที่มาของตาราง</span>
+    <div class="row">
+      <dt>แถว</dt><dd>คอลัมน์ "Owner Signal" ในไฟล์ Signal — 7 แผนกที่ส่ง Signal เข้ามาในรอบนี้</dd>
+      <dt>คอลัมน์</dt><dd>ประเภทกลไก 6 แบบตาม Instruction ข้อ 4.1 — Price / Volume / Cost / Policy / Logistics / Credit</dd>
+      <dt>ตัวเลขในช่อง</dt><dd>จำนวน Signal · <b>ไฟล์ต้นฉบับไม่มีคอลัมน์กลไก จึงเป็นการจัดกลุ่มโดยผู้วิเคราะห์</b> เลือกกลไกหลัก 1 อย่างต่อ 1 Signal (สมมติฐาน A15)</dd>
+      <dt>ความเข้มของสี</dt><dd>ยิ่งเข้ม = Signal มาก · เทาอ่อน = ไม่มี Signal เลย</dd>
+    </div>
+  </div>
   <div class="cap"><b>ตัวเลขนี้บอกอะไร:</b> Signal กระจุกที่ Volume (7) และ Logistics (4) ซึ่งเป็นเรื่องที่แผนกปฏิบัติการเห็นด้วยตาทุกวัน ส่วน Cost (3) มาจาก Procurement แผนกเดียว
   แปลว่า <b>ระบบ Foresight ปัจจุบันเก่งเรื่อง "ของพอไหม" แต่ยังอ่อนเรื่อง "กำไรพอไหม"</b><br>
   <b>ควรทำอะไรต่อ:</b> กำหนดโควตา Signal ขั้นต่ำต่อรอบให้แต่ละแผนก โดยบังคับให้ Finance/Sales ส่ง Credit อย่างน้อย 1 รายการ และ Procurement ส่ง Policy อย่างน้อย 1 รายการ</div>
@@ -2298,6 +2386,14 @@ window.DEPTS=[
     <path d="M242,285 H278 V254" stroke="#8bbade" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
   </svg>
   </div>
+  <div class="src"><span class="lab">ที่มาของแผนภาพ</span>
+    <div class="row">
+      <dt>คอลัมน์ 1</dt><dd>ข้อมูล 4 อันดับแรกจากตาราง 9.1 ซึ่งเรียงตามจำนวนเงินหรือปริมาณที่แขวนอยู่กับการตัดสินใจ</dd>
+      <dt>คอลัมน์ 2</dt><dd>การคำนวณที่ปัจจุบันทำไม่ได้เพราะขาดข้อมูลนั้น (ดู 5.1 โซ่ราคา และ 5.3 กลไก Margin)</dd>
+      <dt>คอลัมน์ 3</dt><dd>การตัดสินใจที่ค้างอยู่จริง จากรายการตัดสินใจ 6 ข้อในหน้า 1</dd>
+      <dt>กล่องเป้าหมาย</dt><dd>ค่าคงที่แปลงหน่วยเดียวของทั้ง Dashboard · 100 บาท/ตัน × 51,800 ตัน/เดือน (<span class="sid">S09</span>) = 5.18 ล้านบาท/เดือน</dd>
+    </div>
+  </div>
   <div class="cap"><b>ภาพนี้บอกอะไร:</b> ข้อมูล 4 รายการแรกไม่ได้แค่ "ทำให้รายงานสมบูรณ์ขึ้น" แต่แต่ละรายการ<b>ปลดล็อกการตัดสินใจที่ค้างอยู่จริงหนึ่งเรื่องพอดี</b> —
   และทั้งสี่เส้นวิ่งไปจบที่เป้าหมายเดียวกันคือรักษา Margin โดยแปลงหน่วยด้วยค่าคงที่เดียวกัน<br>
   <b>ควรทำอะไรต่อ:</b> ใช้ภาพนี้ขอข้อมูลจากเจ้าของ — เพราะสิ่งที่ขอไม่ใช่ "ข้อมูลเพิ่มเติม" แต่คือ "สิ่งที่ทำให้ตัดสินใจเรื่องที่ค้างอยู่ได้"</div>
@@ -2393,6 +2489,249 @@ window.DEPTS=[
 
 </div>
 
+<!-- ============ PANEL 10 : EXECUTIVE ONE-PAGER ============ -->
+<div class="panel" id="p10">
+
+<section class="card">
+  <h2><span class="n">10.1</span>สรุปรวมสำหรับผู้บริหาร — อ่าน 3 นาที</h2>
+  <div class="lede">
+    เดือนนี้ TMT อยู่ในภาวะ <b>ต้นทุนขาขึ้น + ของไม่พอขาย</b> พร้อมกัน ซึ่งปกติเป็นจังหวะที่ดีต่อกำไร
+    แต่เรา<b>ขึ้นราคาขายตามไม่ทัน</b> — ต้นทุน HRC ขึ้น 0.30 บาท/กก. ขึ้นราคาได้ 0.20 บาท/กก. และก่อนหน้านั้นเพิ่งลดราคาไป 0.30 บาท/กก.
+    รวมเป็นช่องว่าง <b>0.40 บาท/กก. หรือ 400 บาท/ตัน</b> ซึ่งคิดเป็นกำไรที่หายไปราว <b>20.7 ล้านบาทต่อเดือน</b><br>
+    ข่าวดีคือ ฝ่ายจัดซื้อเจรจาราคาลงมาได้ต่ำกว่าที่ Supplier ประกาศถึง 0.50 บาท/กก. คิดเป็นเงินที่ประหยัดได้ราว <b>25.9 ล้านบาท</b>
+    — แต่ถ้าปล่อยช่องว่างราคาขายไว้เพียง <b>1.5 เดือน</b> เงินก้อนนี้จะหายไปหมด
+  </div>
+
+  <div class="tri">
+    <div class="t">
+      <h4>เกิดอะไรขึ้น</h4>
+      <div class="big">ของขาด ไม่ใช่ของล้น</div>
+      <p>Signal 17 รายการจาก 7 แผนก ชี้ตรงกันว่าขายเร็วกว่าที่ผลิตได้ — สต๊อกสินค้าอยู่ระดับต่ำสุด ยอดค้างส่ง 33,643 ตัน และโรงงาน GJ Steel จะหยุดซ่อม 2 สัปดาห์เริ่ม 23 ก.ย.</p>
+      <div class="src"><span class="lab">ที่มา</span>ยืนยันข้ามแผนกโดย 6 แผนก · <span class="sid">S02 S03 S08 S11 S13 S14</span></div>
+    </div>
+    <div class="t">
+      <h4>กระทบเงินเท่าไร</h4>
+      <div class="big">−20.7 ล้านบาท / เดือน</div>
+      <p>มาจากการส่งผ่านต้นทุนไม่ครบเพียงเรื่องเดียว ซึ่งเป็นจุดรั่วที่ใหญ่ที่สุดและ<b>แก้ได้ทันที</b> เพราะภาวะของขาดกำลังให้อำนาจต่อรองราคากับลูกค้า</p>
+      <div class="src"><span class="lab">ที่มา</span>400 บาท/ตัน × 51,800 ตัน/เดือน · <span class="sid">S01 S09</span></div>
+    </div>
+    <div class="t">
+      <h4>ต้องทำอะไร</h4>
+      <div class="big">ขึ้นราคา + ล็อกวัตถุดิบ</div>
+      <p>สองเรื่องภายในสัปดาห์นี้ — ทบทวน Price List ให้ปิดช่องว่างอย่างน้อยครึ่งหนึ่ง และยืนยันปริมาณเหล็กที่สั่งผลิตล่วงหน้ากับ GJ Steel ก่อนโรงงานหยุด</p>
+      <div class="src"><span class="lab">ที่มา</span>เหลือเวลา 14 วันถึงวันที่ 23 ก.ย. · <span class="sid">S09 S10 S11</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="card">
+  <h2><span class="n">10.2</span>ตัวเลข 5 ตัวที่ต้องจำ — พร้อมที่มาของทุกตัว</h2>
+  <div class="five">
+    <div class="f neg">
+      <div class="lbl">ช่องว่างระหว่างต้นทุนที่ขึ้น กับราคาขายที่ขึ้นตาม</div>
+      <div class="val">−400</div><div class="unit">บาท/ตัน</div>
+      <div class="from"><b>มาจากอะไร:</b> ราคาขาย 17 ส.ค. ลด 0.30 <span class="sid">S01</span> · 31 ส.ค. ขึ้น 0.20 <span class="sid">S09</span> รวมสุทธิ ลด 0.10 · ขณะที่ต้นทุน HRC ขึ้น 0.30 <span class="sid">S09</span><br>
+      <b>คิดยังไง:</b> (−0.10) − (+0.30) = −0.40 บาท/กก. × 1,000 = −400 บาท/ตัน</div>
+    </div>
+    <div class="f neg">
+      <div class="lbl">กำไรที่หายไปต่อเดือน จากช่องว่างข้างต้น</div>
+      <div class="val">−20.7</div><div class="unit">ล้านบาท/เดือน</div>
+      <div class="from"><b>มาจากอะไร:</b> ปริมาณขายจริงเดือน ส.ค. 51,800 ตัน <span class="sid">S09</span><br>
+      <b>คิดยังไง:</b> 400 บาท/ตัน × 51,800 ตัน ÷ 1,000,000 = 20.7 ล้านบาท<br>
+      <b>ใช้อ่านต่อ:</b> ทุก 100 บาท/ตัน = 5.18 ล้านบาท/เดือน</div>
+    </div>
+    <div class="f pos">
+      <div class="lbl">เงินที่ประหยัดได้จากการเจรจาราคาซื้อ</div>
+      <div class="val">+25.9</div><div class="unit">ล้านบาท</div>
+      <div class="from"><b>มาจากอะไร:</b> Supplier ประกาศขึ้น 0.80 บาท/กก. <span class="sid">S06</span> แต่จบจริงที่ 0.30 <span class="sid">S09</span> ประหยัดได้ 0.50<br>
+      <b>คิดยังไง:</b> 0.50 × 1,000 × 51,800 ÷ 1,000,000 = 25.9 ล้านบาท<br>
+      <b>ข้อควรระวัง:</b> ใช้ปริมาณขายแทนปริมาณที่สั่งซื้อจริง เพราะไฟล์ไม่ได้ระบุ — ต้องขอตัวเลขจริงมายืนยัน</div>
+    </div>
+    <div class="f neg">
+      <div class="lbl">สินค้าที่ลูกค้าสั่งแล้วแต่สต๊อกไม่พอส่ง</div>
+      <div class="val">9,946</div><div class="unit">ตัน</div>
+      <div class="from"><b>มาจากอะไร:</b> ยอดค้างส่ง 33,643 ตัน <span class="sid">S13</span> · สต๊อกสินค้าสำเร็จรูป 23,697 ตัน <span class="sid">S14</span><br>
+      <b>คิดยังไง:</b> 33,643 − 23,697 = 9,946 ตัน ที่ต้องผลิตขึ้นใหม่เท่านั้น<br>
+      <b>ยังไม่รู้:</b> คิดเป็นเงินเท่าไร — ต้องได้กำไรต่อตันก่อน</div>
+    </div>
+    <div class="f neg">
+      <div class="lbl">เหล็กม้วนที่เหลือใช้ได้กี่วัน หลังโรงงานกลับมาเดินเครื่อง</div>
+      <div class="val">7.3</div><div class="unit">วัน ณ 6 ต.ค.</div>
+      <div class="from"><b>มาจากอะไร:</b> สต๊อก HRC 36,750 ตัน <span class="sid">S06</span> · GJ Steel หยุด 14 วัน <span class="sid">S11</span> · ใช้วันละ 1,727 ตัน<br>
+      <b>คิดยังไง:</b> ใช้ระหว่างหยุด 14 × 1,727 = 24,178 ตัน · เหลือ 12,572 ตัน ÷ 1,727 = 7.3 วัน<br>
+      <b>ตัวชี้ขาด:</b> กำหนดรับมอบ P/O 24,670 ตัน ซึ่งยังไม่มีในไฟล์</div>
+    </div>
+  </div>
+  <div class="src"><span class="lab">อ่านการ์ดพวกนี้ยังไง</span>
+    ตัวเลขสีส้ม = เรื่องที่ต้องตัดสินใจหรือกัดกำไร · ตัวเลขสีกรมท่า = เรื่องที่เป็นบวก ·
+    ทุกการ์ดบอก 2 อย่างเสมอ คือ <b>ตัวเลขนี้มาจาก Signal ไหน</b> และ <b>คิดมาด้วยสูตรอะไร</b> เพื่อให้ตรวจย้อนกลับไปที่ไฟล์ Signal ได้ทุกตัว
+  </div>
+</section>
+
+<section class="card">
+  <h2><span class="n">10.3</span>ความเสี่ยงเปลี่ยนหน้าตาไปตามเวลา — กราฟเดียวที่ต้องดู</h2>
+  <div class="scroll">
+  <svg viewBox="0 0 960 400" width="100%" height="380" role="img">
+    <g stroke="#d5dee1" stroke-width="1">
+      <line x1="110" y1="60" x2="820" y2="60"/><line x1="110" y1="125" x2="820" y2="125"/>
+      <line x1="110" y1="190" x2="820" y2="190"/><line x1="110" y1="255" x2="820" y2="255"/>
+    </g>
+    <line x1="110" y1="320" x2="820" y2="320" stroke="#0c3843" stroke-width="1.5"/>
+    <line x1="110" y1="45" x2="110" y2="320" stroke="#0c3843" stroke-width="1.5"/>
+    <g font-size="11" fill="#0c3843" text-anchor="end">
+      <text x="102" y="64">100%</text><text x="102" y="129">75%</text><text x="102" y="194">50%</text>
+      <text x="102" y="259">25%</text><text x="102" y="324">0%</text>
+    </g>
+    <g font-size="12.5" fill="#0c3843" text-anchor="middle" font-weight="600">
+      <text x="175" y="345">2 สัปดาห์</text><text x="465" y="345">1 เดือน</text><text x="755" y="345">3 เดือน</text>
+    </g>
+    <g font-size="11" fill="#8bbade" text-anchor="middle">
+      <text x="175" y="361">ถึง 23 ก.ย.</text><text x="465" y="361">ถึง 9 ต.ค.</text><text x="755" y="361">ถึง 9 ธ.ค.</text>
+    </g>
+    <g stroke-dasharray="3 4" stroke="#d5dee1"><line x1="465" y1="60" x2="465" y2="320"/><line x1="755" y1="60" x2="755" y2="320"/></g>
+
+    <!-- Supply Shock 75,85,50 : y=320-p*2.6 -->
+    <polyline points="175,125 465,99 755,190" fill="none" stroke="#ff6a05" stroke-width="3.5"/>
+    <g fill="#ff6a05"><circle cx="175" cy="125" r="6"/><circle cx="465" cy="99" r="6"/><circle cx="755" cy="190" r="6"/></g>
+    <g font-size="13" font-weight="600" fill="#ff6a05"><text x="175" y="113" text-anchor="middle">75%</text><text x="465" y="87" text-anchor="middle">85%</text><text x="755" y="178" text-anchor="middle">50%</text></g>
+    <text x="828" y="194" font-size="12.5" font-weight="600" fill="#ff6a05">ของขาด</text>
+    <text x="828" y="209" font-size="11" fill="#5b7b84">Supply Shock</text>
+
+    <!-- Over Demand 65,70,55 -->
+    <polyline points="175,151 465,138 755,177" fill="none" stroke="#0c3843" stroke-width="3"/>
+    <g fill="#0c3843"><circle cx="175" cy="151" r="5.5"/><circle cx="465" cy="138" r="5.5"/><circle cx="755" cy="177" r="5.5"/></g>
+    <g font-size="12.5" font-weight="600" fill="#0c3843"><text x="175" y="171" text-anchor="middle">65%</text><text x="465" y="158" text-anchor="middle">70%</text><text x="742" y="165" text-anchor="middle">55%</text></g>
+    <text x="828" y="160" font-size="12.5" font-weight="600" fill="#0c3843">ดีมานด์เกิน</text>
+    <text x="828" y="175" font-size="11" fill="#5b7b84">Over Demand</text>
+
+    <!-- Price War 20,25,40 -->
+    <polyline points="175,268 465,255 755,216" fill="none" stroke="#fdc440" stroke-width="3"/>
+    <g fill="#fdc440" stroke="#e0a91d"><circle cx="175" cy="268" r="5.5"/><circle cx="465" cy="255" r="5.5"/><circle cx="755" cy="216" r="5.5"/></g>
+    <g font-size="12.5" font-weight="600" fill="#0c3843"><text x="175" y="288" text-anchor="middle">20%</text><text x="465" y="275" text-anchor="middle">25%</text><text x="755" y="236" text-anchor="middle">40%</text></g>
+    <text x="828" y="220" font-size="12.5" font-weight="600" fill="#0c3843">สงครามราคา</text>
+    <text x="828" y="235" font-size="11" fill="#5b7b84">Price War</text>
+
+    <!-- Oversupply 5,10,25 -->
+    <polyline points="175,307 465,294 755,255" fill="none" stroke="#8bbade" stroke-width="3"/>
+    <g fill="#8bbade"><circle cx="175" cy="307" r="5.5"/><circle cx="465" cy="294" r="5.5"/><circle cx="755" cy="255" r="5.5"/></g>
+    <g font-size="12.5" font-weight="600" fill="#5b7b84"><text x="175" y="301" text-anchor="middle" dy="-8">5%</text><text x="465" y="288" text-anchor="middle" dy="-8">10%</text><text x="742" y="249" text-anchor="middle" dy="-8">25%</text></g>
+    <text x="828" y="262" font-size="12.5" font-weight="600" fill="#5b7b84">ของล้น</text>
+    <text x="828" y="277" font-size="11" fill="#5b7b84">Oversupply</text>
+
+    <text x="110" y="32" font-size="13" font-weight="600" fill="#0c3843">ความน่าจะเป็นของ 4 สถานการณ์ ในแต่ละกรอบเวลา</text>
+    <text x="110" y="382" font-size="11.5" fill="#5b7b84">จุดตัดสำคัญอยู่ราวต้นเดือน ต.ค. — วันที่โรงงาน GJ Steel กลับมาเดินเครื่อง (6 ต.ค.) พร้อมกับที่ผลของงบราชการที่ลดลงเริ่มปรากฏ</text>
+  </svg>
+  </div>
+  <div class="src"><span class="lab">ที่มาของกราฟ</span>
+    <div class="row">
+      <dt>เส้นแต่ละเส้น</dt><dd>ความน่าจะเป็นของ 4 สถานการณ์ตาม Scenario Canvas ของบริษัท (Supply Shock / Growth Market / Cost Crisis / Over supply)</dd>
+      <dt>ค่าที่ใช้</dt><dd>ประเมินจาก 3 อย่าง — จำนวนแผนกที่ส่ง Signal ไปทางเดียวกัน, เวลาหน่วงของ Signal เทียบกรอบเวลา, และมี Trigger ที่วัดได้แล้วหรือยัง</dd>
+      <dt>ทำไมเปลี่ยน</dt><dd>เพราะ Signal มีอายุ — เรื่องชั่วคราว 6 รายการ (โรงงานหยุด, เรือขนส่ง, เครื่องจักรเสีย, ราคารอบเดือน ก.ย.) หมดผลก่อนถึงกรอบ 3 เดือน เหลือแต่เรื่องเชิงโครงสร้างจากฝ่ายขาย</dd>
+      <dt>ข้อจำกัด</dt><dd><b>เป็นการประเมินเชิงคุณภาพ ไม่ใช่แบบจำลองสถิติ</b> — ห้ามนำ % ไปคูณเป็นค่าคาดหวังทางการเงินโดยตรง</dd>
+    </div>
+  </div>
+  <div class="cap"><b>อ่านสั้น ๆ:</b> เส้นส้ม (ของขาด) พุ่งสูงสุดในกรอบ 1 เดือน แล้วดิ่งลง · เส้นเหลืองและฟ้า (สงครามราคาและของล้น) ค่อย ๆ ไต่ขึ้นตามเวลา
+  แปลว่า <b>ปัญหาของเดือนนี้กับปัญหาของไตรมาสหน้าเป็นเรื่องตรงกันข้ามกัน</b><br>
+  <b>ควรทำอะไรต่อ:</b> ใช้อำนาจต่อรองที่มีในเดือนนี้เก็บกำไรไว้ก่อน แล้วเอาไปสร้างเกราะรับไตรมาสหน้า — ล็อกลูกค้ากลุ่มที่ซื้อด้วยสเปกไม่ใช่ราคา และคุมเพดานสต๊อกไม่ให้เกิน 45 วัน</div>
+</section>
+
+<section class="card">
+  <h2><span class="n">10.4</span>งบดุลโอกาสกับอุปสรรค — เงินที่หามาได้ อยู่ได้นานแค่ไหน</h2>
+  <div class="bal">
+    <div><b>โอกาสที่วัดเป็นเงินได้</b><br><span style="font-size:11.5px;color:var(--navy-70)">รายการครั้งเดียว</span></div>
+    <div class="bar"><i style="width:100%;background:#0c3843"></i>
+      <span style="position:absolute;left:11px;top:4px;color:#fff;font-weight:600;font-size:12.5px">+30.3 ล้านบาท</span></div>
+    <div class="mono" style="text-align:right"><b>+30.3</b> ล้านบาท</div>
+
+    <div><b>อุปสรรคที่วัดเป็นเงินได้</b><br><span style="font-size:11.5px;color:var(--navy-70)">เกิดซ้ำทุกเดือน</span></div>
+    <div class="bar"><i style="width:68.3%;background:#ff6a05"></i>
+      <span style="position:absolute;left:11px;top:4px;color:#fff;font-weight:600;font-size:12.5px">−20.7 ล้านบาท ต่อเดือน</span></div>
+    <div class="mono" style="text-align:right;color:#ff6a05"><b>−20.7</b> ล้านบาท/เดือน</div>
+  </div>
+  <div class="note act" style="font-size:14px">
+    <b>ข้อสรุปที่ต้องจำ:</b> 30.3 ÷ 20.7 = <b>1.5 เดือน</b> — นี่คือระยะเวลาที่กำไรพิเศษทั้งหมดที่หามาได้ในรอบนี้ จะถูกกลืนหมดโดยช่องว่างราคาที่ยังไม่ปิด
+  </div>
+  <div class="src"><span class="lab">ที่มา</span>
+    <div class="row">
+      <dt>ฝั่งบวก</dt><dd>เจรจาราคาซื้อได้ต่ำกว่าประกาศ <b>+25.9 ล้านบาท</b> (<span class="sid">S06</span> ประกาศ 0.80 vs <span class="sid">S09</span> จบจริง 0.30) + กำไรจากสต๊อกต้นทุนต่ำ <b>+4.4 ล้านบาท</b> (<span class="sid">S06</span> ต้นทุนสต๊อก 19.48 vs ราคาซื้อใหม่ 19.60 บนสต๊อก 36,750 ตัน) = 30.3 ล้านบาท</dd>
+      <dt>ฝั่งลบ</dt><dd>ช่องว่างราคา 400 บาท/ตัน × ปริมาณขาย 51,800 ตัน/เดือน = <b>−20.7 ล้านบาท/เดือน</b></dd>
+      <dt>ข้อควรระวัง</dt><dd>ฝั่งบวกเป็นเงินก้อนเดียว เกิดครั้งเดียวในรอบนี้ · ฝั่งลบเกิดซ้ำทุกเดือนจนกว่าจะปรับราคา — <b>เทียบกันตรง ๆ ไม่ได้ ต้องเทียบเป็นระยะเวลา</b></dd>
+      <dt>ยังไม่นับ</dt><dd>โอกาสจากดีมานด์เกรดพิเศษ และความเสียหายจากยอดค้างส่ง 9,946 ตัน ซึ่งทั้งสองยังคิดเป็นเงินไม่ได้เพราะไม่มีกำไรต่อตัน</dd>
+    </div>
+  </div>
+</section>
+
+<section class="card">
+  <h2><span class="n">10.5</span>สามเรื่องที่ต้องตัดสินใจในสัปดาห์นี้</h2>
+  <div class="act">
+    <div class="no">1</div>
+    <div class="txt"><b>ยืนยันปริมาณเหล็กที่สั่ง GJ Steel ผลิตล่วงหน้า และขอตารางรับมอบ P/O 24,670 ตัน รายสัปดาห์</b><br>
+      ไฟล์ Signal ระบุปริมาณไว้ว่า "X ตัน (รอตัวเลข)" ทำให้ตอบไม่ได้ว่าช่วง 23 ก.ย. – 6 ต.ค. จะมีเหล็กพอผลิตหรือไม่ · กรณีแย่ที่สุดสต๊อกจะเหลือแค่ 7.3 วัน</div>
+    <div class="who">Procurement<br>+ Material Planning</div>
+    <div class="due" style="color:#ff6a05">ภายใน 12 ก.ย.</div>
+  </div>
+  <div class="act">
+    <div class="no">2</div>
+    <div class="txt"><b>ทบทวน Price List ให้ปิดช่องว่าง 0.40 บาท/กก. อย่างน้อยครึ่งหนึ่ง</b><br>
+      ทุก 0.10 บาท/กก. ที่ขึ้นได้ = 5.18 ล้านบาท/เดือน · ใช้เหตุผลว่าซัพพลายตึงตัวจริง (โรงงานหยุด + สต๊อกต่ำสุด + ค้างส่ง 10.4 วัน) และควรแยกราคาตาม 3 กลุ่มลูกค้า ไม่ใช่ราคาเดียวทั้งพอร์ต</div>
+    <div class="who">Sales<br>+ Procurement</div>
+    <div class="due" style="color:#ff6a05">ภายใน 15 ก.ย.</div>
+  </div>
+  <div class="act">
+    <div class="no">3</div>
+    <div class="txt"><b>ขอตารางกำไรต่อตัน แยกกลุ่มสินค้าและกลุ่มลูกค้า จากฝ่ายบัญชี</b><br>
+      เป็นตัวเลขเดียวที่ทำให้ทุกปริมาณบนรายงานนี้แปลงเป็นเงินได้ — ยอดค้างส่ง 33,643 ตัน, ปริมาณเสี่ยง 9,946 ตัน และการตัดสินใจเรื่อง OT ทั้งหมดรออยู่ที่ตัวเลขนี้</div>
+    <div class="who">Finance + Sales</div>
+    <div class="due" style="color:#ff6a05">ภายใน 16 ก.ย.</div>
+  </div>
+  <div class="src" style="margin-top:14px"><span class="lab">ที่มา</span>ทั้งสามข้อคัดจากรายการตัดสินใจ 6 ข้อในหน้า 1 และตาราง Data Gap ในหน้า 9 โดยเลือกเฉพาะข้อที่ <b>มีเส้นตายผูกกับเหตุการณ์จริง</b> (โรงงานหยุด 23 ก.ย. และรอบปรับราคาถัดไป) หรือ <b>เป็นตัวปลดล็อกให้เรื่องอื่นตัดสินใจได้</b></div>
+</section>
+
+<section class="card">
+  <h2><span class="n">10.6</span>สิ่งที่รายงานนี้ยัง "มองไม่เห็น" — ต้องรู้ก่อนใช้ตัดสินใจ</h2>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:230px">เรื่องที่มองไม่เห็น</th><th style="width:250px">เพราะขาดข้อมูลอะไร</th><th>ทำให้เสี่ยงตัดสินใจผิดอย่างไร</th></tr></thead>
+    <tbody>
+      <tr class="rowalarm"><td><b>กำไรจริงต่อตัน</b></td><td>ไม่มีกำไรต่อตันแยกกลุ่มสินค้า และไม่มีราคาขายเฉลี่ย (มีแต่การเปลี่ยนแปลงราคา)</td><td>เรารู้ว่ามี 9,946 ตันที่ส่งไม่ทัน แต่<b>ไม่รู้ว่าควรเลือกส่งอันไหนก่อน</b> ถ้าเรียงตามวันที่สั่งอย่างเดียว อาจส่งของกำไรต่ำก่อนของกำไรสูง</td></tr>
+      <tr class="rowalarm"><td><b>ราคาของนำเข้าเทียบกับราคาเรา</b></td><td>ไม่มีอัตราแลกเปลี่ยน ไม่ระบุเงื่อนไขราคานำเข้า (FOB/CFR) และไม่มีค่าระวางเรือ</td><td>ธุรกิจนี้ราคาตั้งโดยของนำเข้า แต่เราเห็นแต่ต้นทุนในประเทศ — <b>อาจขึ้นราคาน้อยเกินไปหรือมากเกินไปโดยไม่รู้ตัว</b></td></tr>
+      <tr class="rowalarm"><td><b>ความเสี่ยงเก็บเงินลูกค้า</b></td><td>ไม่มี Signal ด้านเครดิตเลยแม้แต่รายการเดียวจาก 17 รายการ</td><td>Scenario Canvas ของบริษัทระบุ "ลูกค้าขอขยายเครดิต / จ่ายช้า" เป็นสัญญาณเตือนสำคัญ — <b>ถ้าเกิดขึ้น รายงานนี้จะไม่เห็นจนกว่าจะปรากฏในงบ</b></td></tr>
+      <tr class="rowwatch"><td><b>ขนาดของโอกาสในไตรมาสหน้า</b></td><td>ดีมานด์เกรดพิเศษ Beam SM520 / PEB / ท่อ GI ไม่มีตัวเลขพยากรณ์เป็นตัน</td><td>เป็นโอกาสที่ใหญ่ที่สุดในกรอบ 3 เดือน แต่<b>ตัดสินใจสั่งของล่วงหน้าไม่ได้</b> ทั้งที่ของนำเข้าใช้เวลา 45–75 วัน จึงต้องสั่งภายในเดือนนี้</td></tr>
+      <tr class="rowwatch"><td><b>ยอดรวมสต๊อกที่ถูกต้อง</b></td><td>ไฟล์ระบุยอดรวม 23,697 ตัน แต่ผลรวมรายกลุ่มได้ 27,665 ตัน</td><td>ต่างกัน 3,968 ตัน ทำให้ตัวเลข "สต๊อกพอขายกี่วัน" คลาดเคลื่อน 2.3 วัน ซึ่งกระทบเส้นเตือนภัยโดยตรง</td></tr>
+    </tbody>
+  </table></div>
+  <div class="src"><span class="lab">หลักการของรายงานนี้</span>
+    ทุกตัวเลขกำกับสถานะไว้ 1 ใน 3 เสมอ — <span class="tag real">ข้อมูลจริง</span> คือยกมาจากไฟล์ Signal ตรง ๆ ·
+    <span class="tag est">ประมาณการ</span> คือคำนวณจากข้อมูลจริงและแสดงสูตรกำกับไว้ ·
+    <span class="tag none">ไม่มีข้อมูล</span> คือแสดงเป็น <span class="wait">รอข้อมูล</span> โดย<b>ไม่ใส่ตัวเลขสมมติ</b><br>
+    ไม่มีการอ้างอิงราคาตลาดจากแหล่งภายนอกหรือจากความจำ — ราคาทุกตัวมาจากไฟล์ Signal ที่แผนกส่งเข้ามาเท่านั้น
+  </div>
+</section>
+
+<section class="card">
+  <h2><span class="n">10.7</span>ตารางตรวจย้อนกลับ — ตัวเลขทุกตัวบนหน้านี้มาจากไหน</h2>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:135px">ตัวเลข</th><th style="width:130px">Signal ต้นทาง</th><th style="width:230px">ค่าดิบที่ยกมาจากไฟล์</th><th style="width:240px">สูตรที่ใช้</th><th style="width:95px">สถานะ</th></tr></thead>
+    <tbody>
+      <tr><td><b>−0.40 บาท/กก.</b><br>ช่องว่างราคา</td><td><span class="sid">S01</span> <span class="sid">S09</span></td><td>ราคา FG ลด 0.30 (17 ส.ค.) · Price List ขึ้น 0.20 (31 ส.ค.) · ต้นทุน HRC ขึ้น 0.30</td><td>(−0.30 + 0.20) − 0.30 = −0.40</td><td><span class="tag est">ประมาณการ</span></td></tr>
+      <tr><td><b>51,800 ตัน/เดือน</b><br>ปริมาณขายฐาน</td><td><span class="sid">S09</span></td><td>ยอดขาย FG จาก HRC เดือน ส.ค. 2026 = 51,800 ตัน (ประเมินไว้ 50,000)</td><td>ยกมาตรง ๆ ไม่คำนวณ</td><td><span class="tag real">ข้อมูลจริง</span></td></tr>
+      <tr><td><b>−20.7 ล้านบาท/เดือน</b></td><td><span class="sid">S01</span> <span class="sid">S09</span></td><td>0.40 บาท/กก. · 51,800 ตัน</td><td>0.40 × 1,000 × 51,800 ÷ 1,000,000</td><td><span class="tag est">ประมาณการ</span></td></tr>
+      <tr><td><b>+25.9 ล้านบาท</b><br>ผลการเจรจา</td><td><span class="sid">S06</span> <span class="sid">S09</span></td><td>ประกาศขึ้น 0.80 บาท/กก. · จบจริง 0.30 บาท/กก.</td><td>(0.80 − 0.30) × 1,000 × 51,800 ÷ 1,000,000 · <b>สมมติใช้ปริมาณขายแทนปริมาณสั่งซื้อ</b></td><td><span class="tag est">ประมาณการ</span></td></tr>
+      <tr><td><b>+4.4 ล้านบาท</b><br>กำไรจากสต๊อก</td><td><span class="sid">S06</span> <span class="sid">S09</span></td><td>สต๊อก HRC 36,750 ตัน @ 19.48 บาท/กก. · P/O 24,670 ตัน @ 19.30</td><td>(19.30 + 0.30 − 19.48) × 36,750 ÷ 1,000</td><td><span class="tag est">ประมาณการ</span></td></tr>
+      <tr><td><b>33,643 ตัน</b><br>ยอดค้างส่ง</td><td><span class="sid">S13</span></td><td>Con&amp;Fab 12,525 · Factory 11,084 · Dealer 10,024 · Others 9 (SAP ZSDR0003_N)</td><td>ยกมาตรง ๆ</td><td><span class="tag real">ข้อมูลจริง</span></td></tr>
+      <tr><td><b>9,946 ตัน</b><br>ที่ส่งไม่ทัน</td><td><span class="sid">S13</span> <span class="sid">S14</span></td><td>ค้างส่ง 33,643 ตัน · สต๊อก FG 23,697 ตัน</td><td>33,643 − 23,697</td><td><span class="tag est">ประมาณการ</span></td></tr>
+      <tr><td><b>1,727 ตัน/วัน</b><br>อัตราขายต่อวัน</td><td><span class="sid">S09</span></td><td>51,800 ตัน/เดือน</td><td>51,800 ÷ 30 วันปฏิทิน · <b>ถ้าใช้ 26 วันทำงานจะได้ 1,992</b></td><td><span class="tag est">ประมาณการ</span></td></tr>
+      <tr><td><b>7.3 วัน</b><br>สต๊อกเหลือ 6 ต.ค.</td><td><span class="sid">S06</span> <span class="sid">S11</span></td><td>สต๊อก HRC 36,750 ตัน · Shutdown 14 วัน</td><td>(36,750 − 14 × 1,727) ÷ 1,727 · <b>สมมติ GJS เป็นแหล่งเดียว คือกรณีแย่ที่สุด</b></td><td><span class="tag est">ประมาณการ</span></td></tr>
+      <tr><td><b>10.4 วัน</b><br>ค้างส่งเทียบกำลังส่ง</td><td><span class="sid">S13</span></td><td>ค้างส่ง 33,643 ตัน · กำลังจัดส่ง 3,200–3,300 ตัน/วัน</td><td>33,643 ÷ 3,250 (กลางช่วง)</td><td><span class="tag est">ประมาณการ</span></td></tr>
+      <tr><td><b>5.18 ล้านบาท</b><br>ต่อ 100 บาท/ตัน</td><td><span class="sid">S09</span></td><td>51,800 ตัน/เดือน</td><td>100 × 51,800 ÷ 1,000,000</td><td><span class="tag est">ประมาณการ</span></td></tr>
+      <tr><td><b>75/85/50%</b> ฯลฯ<br>ความน่าจะเป็น</td><td>ทั้ง 17 Signal</td><td>จำนวนแผนกที่ยืนยัน · เวลาหน่วง · Trigger ที่ผ่านแล้ว</td><td><b>ประเมินเชิงคุณภาพ ไม่ใช่สูตรคำนวณ</b> (สมมติฐาน A12)</td><td><span class="tag est">ประมาณการ</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="cap"><b>ตารางนี้ใช้ทำอะไร:</b> เอาไว้ตอบคำถามในที่ประชุมได้ทันทีว่า "ตัวเลขนี้มาจากไหน" โดยไม่ต้องเปิดไฟล์ Excel ·
+  สังเกตว่ามีเพียง <b>2 ตัวเลขที่เป็นข้อมูลจริงล้วน</b> (51,800 ตัน และ 33,643 ตัน) ที่เหลือเป็นการคำนวณต่อจากสองตัวนี้บวกกับราคาจาก Procurement<br>
+  <b>ควรทำอะไรต่อ:</b> เพราะทั้งรายงานพิงอยู่บนตัวเลขไม่กี่ตัว การสอบทานตัวเลขต้นทางจึงคุ้มค่าที่สุด — เริ่มจากยอดรวมสต๊อก FG ที่ยังขัดกันเอง และขอบเขตกลุ่มสินค้าที่ปรับราคา</div>
+</section>
+
+</div>
 <footer>
   <b>TMT Foresight Dashboard</b> · จัดทำ 9 กันยายน 2026 · Signal Window 17 ส.ค. – 7 ก.ย. 2026 · Signal 17 รายการ จาก 7 แผนก · Data Completeness 69%<br>
   ไฟล์เดียวจบ เปิดใช้งานแบบออฟไลน์ได้ · ฟอนต์ Kanit ฝังในไฟล์ · รอบถัดไปให้สร้างไฟล์ใหม่ชื่อ TMT_Foresight_Dashboard_YYYY-MM-DD.html โดยไม่เขียนทับไฟล์นี้
