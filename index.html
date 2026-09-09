@@ -66,20 +66,23 @@ body.sbc #sb{width:58px}
 #sb .brand{font-size:12.5px;font-weight:600;letter-spacing:.3px;white-space:nowrap;overflow:hidden}
 #sb .brand small{display:block;font-size:10px;font-weight:400;color:#8bbade;letter-spacing:0}
 #sbnav{flex:1;overflow-y:auto;overflow-x:hidden;padding:8px 0}
-#sbnav button{display:flex;align-items:center;gap:11px;width:100%;appearance:none;border:0;
+#sbnav2{border-top:1px solid rgba(255,255,255,.18);padding:7px 0;flex:0 0 auto}
+#sbnav button,#sbnav2 button{display:flex;align-items:center;gap:11px;width:100%;appearance:none;border:0;
    background:transparent;color:#c2d5da;font-family:inherit;font-size:12.5px;font-weight:500;
    text-align:left;padding:8px 12px;cursor:pointer;border-left:3px solid transparent;white-space:nowrap}
-#sbnav button:hover{background:rgba(255,255,255,.08);color:#fff}
-#sbnav button.on{background:rgba(255,106,5,.16);color:#fff;border-left-color:var(--orange);font-weight:600}
-#sbnav button .num{flex:0 0 auto;min-width:24px;height:24px;line-height:24px;text-align:center;
+#sbnav button:hover,#sbnav2 button:hover{background:rgba(255,255,255,.08);color:#fff}
+#sbnav button.on,#sbnav2 button.on{background:rgba(255,106,5,.16);color:#fff;border-left-color:var(--orange);font-weight:600}
+#sbnav button .num,#sbnav2 button .num{flex:0 0 auto;min-width:24px;height:24px;line-height:24px;text-align:center;
    background:rgba(255,255,255,.13);font-size:11.5px;font-weight:600;font-variant-numeric:tabular-nums}
-#sbnav button.on .num{background:var(--orange);color:#fff}
-#sbnav button .lbl{overflow:hidden;text-overflow:ellipsis;line-height:1.35}
+#sbnav button.on .num,#sbnav2 button.on .num{background:var(--orange);color:#fff}
+#sbnav2 .num{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.13)}
+#sbnav2 .num svg{display:block}
+#sbnav button .lbl,#sbnav2 button .lbl{overflow:hidden;text-overflow:ellipsis;line-height:1.35}
 #sb .sbfoot{padding:10px 13px;border-top:1px solid rgba(255,255,255,.16);font-size:10.5px;
    color:#8bbade;line-height:1.5}
-body.sbc #sbnav button .lbl,body.sbc #sb .brand,body.sbc #sb .sbfoot{display:none}
-body.sbc #sbnav button{justify-content:center;padding:8px 0;border-left-width:0;border-right:3px solid transparent}
-body.sbc #sbnav button.on{border-right-color:var(--orange)}
+body.sbc #sbnav button .lbl,body.sbc #sbnav2 button .lbl,body.sbc #sb .brand,body.sbc #sb .sbfoot{display:none}
+body.sbc #sbnav button,body.sbc #sbnav2 button{justify-content:center;padding:8px 0;border-left-width:0;border-right:3px solid transparent}
+body.sbc #sbnav button.on,body.sbc #sbnav2 button.on{border-right-color:var(--orange)}
 #main{margin-left:252px;transition:margin-left .18s ease}
 body.sbc #main{margin-left:58px}
 @media(max-width:980px){#main,body.sbc #main{margin-left:58px}
@@ -307,7 +310,10 @@ td.rm{text-align:center;white-space:nowrap}
     <button data-t="p5" title="Signal View"><span class="num">7</span><span class="lbl">Signal View</span></button>
     <button data-t="p6" title="โอกาส–อุปสรรค และ Convergence"><span class="num">8</span><span class="lbl">โอกาส–อุปสรรค<br>&amp; Convergence</span></button>
     <button data-t="p7" title="Data Gap และเป้าหมาย"><span class="num">9</span><span class="lbl">Data Gap &amp; เป้าหมาย</span></button>
-    <button data-t="p10" title="สรุปรวมสำหรับผู้บริหาร — อ่าน 3 นาที"><span class="num">10</span><span class="lbl">สรุปรวมผู้บริหาร<br>+ คำศัพท์</span></button>
+    <button data-t="p10" title="สรุปรวมสำหรับผู้บริหาร และผู้บริหารรายแผนก"><span class="num">10</span><span class="lbl">สรุปรวมผู้บริหาร<br>+ แผนรายแผนก</span></button>
+  </nav>
+  <nav id="sbnav2">
+    <button data-t="pglos" title="อภิธานศัพท์ — คำอธิบายศัพท์เทคนิคทั้งหมด"><span class="num"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><g fill="currentColor"><rect x="10.8" y="1" width="2.4" height="4" rx=".6"/><rect x="10.8" y="19" width="2.4" height="4" rx=".6"/><rect x="1" y="10.8" width="4" height="2.4" rx=".6"/><rect x="19" y="10.8" width="4" height="2.4" rx=".6"/><rect x="10.8" y="1" width="2.4" height="4" rx=".6" transform="rotate(45 12 12)"/><rect x="10.8" y="19" width="2.4" height="4" rx=".6" transform="rotate(45 12 12)"/><rect x="1" y="10.8" width="4" height="2.4" rx=".6" transform="rotate(45 12 12)"/><rect x="19" y="10.8" width="4" height="2.4" rx=".6" transform="rotate(45 12 12)"/></g><circle cx="12" cy="12" r="6.4" fill="none" stroke="currentColor" stroke-width="2.6"/></svg></span><span class="lbl">อภิธานศัพท์</span></button>
   </nav>
   <div class="sbfoot">อัปเดต 9 ก.ย. 2026<br>Signal 17 รายการ · 7 แผนก<br>Data Completeness 69%</div>
 </aside>
@@ -2959,7 +2965,212 @@ window.DEPTS=[
 </section>
 
 <section class="card">
-  <h2><span class="n">10.5</span>สามเรื่องที่ต้องตัดสินใจในสัปดาห์นี้</h2>
+  <h2><span class="n">10.5</span>ภาพรายแผนก — ใครส่งสัญญาณอะไรมา และตัวเลขของใครอยู่ในเขตเตือนภัย</h2>
+  <div class="scroll">
+  <svg viewBox="0 0 960 360" width="100%" height="350" role="img">
+    <text x="20" y="24" font-size="13.5" font-weight="600" fill="#0c3843">จำนวน Signal ที่แต่ละแผนกส่งเข้ามาในรอบนี้ แยกตามทิศทางที่เจ้าของ Signal ระบุ</text>
+    <g stroke="#d5dee1" stroke-width="1">
+      <line x1="300" y1="40" x2="300" y2="290"/><line x1="380" y1="40" x2="380" y2="290"/>
+      <line x1="460" y1="40" x2="460" y2="290"/><line x1="540" y1="40" x2="540" y2="290"/>
+      <line x1="620" y1="40" x2="620" y2="290"/>
+    </g>
+    <line x1="220" y1="290" x2="700" y2="290" stroke="#0c3843" stroke-width="1.5"/>
+    <line x1="220" y1="40" x2="220" y2="290" stroke="#0c3843" stroke-width="1.5"/>
+    <g font-size="11" fill="#5b7b84" text-anchor="middle">
+      <text x="220" y="306">0</text><text x="300" y="306">1</text><text x="380" y="306">2</text>
+      <text x="460" y="306">3</text><text x="540" y="306">4</text><text x="620" y="306">5</text>
+      <text x="440" y="324">จำนวน Signal (รายการ)</text>
+    </g>
+
+    <!-- rows: y = 52 + i*34 ; bar h = 20 ; 1 signal = 80px -->
+    <g font-size="12.5" fill="#0c3843" text-anchor="end" font-weight="600">
+      <text x="212" y="67">Procurement</text>
+      <text x="212" y="101">Sale &amp; Marketing</text>
+      <text x="212" y="135">Product Planning</text>
+      <text x="212" y="169">Material Planning</text>
+      <text x="212" y="203">Logistics</text>
+      <text x="212" y="237">Transportation</text>
+      <text x="212" y="271">Services</text>
+    </g>
+
+    <!-- Procurement: + 3 , − 1 , ? 1 -->
+    <rect x="220" y="52" width="240" height="20" fill="#0c3843"/>
+    <rect x="460" y="52" width="80"  height="20" fill="#ff6a05"/>
+    <rect x="540" y="52" width="80"  height="20" fill="#8bbade"/>
+    <text x="632" y="67" font-size="12" fill="#5b7b84">5 รายการ</text>
+
+    <!-- Sales: + 3 , − 1 , ? 1 -->
+    <rect x="220" y="86" width="240" height="20" fill="#0c3843"/>
+    <rect x="460" y="86" width="80"  height="20" fill="#ff6a05"/>
+    <rect x="540" y="86" width="80"  height="20" fill="#8bbade"/>
+    <text x="632" y="101" font-size="12" fill="#5b7b84">5 รายการ</text>
+
+    <!-- Product Planning: − 2 -->
+    <rect x="220" y="120" width="160" height="20" fill="#ff6a05"/>
+    <text x="392" y="135" font-size="12" fill="#5b7b84">2 รายการ · ลบทั้งหมด</text>
+
+    <!-- Material Planning: − 1 , ? 1 -->
+    <rect x="220" y="154" width="80" height="20" fill="#ff6a05"/>
+    <rect x="300" y="154" width="80" height="20" fill="#8bbade"/>
+    <text x="392" y="169" font-size="12" fill="#5b7b84">2 รายการ</text>
+
+    <!-- Logistics: − 1 -->
+    <rect x="220" y="188" width="80" height="20" fill="#ff6a05"/>
+    <text x="312" y="203" font-size="12" fill="#5b7b84">1 รายการ</text>
+
+    <!-- Transportation: + 1 -->
+    <rect x="220" y="222" width="80" height="20" fill="#0c3843"/>
+    <text x="312" y="237" font-size="12" fill="#5b7b84">1 รายการ · แต่จัดทิศทางผิดด้าน</text>
+
+    <!-- Services: + 1 -->
+    <rect x="220" y="256" width="80" height="20" fill="#0c3843"/>
+    <text x="312" y="271" font-size="12" fill="#5b7b84">1 รายการ</text>
+
+    <!-- legend -->
+    <line x1="20" y1="340" x2="940" y2="340" stroke="#d5dee1"/>
+    <g>
+      <rect x="220" y="348" width="26" height="10" fill="#0c3843"/>
+      <text x="254" y="357" font-size="12" fill="#0c3843">บวก</text>
+      <rect x="320" y="348" width="26" height="10" fill="#ff6a05"/>
+      <text x="354" y="357" font-size="12" fill="#0c3843">ลบ</text>
+      <rect x="410" y="348" width="26" height="10" fill="#8bbade"/>
+      <text x="444" y="357" font-size="12" fill="#0c3843">ไม่แน่นอน</text>
+      <text x="540" y="357" font-size="11.5" fill="#5b7b84">รวม 17 รายการ — บวก 8 · ลบ 6 · ไม่แน่นอน 3</text>
+    </g>
+  </svg>
+  </div>
+  <div class="note act"><b>ข้อควรระวังเวลาอ่านกราฟนี้:</b> คำว่า "บวก / ลบ" มาจากมุมมองของเจ้าของ Signal ไม่ใช่ผลต่อกำไร ·
+  ตัวอย่างชัดที่สุดคือ Transportation ที่รายงานว่าราคาขายลดลง 0.30 บาท/กก. แล้วจัดเป็น <b>บวก</b> ทั้งที่ราคาขายที่ลดลงกินกำไรทันที ·
+  ถ้าอ่านตามหน้ากระดาษจะได้ภาพว่า "บวก 8 : ลบ 6" ซึ่งดูดีเกินความจริง</div>
+
+  <h3 class="sub">แผนกไหนถือเส้นเตือนอะไร และสถานะเป็นอย่างไร</h3>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:145px">แผนก</th><th class="num" style="width:70px">Signal</th>
+      <th style="width:250px">เส้นเตือนที่แผนกนี้เป็นเจ้าของ</th><th style="width:120px">สถานะรวม</th>
+      <th>โจทย์ของแผนกนี้ในรอบนี้ สรุปหนึ่งประโยค</th></tr></thead>
+    <tbody>
+      <tr class="rowalarm"><td><b>Procurement</b></td><td class="num">5</td>
+        <td>Pre-build ก่อน Shutdown · Inventory Days HRC · Pass-through Gap (ร่วมกับ Sales) · ม้วนคงคลังเทียบเพดาน</td>
+        <td><span class="dot a"></span>เตือนภัย 2<br><span class="dot w"></span>เฝ้าระวัง 2</td>
+        <td>สร้างมูลค่าได้จริงแล้วจากการเจรจา แต่ยังตอบไม่ได้ว่าต้นเดือน ต.ค. จะมีเหล็กพอผลิตหรือไม่</td></tr>
+      <tr class="rowalarm"><td><b>Sale &amp; Marketing</b></td><td class="num">5</td>
+        <td>Pass-through Gap (ร่วมกับ Procurement) · โครงสร้างยอดค้างส่งรายกลุ่มลูกค้า</td>
+        <td><span class="dot a"></span>เตือนภัย 1</td>
+        <td>ถือทั้งโอกาสและอุปสรรคที่ใหญ่ที่สุด — เป็นแผนกเดียวที่ปิดช่องว่างราคาได้ แต่ยังไม่มีตัวเลขให้ Scenario กรอบ 3 เดือนเลย</td></tr>
+      <tr class="rowalarm"><td><b>Product Planning</b></td><td class="num">2</td>
+        <td>Inventory Days FG · ผลผลิตจริง ÷ แผนผลิต</td>
+        <td><span class="dot a"></span>เตือนภัย 2</td>
+        <td>เป็นคอขวดของรอบนี้ — ขายเร็วกว่าผลิต และตัวเลขสต๊อกที่ใช้ตั้งเส้นเตือนยังขัดกันเอง</td></tr>
+      <tr class="rowwatch"><td><b>Material Planning</b></td><td class="num">2</td>
+        <td>ม้วนคงคลังเทียบเพดาน 35,000 ตัน (ร่วมกับ Procurement)</td>
+        <td><span class="dot w"></span>เฝ้าระวัง 1</td>
+        <td>เป็นตัวเชื่อมจัดซื้อกับการผลิต แต่รายงานสถานะ Mill ขัดกับจัดซื้อ ต้องสอบทานก่อน</td></tr>
+      <tr class="rowwatch"><td><b>Logistics</b></td><td class="num">1</td>
+        <td>ความพร้อมของเครื่องจักรและผลต่อสต๊อกรายกลุ่ม</td>
+        <td><span class="dot w"></span>เฝ้าระวัง 1</td>
+        <td>เป็นต้นทางที่ทำให้ Supply Shock ถูกยืนยัน แต่ยังไม่ได้ระบุขนาดผลกระทบเป็นตัน</td></tr>
+      <tr class="rowwatch"><td><b>Transportation</b></td><td class="num">1</td>
+        <td>การรายงานการเปลี่ยนแปลง Price List</td>
+        <td><span class="dot a"></span>เตือนภัย 1</td>
+        <td>ถือ Signal ที่เป็นต้นทางของช่องว่าง 400 บาท/ตัน แต่เป็นรายการที่ข้อมูลไม่ครบที่สุดในรอบนี้</td></tr>
+      <tr class="rowwatch"><td><b>Services</b></td><td class="num">1</td>
+        <td>ยอดค้างส่ง ÷ กำลังจัดส่งต่อวัน</td>
+        <td><span class="dot w"></span>เฝ้าระวัง 1</td>
+        <td>ถือหลักฐานเชิงปริมาณที่หนักที่สุด 33,643 ตัน แต่ยังไม่มีแผนจัดลำดับการส่งมอบ</td></tr>
+    </tbody>
+  </table></div>
+  <div class="src"><span class="lab">ที่มา</span>
+    <div class="row">
+      <dt>แท่งกราฟ</dt><dd>นับจากคอลัมน์ "Owner Signal" และ "Direction" ในไฟล์ Signal โดยตรง ไม่มีการตีความ</dd>
+      <dt>เส้นเตือน</dt><dd>เส้นเตือน 7 เส้นในหน้า 4 แจกตามแผนกที่เป็นเจ้าของตัวเลขนั้น · เกณฑ์ 6 ใน 7 เส้นตั้งจากดุลพินิจของผู้วิเคราะห์ ยังไม่มีนโยบายรองรับ</dd>
+      <dt>โจทย์ของแผนก</dt><dd>สรุปจากการวิเคราะห์ในหน้า 6 และหน้า 8 — เป็นการตีความ ไม่ใช่ข้อความในไฟล์</dd>
+    </div>
+  </div>
+  <div class="cap"><b>กราฟนี้บอกอะไร:</b> Procurement และ Sales ส่ง Signal มากที่สุด (5 รายการเท่ากัน) แต่คนละแบบ — Procurement ส่งตัวเลขราคาที่วัดได้ ส่วน Sales ส่งสัญญาณดีมานด์เชิงคุณภาพ ·
+  ขณะที่ <b>Product Planning ส่งเพียง 2 รายการแต่ถือเส้นเตือนภัยถึง 2 เส้น</b> แปลว่าแผนกที่ส่งข้อมูลน้อยไม่ได้แปลว่าความเสี่ยงน้อย<br>
+  <b>ควรทำอะไรต่อ:</b> Logistics, Transportation และ Services ส่งมาแผนกละ 1 รายการ ซึ่งน้อยเกินกว่าจะเห็นภาพ — ควรกำหนดจำนวน Signal ขั้นต่ำต่อรอบ และให้ทุกแผนกระบุ "ทิศทางต่อ Margin" แยกจาก "ทิศทางของเหตุการณ์"</div>
+</section>
+<section class="card">
+  <h2><span class="n">10.6</span>แต่ละแผนกต้องรับมืออย่างไร — สรุปตามกรอบเวลา</h2>
+  <div class="note">
+    ตารางนี้ย่อ Playbook ทั้งหมดในหน้า 6 ให้เหลือหน้าเดียว · <b>ช่อง 2 สัปดาห์ใช้พื้นส้ม</b> เพราะเป็นสิ่งที่ต้องทำก่อน ที่เหลือรอได้ ·
+    ทุกรายการอ้างจาก Scenario Canvas ของบริษัท + Corrective Action ที่แผนกเขียนไว้เอง + ช่องว่างที่พบในหน้า 3 หัวข้อ 3.5
+  </div>
+  <div class="scroll"><table>
+    <thead><tr>
+      <th style="width:135px">แผนก</th>
+      <th style="width:255px;background:#fff4ec;color:#ff6a05">2 สัปดาห์ · ถึง 23 ก.ย. — ทำก่อน</th>
+      <th style="width:255px">1 เดือน · ถึง 9 ต.ค.</th>
+      <th style="width:255px">3 เดือน · ถึง 9 ธ.ค.</th>
+      <th>ตัวเลขที่แผนกนี้ต้องเฝ้า</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><b>Procurement</b><br><span style="font-size:11px;color:#5b7b84">จัดซื้อ</span></td>
+        <td style="background:#fff4ec">• <b>ยืนยันปริมาณ Pre-build กับ GJS</b> และขอตารางรับมอบ P/O 24,670 ตัน รายสัปดาห์<br>• ตอบ Option Barge 5,000 ตันของ SSI ภายใน 11 ก.ย.<br>• ส่ง FX และ Incoterm ของราคา GI Coil $610</td>
+        <td>• ล็อกวัตถุดิบให้พอผลิตตลอด Shutdown 23 ก.ย. – 6 ต.ค.<br>• เริ่มส่งราคานำเข้า CFR รายสัปดาห์ เป็น Leading Indicator ตัวแรก<br>• บันทึกคู่ "ราคาประกาศ vs ราคาจบจริง" ทุกครั้ง</td>
+        <td>• เจรจา Quota ให้ยืดหยุ่น ทยอยสั่ง ทยอยจบราคา<br>• เพิ่มแหล่ง Sourcing ต่างประเทศเป็นทางเลือก<br>• ติดตามมาตรการ AD / Safeguard เป็นรายเดือน</td>
+        <td>Inventory Days ของ HRC — ปัจจุบัน 21.3 วัน จะเหลือ <b>7.3 วัน ณ 6 ต.ค.</b> ในกรณีแย่ที่สุด<br>ม้วนคงคลัง 36,750 ตัน เทียบเพดาน 35,000 ตัน</td>
+      </tr>
+      <tr>
+        <td><b>Sale &amp; Marketing</b><br><span style="font-size:11px;color:#5b7b84">ขายและการตลาด</span></td>
+        <td style="background:#fff4ec">• <b>ทบทวน Price List ปิดช่องว่าง 0.40 บาท/กก. อย่างน้อยครึ่งหนึ่ง</b> ภายใน 15 ก.ย.<br>• ยืนยันว่าราคาที่ลด 0.30 กับที่ขึ้น 0.20 เป็นสินค้ากลุ่มเดียวกันหรือไม่<br>• จัดลำดับลูกค้าในยอดค้างส่ง 33,643 ตัน ร่วมกับ Services</td>
+        <td>• แยกนโยบายราคาเป็น 3 กลุ่ม — Factory ส่งผ่านเต็ม · Con&amp;Fab ป้องกัน Volume · Dealer ทยอยจัดสรร<br>• ส่ง Forecast เป็นตันของ Beam SM520 / PEB / ท่อ GI<br>• <b>ขึ้นราคาให้เสร็จก่อน 6 ต.ค.</b> เพราะหลังจากนั้นอำนาจต่อรองลดลง</td>
+        <td>• ล็อกลูกค้า OEM และ PEB ที่ซื้อด้วยสเปกไม่ใช่ราคา<br>• ปรับ Product Mix ไปทางเกรดพิเศษ<br>• หาตลาดทดแทนกลุ่มงานราชการที่งบหด</td>
+        <td>Pass-through Gap — ปัจจุบัน <b>−0.40 บาท/กก.</b><br>สัดส่วนยอดขายกลุ่มเสาไฟและงานถนน (ยังไม่มีข้อมูล)</td>
+      </tr>
+      <tr>
+        <td><b>Product Planning</b><br><span style="font-size:11px;color:#5b7b84">วางแผนสินค้า</span></td>
+        <td style="background:#fff4ec">• <b>สอบทานยอดรวม Stock FG ทันที</b> — 23,697 หรือ 27,665 ตัน<br>• ต่ออายุ OT วันอาทิตย์ต่อเนื่อง 2–4 สัปดาห์<br>• จัดลำดับการผลิตตาม Margin ไม่ใช่ตามวันที่สั่ง</td>
+        <td>• ปรับแผนผลิตรับ Shutdown ไม่ให้กระทบ Group A และงาน MTO<br>• ผลิตชดเชยยอดค้างส่งส่วนที่สต๊อกไม่คลุม 9,946 ตัน<br>• ส่งต้นทุน OT ต่อตัน เพื่อตัดสินใจด้วยตัวเลข</td>
+        <td>• ตัดสินใจเรื่องกำลังผลิตท่อและตัวซีที่ลดลง 10–20%<br>• ตั้ง Safety Stock Policy และ Inventory Days เป้าหมายรายกลุ่มสินค้าร่วมกับ Finance</td>
+        <td>Inventory Days ของ FG — ปัจจุบัน <b>13.7 วัน</b> ต่ำกว่าเส้นเตือนภัย 15 วัน<br>ผลผลิตจริง ÷ แผนผลิต — ปัจจุบัน <b>85%</b></td>
+      </tr>
+      <tr>
+        <td><b>Material Planning</b><br><span style="font-size:11px;color:#5b7b84">วางแผนวัตถุดิบ</span></td>
+        <td style="background:#fff4ec">• <b>ยืนยันสถานะ Mill ณ วันนี้ใหม่</b> — รายงานเดิมบอกว่าส่งเร็ว แต่ขัดกับข่าว Shutdown<br>• ยืนยันว่าเพดาน 35,000 ตัน เป็นนโยบายหรือแค่การบรรยายสภาพ<br>• ส่ง Size สั่งผลิตล่วงหน้าให้ GJS ให้ครบ</td>
+        <td>• บริหารม้วนรายวันตลอดช่วง Shutdown<br>• กำหนดอายุใช้งานของ Signal ด้าน Supply ว่ากี่วันถือว่าหมดอายุ<br>• ส่งจำนวนวันรอคิวตัดเฉลี่ยเป็นตัวเลข</td>
+        <td>• Forecast วัตถุดิบร่วมกับ Mill<br>• <b>วางแผนสั่งเกรดพิเศษล่วงหน้า</b> — Import Lead Time 45–75 วัน จึงต้องสั่งภายในเดือนนี้</td>
+        <td>ม้วนคงคลัง — ปัจจุบัน <b>36,750 ตัน</b> เกินเพดาน 5.0%<br>จำนวนวันรอคิวตัด (ยังไม่มีข้อมูล)</td>
+      </tr>
+      <tr>
+        <td><b>Logistics</b><br><span style="font-size:11px;color:#5b7b84">โลจิสติกส์</span></td>
+        <td style="background:#fff4ec">• แจ้งกำหนดซ่อมเสร็จของเครื่อง CF2 และแผนสำรองระหว่างซ่อม<br>• ระบุปริมาณเป็นตันของกลุ่มสินค้าที่ได้รับผลกระทบ</td>
+        <td>• ตรวจปริมาณรถขนส่งและเพิ่มผู้ให้บริการ<br>• Monitor สถานะวัตถุดิบและสินค้าค้างส่งเป็นตัวเลข ไม่ใช่เชิงคุณภาพ</td>
+        <td>• ทบทวน Safety Stock เพื่อลดความเสี่ยงสินค้าขาด<br>• จัดทำแผนรับมือ Supply Shock เป็นเอกสารที่ใช้ซ้ำได้</td>
+        <td>จำนวนวันที่ CF2 หยุด — <b>เกิน 3 สัปดาห์</b><br>สต๊อกกลุ่มที่ปรับ Group — <b>เหลือขาย &lt; 7 วัน</b></td>
+      </tr>
+      <tr>
+        <td><b>Transportation</b><br><span style="font-size:11px;color:#5b7b84">ขนส่ง</span></td>
+        <td style="background:#fff4ec">• <b>เติมข้อมูล S01 ให้ครบ</b> — ปัจจุบันช่อง Observable Fact, Evidence, Action และ Status ว่างทั้งหมด<br>• ยืนยันขอบเขตกลุ่มสินค้าที่ปรับลดราคา 0.30 บาท/กก.</td>
+        <td>• รายงานการเปลี่ยนแปลง Price List ทุกครั้ง พร้อมระบุกลุ่มสินค้าและทิศทางต่อ Margin ให้ถูกด้าน</td>
+        <td>• ปรับกระบวนการขนส่งให้ตอบโจทย์ลูกค้าหลัก<br>• พัฒนาระบบติดตามการขนส่งแบบ Real-time</td>
+        <td>การเปลี่ยนแปลงราคาขาย FG เป็น บาท/กก. ทุกรอบ — รอบล่าสุด <b>−0.30</b></td>
+      </tr>
+      <tr>
+        <td><b>Services</b><br><span style="font-size:11px;color:#5b7b84">บริการลูกค้า / ส่งมอบ</span></td>
+        <td style="background:#fff4ec">• <b>ระบุว่าค้างส่ง 33,643 ตัน กี่ตันเลยกำหนดส่งไปแล้ว</b><br>• เติมช่อง Corrective Action ที่ยังว่าง<br>• จัดลำดับการส่งมอบร่วมกับ Sales ตาม Margin</td>
+        <td>• แยกตัวชี้วัด "ประสิทธิภาพจัดส่ง" ออกจาก "ความเสี่ยงส่งมอบ"<br>• รายงานยอดค้างส่งรายกลุ่มลูกค้าทุกสัปดาห์</td>
+        <td>• ขยายกำลังจัดส่งเกิน 3,250 ตัน/วัน หรือเพิ่มผู้ให้บริการขนส่ง<br>• พัฒนา KPI วัดประสิทธิภาพ Logistics</td>
+        <td>ยอดค้างส่ง ÷ กำลังจัดส่งต่อวัน — ปัจจุบัน <b>10.4 วัน</b> เกณฑ์เตือนภัยคือ 12 วัน</td>
+      </tr>
+    </tbody>
+  </table></div>
+  <div class="src"><span class="lab">ที่มา</span>
+    <div class="row">
+      <dt>ช่อง 2 สัปดาห์</dt><dd>รายการตัดสินใจ 6 ข้อในหน้า 1 + ข้อมูลที่ขาดซึ่งมีเส้นตายในหน้า 9 + Divergence ที่ต้องสอบทานในหน้า 8 · เลือกเฉพาะข้อที่<b>เสียหายถ้าไม่ทำในสัปดาห์นี้</b></dd>
+      <dt>ช่อง 1 เดือน</dt><dd>Playbook ช่วง 7–14 วัน และ 3–6 เดือนจาก Scenario Canvas ของสายงานนั้น (Supply Shock และ Growth Market ซึ่งเป็น 2 Scenario ที่ยืนยันแล้ว)</dd>
+      <dt>ช่อง 3 เดือน</dt><dd>Playbook ช่วง 1 ปี จาก Canvas + สิ่งที่ต้องเตรียมรับ Price War และ Oversupply ที่ความน่าจะเป็นสูงขึ้นในกรอบนี้</dd>
+      <dt>ตัวเลขที่ต้องเฝ้า</dt><dd>เส้นเตือน 7 เส้นในหน้า 4 แจกตามแผนกที่เป็นเจ้าของตัวเลขนั้น</dd>
+    </div>
+  </div>
+  <div class="cap"><b>อ่านสั้น ๆ:</b> ช่อง 2 สัปดาห์ของทุกแผนกมีลักษณะเหมือนกันอย่างหนึ่ง — <b>ส่วนใหญ่เป็นการ "ยืนยันตัวเลข" ไม่ใช่การ "ลงมือทำ"</b>
+  เพราะรอบนี้เราติดอยู่ที่ข้อมูลไม่ครบมากกว่าติดที่ไม่รู้ว่าต้องทำอะไร<br>
+  <b>ควรทำอะไรต่อ:</b> ใช้ตารางนี้เป็นวาระ S&amp;OP โดยให้แต่ละแผนกรายงานเฉพาะ 2 อย่าง — ช่อง 2 สัปดาห์ของตัวเองทำถึงไหน และตัวเลขที่ต้องเฝ้าขยับไปทางไหน</div>
+</section>
+
+<section class="card">
+  <h2><span class="n">10.7</span>สามเรื่องที่ต้องตัดสินใจในสัปดาห์นี้</h2>
   <div class="arow">
     <div class="no">1</div>
     <div class="txt"><b>ยืนยันปริมาณเหล็กที่สั่ง GJ Steel ผลิตล่วงหน้า และขอตารางรับมอบ P/O 24,670 ตัน รายสัปดาห์</b><br>
@@ -2985,7 +3196,7 @@ window.DEPTS=[
 </section>
 
 <section class="card">
-  <h2><span class="n">10.6</span>สิ่งที่รายงานนี้ยัง "มองไม่เห็น" — ต้องรู้ก่อนใช้ตัดสินใจ</h2>
+  <h2><span class="n">10.8</span>สิ่งที่รายงานนี้ยัง "มองไม่เห็น" — ต้องรู้ก่อนใช้ตัดสินใจ</h2>
   <div class="scroll"><table>
     <thead><tr><th style="width:230px">เรื่องที่มองไม่เห็น</th><th style="width:250px">เพราะขาดข้อมูลอะไร</th><th>ทำให้เสี่ยงตัดสินใจผิดอย่างไร</th></tr></thead>
     <tbody>
@@ -3005,7 +3216,7 @@ window.DEPTS=[
 </section>
 
 <section class="card">
-  <h2><span class="n">10.7</span>ตารางตรวจย้อนกลับ — ตัวเลขทุกตัวบนหน้านี้มาจากไหน</h2>
+  <h2><span class="n">10.9</span>ตารางตรวจย้อนกลับ — ตัวเลขทุกตัวบนหน้านี้มาจากไหน</h2>
   <div class="scroll"><table>
     <thead><tr><th style="width:135px">ตัวเลข</th><th style="width:130px">Signal ต้นทาง</th><th style="width:230px">ค่าดิบที่ยกมาจากไฟล์</th><th style="width:240px">สูตรที่ใช้</th><th style="width:95px">สถานะ</th></tr></thead>
     <tbody>
@@ -3028,8 +3239,14 @@ window.DEPTS=[
   <b>ควรทำอะไรต่อ:</b> เพราะทั้งรายงานพิงอยู่บนตัวเลขไม่กี่ตัว การสอบทานตัวเลขต้นทางจึงคุ้มค่าที่สุด — เริ่มจากยอดรวมสต๊อก FG ที่ยังขัดกันเอง และขอบเขตกลุ่มสินค้าที่ปรับราคา</div>
 </section>
 
+
+
+
+</div>
+<!-- ============ PANEL : GLOSSARY ============ -->
+<div class="panel" id="pglos">
 <section class="card" id="glossary">
-  <h2><span class="n">10.8</span>อธิบายคำศัพท์ — แต่ละคำในรายงานนี้หมายความว่าอะไร</h2>
+  <h2>อธิบายคำศัพท์ — แต่ละคำในรายงานนี้หมายความว่าอะไร</h2>
   <div class="note">คำที่มี <span style="border-bottom:1px dashed #8bbade">เส้นประใต้ตัวอักษร</span> ในทุกหน้าของรายงาน ชี้เมาส์ค้างจะเห็นคำอธิบายสั้น ๆ ทันที · ตารางด้านล่างคือฉบับเต็มพร้อมบอกว่าใช้ที่ไหนในรายงาน</div>
 
   <h3 class="sub">ก · คำที่เกี่ยวกับกำไรและราคา</h3>
@@ -3222,7 +3439,6 @@ window.DEPTS=[
   <div class="cap"><b>วิธีใช้ตารางนี้:</b> คำที่มีเส้นประใต้ตัวอักษรในทุกหน้า ชี้เมาส์ค้างจะเห็นคำอธิบายย่อทันทีโดยไม่ต้องกลับมาที่หน้านี้ · ตารางนี้เก็บฉบับเต็มไว้พร้อมบอกว่าคำนั้นถูกใช้ที่ไหนและค่าปัจจุบันเท่าไร<br>
   <b>คำที่ควรจำแค่ 3 คำ:</b> <b>Margin</b> คือกำไรที่เป็นเป้าหมาย · <b>Pass-through Gap</b> คือจุดรั่วที่ใหญ่ที่สุดรอบนี้ · <b>Days of Price Exposure</b> คือระยะเวลาที่เราเสี่ยงอยู่ถ้าราคากลับทิศ</div>
 </section>
-
 </div>
 <footer>
   <b>TMT Foresight Dashboard</b> · จัดทำ 9 กันยายน 2026 · Signal Window 17 ส.ค. – 7 ก.ย. 2026 · Signal 17 รายการ จาก 7 แผนก · Data Completeness 69%<br>
@@ -3248,7 +3464,7 @@ window.DEPTS=[
   btn.addEventListener('click', function(){ setCollapsed(!document.body.classList.contains('sbc')); });
 
   /* ---- panel switching ---- */
-  var tabs = document.querySelectorAll('#sbnav button');
+  var tabs = document.querySelectorAll('#sbnav button, #sbnav2 button');
   tabs.forEach(function(b){
     b.addEventListener('click', function(){
       tabs.forEach(function(x){x.classList.remove('on')});
@@ -3506,7 +3722,7 @@ window.DEPTS=[
       '<div class="tmeta">คำศัพท์เทคนิค</div>' +
       '<div class="ttitle">' + d[0] + '</div>' +
       '<div class="tnum">' + d[1] + '</div>' +
-      '<div class="thint">ดูคำอธิบายเต็มได้ที่หน้า 10 หัวข้อ 10.8 อธิบายคำศัพท์</div>';
+      '<div class="thint">คลิกเพื่อเปิดอภิธานศัพท์ฉบับเต็ม (เมนูรูปฟันเฟืองล่างสุด)</div>';
     tip.classList.add('on');
     place(el);
   }
@@ -3519,6 +3735,12 @@ window.DEPTS=[
     if(tipFor) hideTip();
   });
   document.addEventListener('click', function(e){
+    var tl = e.target.closest ? e.target.closest('.trm') : null;
+    if(tl){
+      var nav2 = document.querySelector('#sbnav2 button[data-t="pglos"]');
+      if(nav2){ hideTip(); nav2.click(); }
+      return;
+    }
     var el = e.target.closest ? e.target.closest('.sid') : null;
     if(!el) return;
     var id = (el.textContent || '').trim();
