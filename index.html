@@ -223,6 +223,8 @@ footer{border-top:2px solid var(--navy);margin-top:30px;padding-top:14px;font-si
 #siglist summary .id.sid{border-bottom:1px dotted var(--orange)}
 
 /* ---------- signal tooltip ---------- */
+.trm{border-bottom:1px dashed var(--blue);cursor:help}
+.trm:hover{background:#eaf2f8}
 #tip{position:fixed;z-index:200;max-width:360px;background:var(--navy);color:#fff;
   padding:10px 13px;font-size:12px;line-height:1.6;box-shadow:0 8px 22px -8px rgba(12,56,67,.7);
   pointer-events:none;opacity:0;transform:translateY(-4px);transition:opacity .12s ease,transform .12s ease}
@@ -305,7 +307,7 @@ td.rm{text-align:center;white-space:nowrap}
     <button data-t="p5" title="Signal View"><span class="num">7</span><span class="lbl">Signal View</span></button>
     <button data-t="p6" title="โอกาส–อุปสรรค และ Convergence"><span class="num">8</span><span class="lbl">โอกาส–อุปสรรค<br>&amp; Convergence</span></button>
     <button data-t="p7" title="Data Gap และเป้าหมาย"><span class="num">9</span><span class="lbl">Data Gap &amp; เป้าหมาย</span></button>
-    <button data-t="p10" title="สรุปรวมสำหรับผู้บริหาร — อ่าน 3 นาที"><span class="num">10</span><span class="lbl">สรุปรวมผู้บริหาร<br>อ่าน 3 นาที</span></button>
+    <button data-t="p10" title="สรุปรวมสำหรับผู้บริหาร — อ่าน 3 นาที"><span class="num">10</span><span class="lbl">สรุปรวมผู้บริหาร<br>+ คำศัพท์</span></button>
   </nav>
   <div class="sbfoot">อัปเดต 9 ก.ย. 2026<br>Signal 17 รายการ · 7 แผนก<br>Data Completeness 69%</div>
 </aside>
@@ -2821,18 +2823,19 @@ window.DEPTS=[
 <section class="card">
   <h2><span class="n">10.3</span>ความเสี่ยงเปลี่ยนหน้าตาไปตามเวลา — กราฟเดียวที่ต้องดู</h2>
   <div class="scroll">
-  <svg viewBox="0 0 960 400" width="100%" height="380" role="img">
+  <svg viewBox="0 0 960 440" width="100%" height="420" role="img">
+    <!-- grid -->
     <g stroke="#d5dee1" stroke-width="1">
-      <line x1="110" y1="60" x2="820" y2="60"/><line x1="110" y1="125" x2="820" y2="125"/>
-      <line x1="110" y1="190" x2="820" y2="190"/><line x1="110" y1="255" x2="820" y2="255"/>
+      <line x1="110" y1="60" x2="880" y2="60"/><line x1="110" y1="125" x2="880" y2="125"/>
+      <line x1="110" y1="190" x2="880" y2="190"/><line x1="110" y1="255" x2="880" y2="255"/>
     </g>
-    <line x1="110" y1="320" x2="820" y2="320" stroke="#0c3843" stroke-width="1.5"/>
+    <line x1="110" y1="320" x2="880" y2="320" stroke="#0c3843" stroke-width="1.5"/>
     <line x1="110" y1="45" x2="110" y2="320" stroke="#0c3843" stroke-width="1.5"/>
     <g font-size="11" fill="#0c3843" text-anchor="end">
       <text x="102" y="64">100%</text><text x="102" y="129">75%</text><text x="102" y="194">50%</text>
       <text x="102" y="259">25%</text><text x="102" y="324">0%</text>
     </g>
-    <g font-size="12.5" fill="#0c3843" text-anchor="middle" font-weight="600">
+    <g font-size="13" fill="#0c3843" text-anchor="middle" font-weight="600">
       <text x="175" y="345">2 สัปดาห์</text><text x="465" y="345">1 เดือน</text><text x="755" y="345">3 เดือน</text>
     </g>
     <g font-size="11" fill="#8bbade" text-anchor="middle">
@@ -2840,39 +2843,82 @@ window.DEPTS=[
     </g>
     <g stroke-dasharray="3 4" stroke="#d5dee1"><line x1="465" y1="60" x2="465" y2="320"/><line x1="755" y1="60" x2="755" y2="320"/></g>
 
-    <!-- Supply Shock 75,85,50 : y=320-p*2.6 -->
+    <!-- Supply Shock 75 / 85 / 50 -->
     <polyline points="175,125 465,99 755,190" fill="none" stroke="#ff6a05" stroke-width="3.5"/>
     <g fill="#ff6a05"><circle cx="175" cy="125" r="6"/><circle cx="465" cy="99" r="6"/><circle cx="755" cy="190" r="6"/></g>
-    <g font-size="13" font-weight="600" fill="#ff6a05"><text x="175" y="113" text-anchor="middle">75%</text><text x="465" y="87" text-anchor="middle">85%</text><text x="755" y="178" text-anchor="middle">50%</text></g>
-    <text x="828" y="194" font-size="12.5" font-weight="600" fill="#ff6a05">ของขาด</text>
-    <text x="828" y="209" font-size="11" fill="#5b7b84">Supply Shock</text>
+    <g font-size="13.5" font-weight="600" fill="#ff6a05">
+      <text x="175" y="112" text-anchor="middle">75%</text>
+      <text x="465" y="86" text-anchor="middle">85%</text>
+      <text x="776" y="195" text-anchor="start">50%</text>
+    </g>
 
-    <!-- Over Demand 65,70,55 -->
+    <!-- Over Demand 65 / 70 / 55 -->
     <polyline points="175,151 465,138 755,177" fill="none" stroke="#0c3843" stroke-width="3"/>
     <g fill="#0c3843"><circle cx="175" cy="151" r="5.5"/><circle cx="465" cy="138" r="5.5"/><circle cx="755" cy="177" r="5.5"/></g>
-    <g font-size="12.5" font-weight="600" fill="#0c3843"><text x="175" y="171" text-anchor="middle">65%</text><text x="465" y="158" text-anchor="middle">70%</text><text x="742" y="165" text-anchor="middle">55%</text></g>
-    <text x="828" y="160" font-size="12.5" font-weight="600" fill="#0c3843">ดีมานด์เกิน</text>
-    <text x="828" y="175" font-size="11" fill="#5b7b84">Over Demand</text>
+    <g font-size="13" font-weight="600" fill="#0c3843">
+      <text x="175" y="172" text-anchor="middle">65%</text>
+      <text x="465" y="159" text-anchor="middle">70%</text>
+      <text x="755" y="165" text-anchor="middle">55%</text>
+    </g>
 
-    <!-- Price War 20,25,40 -->
+    <!-- Price War 20 / 25 / 40 -->
     <polyline points="175,268 465,255 755,216" fill="none" stroke="#fdc440" stroke-width="3"/>
     <g fill="#fdc440" stroke="#e0a91d"><circle cx="175" cy="268" r="5.5"/><circle cx="465" cy="255" r="5.5"/><circle cx="755" cy="216" r="5.5"/></g>
-    <g font-size="12.5" font-weight="600" fill="#0c3843"><text x="175" y="288" text-anchor="middle">20%</text><text x="465" y="275" text-anchor="middle">25%</text><text x="755" y="236" text-anchor="middle">40%</text></g>
-    <text x="828" y="220" font-size="12.5" font-weight="600" fill="#0c3843">สงครามราคา</text>
-    <text x="828" y="235" font-size="11" fill="#5b7b84">Price War</text>
+    <g font-size="13" font-weight="600" fill="#0c3843">
+      <text x="175" y="256" text-anchor="middle">20%</text>
+      <text x="465" y="243" text-anchor="middle">25%</text>
+      <text x="755" y="238" text-anchor="middle">40%</text>
+    </g>
 
-    <!-- Oversupply 5,10,25 -->
+    <!-- Oversupply 5 / 10 / 25 -->
     <polyline points="175,307 465,294 755,255" fill="none" stroke="#8bbade" stroke-width="3"/>
     <g fill="#8bbade"><circle cx="175" cy="307" r="5.5"/><circle cx="465" cy="294" r="5.5"/><circle cx="755" cy="255" r="5.5"/></g>
-    <g font-size="12.5" font-weight="600" fill="#5b7b84"><text x="175" y="301" text-anchor="middle" dy="-8">5%</text><text x="465" y="288" text-anchor="middle" dy="-8">10%</text><text x="742" y="249" text-anchor="middle" dy="-8">25%</text></g>
-    <text x="828" y="262" font-size="12.5" font-weight="600" fill="#5b7b84">ของล้น</text>
-    <text x="828" y="277" font-size="11" fill="#5b7b84">Oversupply</text>
+    <g font-size="13" font-weight="600" fill="#5b7b84">
+      <text x="196" y="311" text-anchor="start">5%</text>
+      <text x="486" y="298" text-anchor="start">10%</text>
+      <text x="776" y="259" text-anchor="start">25%</text>
+    </g>
 
-    <text x="110" y="32" font-size="13" font-weight="600" fill="#0c3843">ความน่าจะเป็นของ 4 สถานการณ์ ในแต่ละกรอบเวลา</text>
-    <text x="110" y="382" font-size="11.5" fill="#5b7b84">จุดตัดสำคัญอยู่ราวต้นเดือน ต.ค. — วันที่โรงงาน GJ Steel กลับมาเดินเครื่อง (6 ต.ค.) พร้อมกับที่ผลของงบราชการที่ลดลงเริ่มปรากฏ</text>
+    <text x="110" y="32" font-size="13.5" font-weight="600" fill="#0c3843">ความน่าจะเป็นของ 4 สถานการณ์ ในแต่ละกรอบเวลา</text>
+
+    <!-- ================= LEGEND ================= -->
+    <line x1="110" y1="384" x2="880" y2="384" stroke="#d5dee1" stroke-width="1"/>
+    <g>
+      <line x1="112" y1="408" x2="146" y2="408" stroke="#ff6a05" stroke-width="4"/>
+      <circle cx="129" cy="408" r="6" fill="#ff6a05"/>
+      <text x="155" y="404" font-size="13" font-weight="600" fill="#0c3843">ของขาด</text>
+      <text x="155" y="419" font-size="10.5" fill="#5b7b84">Supply Shock</text>
+
+      <line x1="300" y1="408" x2="334" y2="408" stroke="#0c3843" stroke-width="4"/>
+      <circle cx="317" cy="408" r="5.5" fill="#0c3843"/>
+      <text x="343" y="404" font-size="13" font-weight="600" fill="#0c3843">ดีมานด์เกิน</text>
+      <text x="343" y="419" font-size="10.5" fill="#5b7b84">Over Demand</text>
+
+      <line x1="500" y1="408" x2="534" y2="408" stroke="#fdc440" stroke-width="4"/>
+      <circle cx="517" cy="408" r="5.5" fill="#fdc440" stroke="#e0a91d"/>
+      <text x="543" y="404" font-size="13" font-weight="600" fill="#0c3843">สงครามราคา</text>
+      <text x="543" y="419" font-size="10.5" fill="#5b7b84">Price War</text>
+
+      <line x1="700" y1="408" x2="734" y2="408" stroke="#8bbade" stroke-width="4"/>
+      <circle cx="717" cy="408" r="5.5" fill="#8bbade"/>
+      <text x="743" y="404" font-size="13" font-weight="600" fill="#0c3843">ของล้น</text>
+      <text x="743" y="419" font-size="10.5" fill="#5b7b84">Oversupply</text>
+    </g>
   </svg>
   </div>
-  <div class="src"><span class="lab">ที่มาของกราฟ</span>
+  <div class="src"><span class="lab">แต่ละสีหมายถึงอะไร</span>
+    <div class="row">
+      <dt><span style="display:inline-block;width:22px;height:4px;background:#ff6a05;vertical-align:3px"></span> ส้ม</dt>
+      <dd><b>ของขาด (Supply Shock)</b> — ผลิตและส่งของไม่ทันความต้องการ · ความเสี่ยงคือเสียยอดขาย ไม่ใช่ต้นทุน</dd>
+      <dt><span style="display:inline-block;width:22px;height:4px;background:#0c3843;vertical-align:3px"></span> กรมท่า</dt>
+      <dd><b>ดีมานด์เกิน (Over Demand)</b> — ลูกค้าอยากซื้อมากกว่าที่เราขายได้ · เป็นจังหวะที่ขึ้นราคาได้ง่ายที่สุด</dd>
+      <dt><span style="display:inline-block;width:22px;height:4px;background:#fdc440;vertical-align:3px"></span> เหลือง</dt>
+      <dd><b>สงครามราคา (Price War)</b> — ถูกกดราคาจากคู่แข่งหรือของนำเข้า · ทุก 0.10 บาท/กก. ที่ยอมลด = 5.18 ล้านบาท/เดือน</dd>
+      <dt><span style="display:inline-block;width:22px;height:4px;background:#8bbade;vertical-align:3px"></span> ฟ้าอ่อน</dt>
+      <dd><b>ของล้น (Oversupply)</b> — สต๊อกมากกว่าที่ขายได้ · ความเสี่ยงคือขาดทุนจากสต๊อกต้นทุนสูง</dd>
+    </div>
+  </div>
+  <div class="src"><span class="lab">ที่มาของตัวเลข</span>
     <div class="row">
       <dt>เส้นแต่ละเส้น</dt><dd>ความน่าจะเป็นของ 4 สถานการณ์ตาม Scenario Canvas ของบริษัท (Supply Shock / Growth Market / Cost Crisis / Over supply)</dd>
       <dt>ค่าที่ใช้</dt><dd>ประเมินจาก 3 อย่าง — จำนวนแผนกที่ส่ง Signal ไปทางเดียวกัน, เวลาหน่วงของ Signal เทียบกรอบเวลา, และมี Trigger ที่วัดได้แล้วหรือยัง</dd>
@@ -2880,7 +2926,8 @@ window.DEPTS=[
       <dt>ข้อจำกัด</dt><dd><b>เป็นการประเมินเชิงคุณภาพ ไม่ใช่แบบจำลองสถิติ</b> — ห้ามนำ % ไปคูณเป็นค่าคาดหวังทางการเงินโดยตรง</dd>
     </div>
   </div>
-  <div class="cap"><b>อ่านสั้น ๆ:</b> เส้นส้ม (ของขาด) พุ่งสูงสุดในกรอบ 1 เดือน แล้วดิ่งลง · เส้นเหลืองและฟ้า (สงครามราคาและของล้น) ค่อย ๆ ไต่ขึ้นตามเวลา
+  <div class="cap"><b>จุดตัดสำคัญ:</b> อยู่ราวต้นเดือน ต.ค. — วันที่โรงงาน GJ Steel กลับมาเดินเครื่อง (6 ต.ค.) พร้อมกับที่ผลของงบราชการที่ลดลงเริ่มปรากฏ<br>
+  <b>อ่านสั้น ๆ:</b> เส้นส้ม (ของขาด) พุ่งสูงสุดในกรอบ 1 เดือน แล้วดิ่งลง · เส้นเหลืองและฟ้า (สงครามราคาและของล้น) ค่อย ๆ ไต่ขึ้นตามเวลา
   แปลว่า <b>ปัญหาของเดือนนี้กับปัญหาของไตรมาสหน้าเป็นเรื่องตรงกันข้ามกัน</b><br>
   <b>ควรทำอะไรต่อ:</b> ใช้อำนาจต่อรองที่มีในเดือนนี้เก็บกำไรไว้ก่อน แล้วเอาไปสร้างเกราะรับไตรมาสหน้า — ล็อกลูกค้ากลุ่มที่ซื้อด้วยสเปกไม่ใช่ราคา และคุมเพดานสต๊อกไม่ให้เกิน 45 วัน</div>
 </section>
@@ -2981,6 +3028,201 @@ window.DEPTS=[
   <b>ควรทำอะไรต่อ:</b> เพราะทั้งรายงานพิงอยู่บนตัวเลขไม่กี่ตัว การสอบทานตัวเลขต้นทางจึงคุ้มค่าที่สุด — เริ่มจากยอดรวมสต๊อก FG ที่ยังขัดกันเอง และขอบเขตกลุ่มสินค้าที่ปรับราคา</div>
 </section>
 
+<section class="card" id="glossary">
+  <h2><span class="n">10.8</span>อธิบายคำศัพท์ — แต่ละคำในรายงานนี้หมายความว่าอะไร</h2>
+  <div class="note">คำที่มี <span style="border-bottom:1px dashed #8bbade">เส้นประใต้ตัวอักษร</span> ในทุกหน้าของรายงาน ชี้เมาส์ค้างจะเห็นคำอธิบายสั้น ๆ ทันที · ตารางด้านล่างคือฉบับเต็มพร้อมบอกว่าใช้ที่ไหนในรายงาน</div>
+
+  <h3 class="sub">ก · คำที่เกี่ยวกับกำไรและราคา</h3>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:180px">คำศัพท์</th><th style="width:330px">หมายความว่าอะไร (ภาษาง่าย)</th><th>ใช้ที่ไหนในรายงานนี้</th></tr></thead>
+    <tbody>
+      <tr><td><b>Margin</b><br><span style="font-size:11px;color:#5b7b84">กำไรขั้นต้น</span></td>
+        <td>ส่วนต่างระหว่างราคาที่ขายได้ กับต้นทุนของสินค้านั้น · เป็นเป้าหมายหลักของรายงานทั้งฉบับ</td>
+        <td>ทุกหน้า · ค่าคงที่ที่ใช้แปลงคือ 100 บาท/ตัน = 5.18 ล้านบาท/เดือน</td></tr>
+      <tr><td><b>Metal Spread</b></td>
+        <td>ราคาขายเฉลี่ย <b>ลบ</b> ต้นทุนวัตถุดิบเฉลี่ย · เป็นกำไรขั้นแรกก่อนหักค่าแปรรูปและค่าขนส่ง</td>
+        <td>หน้า 5 หัวข้อ 5.3 · ปัจจุบันคำนวณเป็นตัวเลขไม่ได้เพราะไม่มีราคาขายเฉลี่ย</td></tr>
+      <tr><td><b>Conversion Margin</b></td>
+        <td>Metal Spread หักค่าตัด/สลิต/พับ ค่าขนส่ง และค่าโสหุ้ยออกไปแล้ว · เป็นตัวเลขที่ใกล้กำไรจริงที่สุด</td>
+        <td>หน้า 5 หัวข้อ 5.3 · ยังคำนวณไม่ได้ ขาด 4 ตัวแปร</td></tr>
+      <tr class="rowalarm"><td><b>Pass-through Gap</b><br><span style="font-size:11px;color:#5b7b84">ช่องว่างการส่งผ่านต้นทุน</span></td>
+        <td><b>ต้นทุนขึ้นเท่าไร เทียบกับราคาขายที่เราขึ้นตามได้เท่าไร</b> · ถ้าต้นทุนขึ้น 0.30 แต่ขึ้นราคาได้ 0.20 ช่องว่างคือ 0.10 บาท/กก. ซึ่งกินกำไรทันที</td>
+        <td>เป็นตัวเลขพาดหัวของรายงาน −400 บาท/ตัน · หน้า 1, 3, 8, 10</td></tr>
+      <tr><td><b>ASP</b><br><span style="font-size:11px;color:#5b7b84">Average Selling Price</span></td>
+        <td>ราคาขายเฉลี่ยจริงที่ขายได้ · ต่างจาก Price List ซึ่งเป็นราคาประกาศ ยังไม่หักส่วนลด</td>
+        <td>หน้า 5 และ 9 · เป็นข้อมูลที่ขาดอันดับ 7</td></tr>
+      <tr><td><b>GM ต่อตัน</b><br><span style="font-size:11px;color:#5b7b84">Gross Margin per ton</span></td>
+        <td>กำไรขั้นต้นต่อการขาย 1 ตัน · เป็นตัวคูณที่ทำให้แปลง "ปริมาณตัน" เป็น "เงินบาท" ได้</td>
+        <td>หน้า 9 ข้อมูลที่ขาดอันดับ 1 · ถ้าได้มาจะปลดล็อกอีก 6 รายการทันที</td></tr>
+      <tr><td><b>Price Floor</b><br><span style="font-size:11px;color:#5b7b84">ราคาขั้นต่ำ</span></td>
+        <td>ราคาต่ำสุดที่ยังขายแล้วไม่ขาดทุน · ต้องรู้ก่อนจะเข้าสู่การแข่งราคา</td>
+        <td>หน้า 3 หัวข้อ 3.5 และ 3.7 · ยังไม่มี เพราะยังไม่มี GM ต่อตัน</td></tr>
+      <tr><td><b>Import Parity Price</b><br><span style="font-size:11px;color:#5b7b84">ราคาเทียบเท่าของนำเข้า</span></td>
+        <td>ถ้าซื้อของนำเข้ามาแทน จะมีต้นทุนถึงหน้าโรงงานเราเท่าไร (รวมค่าเรือ ภาษี ค่าท่า ดอกเบี้ย แปลงเป็นบาทแล้ว) · ใช้เทียบว่าราคาในประเทศแพงหรือถูกกว่าของนำเข้า</td>
+        <td>หน้า 5 หัวข้อ 5.2 Waterfall · ปัจจุบันคำนวณไม่ได้เพราะขาดอัตราแลกเปลี่ยน</td></tr>
+      <tr><td><b>Price Taker</b><br><span style="font-size:11px;color:#5b7b84">ผู้ตามราคา</span></td>
+        <td>ตลาดที่ราคาถูกกำหนดจากภายนอก (ราคานำเข้า) ผู้เล่นในประเทศตั้งราคาเองไม่ได้ ต้องตามเขา</td>
+        <td>เป็นข้อสมมติเชิงโครงสร้างของทั้งรายงาน · ระบุไว้ในหน้า 5 หัวข้อ 5.1</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">ข · คำที่เกี่ยวกับสต๊อกและเวลา</h3>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:180px">คำศัพท์</th><th style="width:330px">หมายความว่าอะไร (ภาษาง่าย)</th><th>ใช้ที่ไหนในรายงานนี้</th></tr></thead>
+    <tbody>
+      <tr><td><b>Inventory Days</b><br><span style="font-size:11px;color:#5b7b84">สต๊อกพอขายกี่วัน</span></td>
+        <td>เอาสต๊อกที่มีหารด้วยยอดขายต่อวัน · ได้คำตอบว่าของที่มีอยู่พอขายไปได้อีกกี่วันถ้าไม่ผลิตเพิ่มเลย</td>
+        <td>หน้า 4 เส้นเตือนที่ 2 และ 4 · FG 13.7 วัน · HRC 21.3 วัน</td></tr>
+      <tr class="rowwatch"><td><b>Days of Price Exposure</b><br><span style="font-size:11px;color:#5b7b84">จำนวนวันที่ราคายังค้างในต้นทุน</span></td>
+        <td><b>เหล็กที่ซื้อวันนี้จะยังอยู่ในต้นทุนของเราอีกกี่วันก่อนจะขายออกไปหมด</b> · ยิ่งนานยิ่งเสี่ยง เพราะถ้าราคาตลาดกลับทิศ เราจะยังถือของราคาเก่าอยู่</td>
+        <td>หน้า 1 และ 4 · ปัจจุบัน 35 วัน (รวม P/O = 49.3 วัน)</td></tr>
+      <tr><td><b>Inventory Lag Effect</b><br><span style="font-size:11px;color:#5b7b84">ผลของต้นทุนที่ตามหลัง</span></td>
+        <td>ต้นทุนในสต๊อกคือราคาที่ซื้อมา 30–90 วันก่อน แต่ราคาขายคือราคาวันนี้ · ทำให้ราคาขาขึ้นได้กำไรพิเศษ ราคาขาลงขาดทุนจากสต๊อก</td>
+        <td>หน้า 4 กราฟ 4 ช่อง · หน้า 5 หัวข้อ 5.3</td></tr>
+      <tr><td><b>NRV</b><br><span style="font-size:11px;color:#5b7b84">Net Realisable Value</span></td>
+        <td>มูลค่าที่คาดว่าจะขายได้จริงหลังหักค่าใช้จ่ายในการขาย · ถ้าต่ำกว่าต้นทุนในบัญชี ต้องตั้งด้อยค่าซึ่งกระทบกำไรทันที</td>
+        <td>หน้า 2 Scenario Oversupply · หน้า 5 หัวข้อ 5.3</td></tr>
+      <tr><td><b>Safety Stock</b><br><span style="font-size:11px;color:#5b7b84">สต๊อกกันชน</span></td>
+        <td>สต๊อกส่วนเกินที่ตั้งใจเก็บไว้เผื่อความไม่แน่นอน เช่น ของมาช้าหรือลูกค้าสั่งเพิ่มเฉียบพลัน</td>
+        <td>Playbook ทุก Scenario ในหน้า 2 และ 6</td></tr>
+      <tr><td><b>Import Lead Time</b><br><span style="font-size:11px;color:#5b7b84">เวลารอของนำเข้า</span></td>
+        <td>ตั้งแต่สั่งของนำเข้าจนของถึงมือ ใช้เวลา 45–75 วัน · เป็นเหตุผลว่าทำไม "หน้าต่างการตัดสินใจซื้อ" ต้องล่วงหน้ามาก</td>
+        <td>หน้า 5 หัวข้อ 5.4 · เป็นข้อสมมติจาก Instruction ไม่ได้มาจากไฟล์ Signal</td></tr>
+      <tr><td><b>Restocking / Destocking</b><br><span style="font-size:11px;color:#5b7b84">วงจรเร่งเก็บ / เร่งระบาย</span></td>
+        <td>ช่วงที่ผู้ค้าทั้งตลาดเร่งเก็บสต๊อกพร้อมกัน (Restocking) หรือเร่งระบายพร้อมกัน (Destocking) · ทำให้ราคาแกว่งเกินความต้องการจริง</td>
+        <td>หน้า 5 หัวข้อ 5.4 · รอบนี้พบสัญญาณ Restocking จากลูกค้าเก็บสต๊อกท่อ GI</td></tr>
+      <tr><td><b>Bullwhip Effect</b><br><span style="font-size:11px;color:#5b7b84">ผลแส้ม้า</span></td>
+        <td>คำสั่งซื้อปลายน้ำเปลี่ยนเพียงเล็กน้อย แต่พอส่งต่อขึ้นไปต้นน้ำกลับแกว่งแรงกว่ามาก เหมือนสะบัดแส้</td>
+        <td>หน้า 5 หัวข้อ 5.4 · รอบนี้ยอดขายเปลี่ยน +3.6% แต่ราคาที่ Supplier ประกาศเปลี่ยน +4.1%</td></tr>
+      <tr><td><b>Slow Moving / Non-active</b><br><span style="font-size:11px;color:#5b7b84">สินค้าหมุนช้า / ไม่เคลื่อนไหว</span></td>
+        <td>สินค้าที่ขายออกช้าหรือไม่ขายออกเลย · เป็นเงินจมและเสี่ยงเสื่อมสภาพ</td>
+        <td>Playbook ของ Oversupply และ Price War</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">ค · คำที่เกี่ยวกับสินค้าและวัตถุดิบ</h3>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:180px">คำศัพท์</th><th style="width:330px">หมายความว่าอะไร (ภาษาง่าย)</th><th>ใช้ที่ไหนในรายงานนี้</th></tr></thead>
+    <tbody>
+      <tr><td><b>HRC</b><br><span style="font-size:11px;color:#5b7b84">Hot Rolled Coil</span></td>
+        <td>เหล็กแผ่นรีดร้อนชนิดม้วน · เป็นวัตถุดิบหลักที่ TMT ซื้อมาแปรรูปเป็นสินค้าสำเร็จรูป</td>
+        <td>ทุกหน้า · สต๊อกปัจจุบัน 36,750 ตัน ต้นทุนเฉลี่ย 19.48 บาท/กก.</td></tr>
+      <tr><td><b>CRC</b><br><span style="font-size:11px;color:#5b7b84">Cold Rolled Coil</span></td>
+        <td>เหล็กแผ่นรีดเย็นชนิดม้วน · ผิวเรียบกว่า HRC ใช้กับงานที่ต้องการความละเอียด</td>
+        <td>หน้า 5 หัวข้อ 5.1 ในโซ่ราคา · ยังไม่มีข้อมูลในไฟล์ Signal</td></tr>
+      <tr><td><b>GI Coil</b><br><span style="font-size:11px;color:#5b7b84">Galvanized Coil</span></td>
+        <td>เหล็กแผ่นเคลือบสังกะสีชนิดม้วน · กันสนิมได้ ใช้ทำท่อ GI และตัวซี GI</td>
+        <td>หน้า 5 · ราคานำเข้าล่าสุด $590 → $610 ต่อตัน</td></tr>
+      <tr><td><b>FG</b><br><span style="font-size:11px;color:#5b7b84">Finished Goods</span></td>
+        <td>สินค้าสำเร็จรูปที่พร้อมขาย เช่น เหล็กแผ่น เหล็กแบน ท่อดำ ตัวซี ท่อ GI</td>
+        <td>ทุกหน้า · สต๊อกปัจจุบัน 23,697 ตัน</td></tr>
+      <tr><td><b>RM</b><br><span style="font-size:11px;color:#5b7b84">Raw Material</span></td>
+        <td>วัตถุดิบ ซึ่งในกรณีของ TMT คือม้วนเหล็ก HRC และ GI Coil</td>
+        <td>หน้า 4 และ 5 · ใช้คู่กับ FG เมื่อพูดถึงสต๊อกสองชั้น</td></tr>
+      <tr><td><b>Coking Coal</b><br><span style="font-size:11px;color:#5b7b84">ถ่านหินโค้ก</span></td>
+        <td>ถ่านหินคุณภาพสูงที่ใช้ถลุงเหล็กในโรงงานต้นน้ำ · ราคาขึ้นทำให้ต้นทุนเหล็กทั่วโลกขึ้นตาม</td>
+        <td>เป็นสาเหตุที่ราคาต่างประเทศขึ้น $10/ตัน ในรอบนี้</td></tr>
+      <tr><td><b>PEB</b><br><span style="font-size:11px;color:#5b7b84">Pre-Engineered Building</span></td>
+        <td>อาคารโครงเหล็กสำเร็จรูปที่ออกแบบและตัดชิ้นส่วนมาจากโรงงานแล้วนำไปประกอบที่หน้างาน · ใช้เหล็กเกรดพิเศษ</td>
+        <td>หน้า 3 และ 8 · เป็นดีมานด์ใหม่ที่กำลังโตในกรอบ 3 เดือน</td></tr>
+      <tr><td><b>MTO</b><br><span style="font-size:11px;color:#5b7b84">Make To Order</span></td>
+        <td>งานที่ผลิตตามคำสั่งซื้อเฉพาะราย ไม่ได้ผลิตเก็บสต๊อก · พลาดกำหนดส่งไม่ได้เพราะรับปากลูกค้าไว้แล้ว</td>
+        <td>Corrective Action ของ Product Planning ในหน้า 7</td></tr>
+      <tr><td><b>Product Mix</b><br><span style="font-size:11px;color:#5b7b84">สัดส่วนกลุ่มสินค้า</span></td>
+        <td>สัดส่วนว่ายอดขายมาจากสินค้ากลุ่มไหนเท่าไร · ปรับ Mix ไปทางสินค้ากำไรสูงช่วยเพิ่ม Margin ได้โดยไม่ต้องขึ้นราคา</td>
+        <td>หน้า 3 และ 8 · เป็นแนวทางรับมือกรอบ 3 เดือน</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">ง · คำที่เกี่ยวกับกระบวนการ Foresight</h3>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:180px">คำศัพท์</th><th style="width:330px">หมายความว่าอะไร (ภาษาง่าย)</th><th>ใช้ที่ไหนในรายงานนี้</th></tr></thead>
+    <tbody>
+      <tr><td><b>Signal</b><br><span style="font-size:11px;color:#5b7b84">สัญญาณ</span></td>
+        <td>ข้อสังเกตที่แต่ละแผนกพบและส่งเข้ามาเป็น <b>ข้อเท็จจริง</b> ไม่ใช่ความเห็น · รอบนี้มี 17 รายการจาก 7 แผนก</td>
+        <td>หน้า 7 คือรายการเต็ม · รหัส S01–S17 ชี้เมาส์ดูรายละเอียดได้ทุกจุด</td></tr>
+      <tr><td><b>Scenario</b><br><span style="font-size:11px;color:#5b7b84">สถานการณ์</span></td>
+        <td>สถานการณ์ที่อาจเกิดขึ้นและต้องมีแผนรับมือ · รายงานนี้ติดตาม 4 ตัว คือของขาด ดีมานด์เกิน สงครามราคา และของล้น</td>
+        <td>หน้า 2 และ 3</td></tr>
+      <tr><td><b>Trigger</b><br><span style="font-size:11px;color:#5b7b84">เงื่อนไขจุดชนวน</span></td>
+        <td>เงื่อนไขที่<b>วัดเป็นตัวเลขได้</b> ซึ่งบอกว่า Scenario นั้นเริ่มเกิดจริงแล้ว ไม่ใช่แค่รู้สึก</td>
+        <td>หน้า 3 หัวข้อ 3.6 มี 9 เงื่อนไข · ผ่านแล้ว 3 ใกล้ผ่าน 5 วัดไม่ได้ 1</td></tr>
+      <tr class="rowalarm"><td><b>Tripwire</b><br><span style="font-size:11px;color:#5b7b84">เส้นเตือน</span></td>
+        <td>เส้นที่ตั้งไว้ล่วงหน้าว่า "ถ้าค่าจริงข้ามเส้นนี้ ให้ลงมือทันที" · ต่างจาก Trigger ที่บอกว่าสถานการณ์เกิด — Tripwire บอกว่า<b>ถึงเวลาต้องทำอะไรแล้ว</b></td>
+        <td>หน้า 4 มี 7 เส้น · ขณะนี้อยู่ในสถานะเตือนภัย 3 เส้น</td></tr>
+      <tr><td><b>Convergence</b><br><span style="font-size:11px;color:#5b7b84">ความสอดคล้อง</span></td>
+        <td>จุดที่ Signal จากหลายแผนกชี้ไปทางเดียวกัน · ยิ่งหลายแผนกที่ไม่เกี่ยวข้องกันชี้ตรงกัน ยิ่งน่าเชื่อถือ</td>
+        <td>หน้า 8 · รอบนี้จุดที่แรงที่สุดมี 6 แผนกยืนยันตรงกัน</td></tr>
+      <tr><td><b>Divergence</b><br><span style="font-size:11px;color:#5b7b84">ความขัดแย้ง</span></td>
+        <td>จุดที่ข้อมูลระหว่างแผนกขัดกัน ต้องสอบทานก่อนใช้ตัดสินใจ</td>
+        <td>หน้า 8 หัวข้อ 8.5 · รอบนี้พบ 6 จุด</td></tr>
+      <tr><td><b>Playbook</b><br><span style="font-size:11px;color:#5b7b84">คู่มือรับมือ</span></td>
+        <td>ชุดสิ่งที่ต้องทำเมื่อ Scenario นั้นเกิดขึ้น แยกเป็น 5 ด้าน — จังหวะซื้อ ระดับสต๊อก นโยบายราคา ลำดับลูกค้า และเงื่อนไขเครดิต</td>
+        <td>หน้า 2 แยกตาม Scenario · หน้า 6 แยกตามแผนก</td></tr>
+      <tr><td><b>Back Casting</b><br><span style="font-size:11px;color:#5b7b84">มองย้อนจากปลายทาง</span></td>
+        <td>วิธีวางแผนแบบมองภาพปลายทางที่ต้องการใน 3 ปีก่อน แล้วย้อนกลับมาว่าวันนี้ต้องทำอะไร · ตรงข้ามกับการวางแผนไปข้างหน้าทีละขั้น</td>
+        <td>เป็นโครงของ Scenario Canvas ทั้ง 4 ไฟล์ · ปรากฏเป็นคอลัมน์ "3 ปี" ในหน้า 6</td></tr>
+      <tr><td><b>Leading / Coincident / Lagging Indicator</b></td>
+        <td><b>Leading</b> = ตัวชี้วัดที่นำหน้า 30–90 วัน ใช้สั่งการล่วงหน้า (เช่น ราคานำเข้า ค่าระวางเรือ)<br>
+        <b>Coincident</b> = สะท้อนปัจจุบัน ใช้ยืนยันว่าเกิดจริง (เช่น ยอดขายรายสัปดาห์)<br>
+        <b>Lagging</b> = ตามหลัง ใช้วัดผลที่เกิดแล้ว <b>ห้ามใช้ตัดสินใจ</b> (เช่น Gross Margin)</td>
+        <td>หน้า 5 หัวข้อ 5.4 · ปัญหาของรอบนี้คือยังไม่มี Leading Indicator ที่นำจริงเลย</td></tr>
+      <tr><td><b>Data Completeness</b><br><span style="font-size:11px;color:#5b7b84">ระดับความพร้อมของข้อมูล</span></td>
+        <td>สัดส่วนช่องข้อมูลที่กรอกครบ เทียบกับที่ควรมี · ยิ่งต่ำยิ่งต้องระวังการสรุป</td>
+        <td>แถบหัวรายงาน · รอบนี้ 69% จาก 10 ฟิลด์บังคับ × 17 Signal</td></tr>
+      <tr><td><b>S&amp;OP</b><br><span style="font-size:11px;color:#5b7b84">Sales &amp; Operations Planning</span></td>
+        <td>การประชุมที่เอาฝ่ายขาย ผลิต จัดซื้อ และโลจิสติกส์มาวางแผนร่วมกันบนตัวเลขชุดเดียว</td>
+        <td>หน้า 6 คำถามที่แต่ละแผนกต้องตอบ · หน้า 3 หัวข้อ 3.7</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">จ · คำย่อและคำเฉพาะอื่น ๆ</h3>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:180px">คำศัพท์</th><th style="width:330px">หมายความว่าอะไร (ภาษาง่าย)</th><th>ใช้ที่ไหนในรายงานนี้</th></tr></thead>
+    <tbody>
+      <tr><td><b>Mill</b><br><span style="font-size:11px;color:#5b7b84">โรงงานเหล็กต้นน้ำ</span></td>
+        <td>โรงงานที่ผลิตม้วนเหล็ก ซึ่งเป็น Supplier ของ TMT เช่น GJ Steel, SSI, G Group</td>
+        <td>หน้า 3 และ 5 · รอบนี้ GJ Steel มีแผนหยุดซ่อม 2 สัปดาห์</td></tr>
+      <tr><td><b>Shutdown</b><br><span style="font-size:11px;color:#5b7b84">หยุดเดินเครื่อง</span></td>
+        <td>การหยุดเดินเครื่องจักรของโรงงาน มักเพื่อซ่อมบำรุงตามแผนประจำปี · ช่วงที่หยุดจะไม่มีของออกมา</td>
+        <td>ตัวขับเคลื่อนหลักของ Scenario ของขาด · 23 ก.ย. – 6 ต.ค.</td></tr>
+      <tr><td><b>P/O</b><br><span style="font-size:11px;color:#5b7b84">Purchase Order</span></td>
+        <td>ใบสั่งซื้อที่<b>จบราคาแล้วแต่ยังไม่ได้รับของ</b> · ต้องนับเป็นความเสี่ยงด้านราคาแล้ว เพราะราคาล็อกไปแล้ว</td>
+        <td>หน้า 1 และ 4 · ปัจจุบัน 24,670 ตัน ที่ราคาเฉลี่ย 19.30 บาท/กก.</td></tr>
+      <tr><td><b>Quota / Allocation</b><br><span style="font-size:11px;color:#5b7b84">โควตา / การจัดสรร</span></td>
+        <td>ปริมาณที่ Mill ยอมขายให้เราในรอบนั้น · ช่วงของขาด Mill จะจำกัดโควตา ทำให้ซื้อได้น้อยกว่าที่ต้องการ</td>
+        <td>Playbook ของ Supply Shock และ Over Demand</td></tr>
+      <tr><td><b>Barge</b><br><span style="font-size:11px;color:#5b7b84">เรือลำเลียง</span></td>
+        <td>เรือขนส่งสินค้าทางน้ำ · ขนได้มากกว่ารถแต่ใช้เวลานานกว่า</td>
+        <td>รอบนี้ SSI เสนอเปลี่ยนมาขนทางเรือ 5,000 ตัน เพราะรถไม่พอ</td></tr>
+      <tr class="rowwatch"><td><b>Backlog / ยอดค้างส่ง</b></td>
+        <td>คำสั่งซื้อที่รับไว้แล้วแต่ยังไม่ได้ส่งมอบ · ถ้าสูงเกินไปแปลว่าขายเร็วกว่าที่ผลิตและส่งได้</td>
+        <td>หน้า 1 และ 4 · ปัจจุบัน 33,643 ตัน = 10.4 วันของกำลังจัดส่ง</td></tr>
+      <tr><td><b>FOB / CFR</b><br><span style="font-size:11px;color:#5b7b84">Incoterm</span></td>
+        <td>ข้อกำหนดว่าราคาที่เสนอมารวมอะไรถึงจุดไหน · <b>FOB</b> = ราคา ณ ท่าเรือต้นทาง ยังไม่รวมค่าเรือ · <b>CFR</b> = รวมค่าเรือถึงท่าปลายทางแล้ว · ถ้าไม่รู้ว่าเป็นแบบไหน จะบวกค่าเรือซ้ำหรือขาด</td>
+        <td>หน้า 5 · ราคา GI Coil $610 ในไฟล์ไม่ระบุว่าเป็นแบบไหน จึงเป็นข้อมูลที่ขาดอันดับ 5</td></tr>
+      <tr><td><b>FX</b><br><span style="font-size:11px;color:#5b7b84">อัตราแลกเปลี่ยน</span></td>
+        <td>อัตราแลกเปลี่ยนเงินบาทต่อดอลลาร์ที่ใช้จริงในการนำเข้า · ไม่มีตัวนี้ก็แปลงราคานำเข้าเป็นบาทไม่ได้</td>
+        <td>หน้า 5 และ 9 · เป็นข้อมูลที่ขาดอันดับ 4</td></tr>
+      <tr><td><b>AD / CVD / Safeguard</b><br><span style="font-size:11px;color:#5b7b84">มาตรการทางการค้า</span></td>
+        <td><b>AD</b> (Anti-Dumping) = ภาษีตอบโต้การทุ่มตลาด · <b>CVD</b> = ภาษีตอบโต้การอุดหนุนจากรัฐต่างชาติ · <b>Safeguard</b> = มาตรการปกป้องอุตสาหกรรมในประเทศชั่วคราว · ทั้งสามทำให้ของนำเข้าแพงขึ้น ซึ่งช่วยยับยั้งสงครามราคา</td>
+        <td>หน้า 5 · ยังไม่มี Signal ใดรายงานเข้ามา ทั้งที่เปลี่ยนกลไกทั้งระบบได้ทันที</td></tr>
+      <tr><td><b>DSO</b><br><span style="font-size:11px;color:#5b7b84">Days Sales Outstanding</span></td>
+        <td>จำนวนวันเฉลี่ยที่ใช้เก็บเงินจากลูกค้าได้หลังส่งของ · ยิ่งนานยิ่งเสี่ยงสภาพคล่อง</td>
+        <td>หน้า 9 ข้อมูลที่ขาดอันดับ 11 · กลไก Credit ยังว่าง 0/17</td></tr>
+      <tr><td><b>WMS / TMS</b></td>
+        <td><b>WMS</b> = ระบบบริหารคลังสินค้า · <b>TMS</b> = ระบบบริหารการขนส่ง</td>
+        <td>Playbook ระยะ 3 ปีของสายงาน Logistics</td></tr>
+      <tr><td><b>Waterfall Chart</b><br><span style="font-size:11px;color:#5b7b84">กราฟน้ำตก</span></td>
+        <td>กราฟที่แสดงว่าตัวเลขตั้งต้นถูกบวกหรือหักด้วยอะไรทีละชั้นจนได้ผลลัพธ์สุดท้าย · ใช้ดูว่าต้นทุนไปโป่งที่ชั้นไหน</td>
+        <td>หน้า 5 หัวข้อ 5.2 Import Parity</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="cap"><b>วิธีใช้ตารางนี้:</b> คำที่มีเส้นประใต้ตัวอักษรในทุกหน้า ชี้เมาส์ค้างจะเห็นคำอธิบายย่อทันทีโดยไม่ต้องกลับมาที่หน้านี้ · ตารางนี้เก็บฉบับเต็มไว้พร้อมบอกว่าคำนั้นถูกใช้ที่ไหนและค่าปัจจุบันเท่าไร<br>
+  <b>คำที่ควรจำแค่ 3 คำ:</b> <b>Margin</b> คือกำไรที่เป็นเป้าหมาย · <b>Pass-through Gap</b> คือจุดรั่วที่ใหญ่ที่สุดรอบนี้ · <b>Days of Price Exposure</b> คือระยะเวลาที่เราเสี่ยงอยู่ถ้าราคากลับทิศ</div>
+</section>
+
 </div>
 <footer>
   <b>TMT Foresight Dashboard</b> · จัดทำ 9 กันยายน 2026 · Signal Window 17 ส.ค. – 7 ก.ย. 2026 · Signal 17 รายการ จาก 7 แผนก · Data Completeness 69%<br>
@@ -3067,6 +3309,58 @@ window.DEPTS=[
     S16:["Sale &amp; Marketing","7 ก.ย. 2026","ผู้ผลิต Plate SPM/LPN เริ่มวิ่งตรงลูกค้ามากขึ้น","ได้พันธมิตรแหล่งทุนใหม่ (Marubeni / Nippon)"],
     S17:["Sale &amp; Marketing","7 ก.ย. 2026","งบประจำปีงานราชการลดลง — เสาไฟส่องสว่าง งานถนน","ยังไม่มีสัดส่วนยอดขายกลุ่มนี้"]
   };
+  /* ---- glossary terms (hover to explain) ---- */
+  var TERMS = {
+    "Pass-through Gap":["ช่องว่างการส่งผ่านต้นทุน","ต้นทุนขึ้นเท่าไร เทียบกับราคาขายที่เราขึ้นตามได้เท่าไร · รอบนี้ −0.40 บาท/กก. = −400 บาท/ตัน"],
+    "Days of Price Exposure":["จำนวนวันที่ราคายังค้างในต้นทุน","เหล็กที่ซื้อวันนี้จะยังอยู่ในต้นทุนอีกกี่วันก่อนขายออกหมด · ยิ่งนานยิ่งเสี่ยงถ้าราคากลับทิศ · ปัจจุบัน 35 วัน"],
+    "Inventory Lag Effect":["ผลของต้นทุนที่ตามหลัง","ต้นทุนในสต๊อกคือราคาที่ซื้อมา 30–90 วันก่อน แต่ราคาขายคือราคาวันนี้ · ราคาขาขึ้นได้กำไรพิเศษ ขาลงขาดทุนจากสต๊อก"],
+    "Conversion Margin":["กำไรหลังหักค่าแปรรูป","Metal Spread หักค่าตัด/สลิต/พับ ค่าขนส่ง ค่าโสหุ้ย · เป็นตัวเลขที่ใกล้กำไรจริงที่สุด"],
+    "Metal Spread":["ส่วนต่างราคาขายกับวัตถุดิบ","ราคาขายเฉลี่ย ลบ ต้นทุนวัตถุดิบเฉลี่ย · ยังไม่หักค่าแปรรูปและค่าขนส่ง"],
+    "Import Parity":["ราคาเทียบเท่าของนำเข้า","ถ้าซื้อของนำเข้ามาแทน จะมีต้นทุนถึงหน้าโรงงานเราเท่าไร (รวมค่าเรือ ภาษี ค่าท่า ดอกเบี้ย แปลงเป็นบาทแล้ว)"],
+    "Inventory Days":["สต๊อกพอขายกี่วัน","สต๊อกที่มี หารด้วยยอดขายต่อวัน · FG 13.7 วัน · HRC 21.3 วัน"],
+    "Import Lead Time":["เวลารอของนำเข้า","ตั้งแต่สั่งจนของถึงมือ 45–75 วัน · เป็นเหตุผลว่าหน้าต่างตัดสินใจซื้อต้องล่วงหน้ามาก"],
+    "Data Completeness":["ระดับความพร้อมของข้อมูล","สัดส่วนช่องข้อมูลที่กรอกครบเทียบกับที่ควรมี · รอบนี้ 69%"],
+    "Bullwhip":["ผลแส้ม้า","คำสั่งซื้อปลายน้ำเปลี่ยนเล็กน้อย แต่ต้นน้ำแกว่งแรงกว่ามาก เหมือนสะบัดแส้"],
+    "Price Taker":["ผู้ตามราคา","ตลาดที่ราคาถูกกำหนดจากภายนอก (ราคานำเข้า) ผู้เล่นในประเทศตั้งราคาเองไม่ได้"],
+    "Price Floor":["ราคาขั้นต่ำ","ราคาต่ำสุดที่ยังขายแล้วไม่ขาดทุน · ต้องรู้ก่อนเข้าสู่การแข่งราคา"],
+    "Product Mix":["สัดส่วนกลุ่มสินค้า","ยอดขายมาจากสินค้ากลุ่มไหนเท่าไร · ปรับไปทางกำไรสูงช่วยเพิ่ม Margin โดยไม่ต้องขึ้นราคา"],
+    "Safety Stock":["สต๊อกกันชน","สต๊อกส่วนเกินที่ตั้งใจเก็บเผื่อของมาช้าหรือลูกค้าสั่งเพิ่มเฉียบพลัน"],
+    "Slow Moving":["สินค้าหมุนช้า","สินค้าที่ขายออกช้า เป็นเงินจมและเสี่ยงเสื่อมสภาพ"],
+    "Restocking":["วงจรเร่งเก็บสต๊อก","ช่วงที่ผู้ค้าทั้งตลาดเร่งเก็บสต๊อกพร้อมกัน ทำให้ราคาแกว่งเกินความต้องการจริง"],
+    "Destocking":["วงจรเร่งระบายสต๊อก","ช่วงที่ผู้ค้าทั้งตลาดเร่งระบายสต๊อกพร้อมกัน กดราคาลงเกินพื้นฐาน"],
+    "Back Casting":["มองย้อนจากปลายทาง","วางแผนโดยมองภาพปลายทาง 3 ปีก่อน แล้วย้อนกลับมาว่าวันนี้ต้องทำอะไร"],
+    "Tripwire":["เส้นเตือน","เส้นที่ตั้งไว้ล่วงหน้าว่าถ้าค่าจริงข้ามเส้นนี้ ให้ลงมือทันที · รอบนี้เตือนภัย 3 จาก 7 เส้น"],
+    "Playbook":["คู่มือรับมือ","ชุดสิ่งที่ต้องทำเมื่อ Scenario เกิด แยก 5 ด้าน — จังหวะซื้อ สต๊อก ราคา ลำดับลูกค้า เครดิต"],
+    "Convergence":["ความสอดคล้อง","จุดที่ Signal จากหลายแผนกชี้ไปทางเดียวกัน · ยิ่งหลายแผนกที่ไม่เกี่ยวข้องกัน ยิ่งน่าเชื่อถือ"],
+    "Divergence":["ความขัดแย้ง","จุดที่ข้อมูลระหว่างแผนกขัดกัน ต้องสอบทานก่อนใช้ตัดสินใจ"],
+    "Coking Coal":["ถ่านหินโค้ก","ถ่านหินคุณภาพสูงใช้ถลุงเหล็กต้นน้ำ · ราคาขึ้นทำให้ต้นทุนเหล็กทั่วโลกขึ้นตาม"],
+    "GI Coil":["เหล็กแผ่นเคลือบสังกะสีชนิดม้วน","กันสนิมได้ ใช้ทำท่อ GI และตัวซี GI · ราคานำเข้าล่าสุด $610/ตัน"],
+    "Incoterm":["เงื่อนไขราคานำเข้า","ข้อกำหนดว่าราคาที่เสนอรวมอะไรถึงจุดไหน · FOB ยังไม่รวมค่าเรือ · CFR รวมแล้ว"],
+    "Allocation":["การจัดสรรโควตา","ปริมาณที่ Mill ยอมขายให้เราในรอบนั้น · ช่วงของขาด Mill จะจำกัดโควตา"],
+    "Shutdown":["หยุดเดินเครื่อง","โรงงานหยุดเครื่องจักรเพื่อซ่อมบำรุง · ช่วงที่หยุดจะไม่มีของออกมา"],
+    "Backlog":["ยอดค้างส่ง","คำสั่งซื้อที่รับแล้วแต่ยังไม่ได้ส่งมอบ · ปัจจุบัน 33,643 ตัน = 10.4 วัน"],
+    "Safeguard":["มาตรการปกป้องอุตสาหกรรม","มาตรการทางการค้าที่ทำให้ของนำเข้าแพงขึ้นชั่วคราว ช่วยยับยั้งสงครามราคา"],
+    "Barge":["เรือลำเลียง","เรือขนส่งทางน้ำ ขนได้มากกว่ารถแต่ใช้เวลานานกว่า"],
+    "Margin":["กำไรขั้นต้น","ส่วนต่างระหว่างราคาที่ขายได้กับต้นทุน · เป็นเป้าหมายหลักของรายงานนี้ · 100 บาท/ตัน = 5.18 ล้านบาท/เดือน"],
+    "Mill":["โรงงานเหล็กต้นน้ำ","โรงงานที่ผลิตม้วนเหล็ก เป็น Supplier ของ TMT เช่น GJ Steel, SSI, G Group"],
+    "NRV":["มูลค่าสุทธิที่คาดว่าจะขายได้","ถ้าต่ำกว่าต้นทุนในบัญชี ต้องตั้งด้อยค่าซึ่งกระทบกำไรทันที"],
+    "HRC":["เหล็กแผ่นรีดร้อนชนิดม้วน","วัตถุดิบหลักที่ TMT ซื้อมาแปรรูป · สต๊อก 36,750 ตัน ต้นทุนเฉลี่ย 19.48 บาท/กก."],
+    "CRC":["เหล็กแผ่นรีดเย็นชนิดม้วน","ผิวเรียบกว่า HRC ใช้กับงานที่ต้องการความละเอียด"],
+    "PEB":["อาคารโครงเหล็กสำเร็จรูป","ตัดชิ้นส่วนจากโรงงานแล้วนำไปประกอบหน้างาน · ใช้เหล็กเกรดพิเศษ"],
+    "MTO":["ผลิตตามคำสั่งซื้อ","งานที่ผลิตเฉพาะราย ไม่ได้ผลิตเก็บสต๊อก · พลาดกำหนดส่งไม่ได้"],
+    "ASP":["ราคาขายเฉลี่ยจริง","ต่างจาก Price List ซึ่งเป็นราคาประกาศ ยังไม่หักส่วนลด"],
+    "DSO":["จำนวนวันเก็บเงินลูกค้า","วันเฉลี่ยที่ใช้เก็บเงินหลังส่งของ · ยิ่งนานยิ่งเสี่ยงสภาพคล่อง"],
+    "WMS":["ระบบบริหารคลังสินค้า","Warehouse Management System"],
+    "TMS":["ระบบบริหารการขนส่ง","Transportation Management System"],
+    "S&OP":["ประชุมวางแผนขาย-ผลิต-ซื้อร่วมกัน","เอาฝ่ายขาย ผลิต จัดซื้อ โลจิสติกส์ มาวางแผนบนตัวเลขชุดเดียว"],
+    "P/O":["ใบสั่งซื้อที่จบราคาแล้ว","จบราคาแล้วแต่ยังไม่ได้รับของ · ต้องนับเป็นความเสี่ยงด้านราคาแล้ว · ปัจจุบัน 24,670 ตัน @ 19.30"],
+    "FOB":["ราคา ณ ท่าเรือต้นทาง","ยังไม่รวมค่าระวางเรือมาถึงไทย"],
+    "CFR":["ราคารวมค่าเรือถึงท่าปลายทาง","รวมค่าระวางแล้ว แต่ยังไม่รวมภาษีและค่าท่าในไทย"],
+    "FG":["สินค้าสำเร็จรูป","Finished Goods เช่น เหล็กแผ่น เหล็กแบน ท่อดำ ตัวซี ท่อ GI · สต๊อก 23,697 ตัน"],
+    "RM":["วัตถุดิบ","Raw Material ซึ่งของ TMT คือม้วนเหล็ก HRC และ GI Coil"],
+    "FX":["อัตราแลกเปลี่ยน","บาทต่อดอลลาร์ที่ใช้จริงในการนำเข้า · ไม่มีตัวนี้แปลงราคานำเข้าเป็นบาทไม่ได้"]
+  };
+
   /* auto-wrap bare Sxx tokens so every mention is hoverable */
   var RX = /\bS(?:0[1-9]|1[0-7])\b/g;
   var SKIP = {SCRIPT:1, STYLE:1, TEXTAREA:1, svg:1};
@@ -3102,10 +3396,60 @@ window.DEPTS=[
     });
     tagging = false;
   }
+  /* term tagger — tag only the FIRST occurrence of each term inside each section.card */
+  var TKEYS = Object.keys(TERMS).sort(function(a,b){ return b.length - a.length; });
+  var TRX = new RegExp('(' + TKEYS.map(function(k){
+      return k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }).join('|') + ')(?![\\u0E00-\\u0E7Fa-zA-Z0-9])', 'g');
+  function tagTerms(scope){
+    if(tagging) return;
+    tagging = true;
+    var cards = scope.querySelectorAll('section.card');
+    Array.prototype.forEach.call(cards, function(card){
+      if(card.id === 'glossary') return;
+      var seen = {};
+      var walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, {
+        acceptNode: function(n){
+          if(!n.nodeValue) return NodeFilter.FILTER_REJECT;
+          TRX.lastIndex = 0;
+          if(!TRX.test(n.nodeValue)) return NodeFilter.FILTER_REJECT;
+          var p = n.parentNode;
+          while(p && p !== card){
+            if(SKIP[p.nodeName] || (p.classList && (p.classList.contains('sid') || p.classList.contains('trm')))) return NodeFilter.FILTER_REJECT;
+            if(p.nodeName === 'H2' || p.nodeName === 'TH') return NodeFilter.FILTER_REJECT;
+            p = p.parentNode;
+          }
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      });
+      var nodes = [], n;
+      while((n = walker.nextNode())) nodes.push(n);
+      nodes.forEach(function(node){
+        var txt = node.nodeValue, frag = document.createDocumentFragment(), last = 0, m, changed = false;
+        TRX.lastIndex = 0;
+        while((m = TRX.exec(txt))){
+          var key = m[1];
+          if(seen[key]) continue;
+          seen[key] = true;
+          changed = true;
+          if(m.index > last) frag.appendChild(document.createTextNode(txt.slice(last, m.index)));
+          var s = document.createElement('span');
+          s.className = 'trm'; s.textContent = key;
+          frag.appendChild(s);
+          last = m.index + key.length;
+        }
+        if(!changed) return;
+        if(last < txt.length) frag.appendChild(document.createTextNode(txt.slice(last)));
+        node.parentNode.replaceChild(frag, node);
+      });
+    });
+    tagging = false;
+  }
   tagSignals(document.getElementById('main'));
+  tagTerms(document.getElementById('main'));
   var dbody = document.getElementById('dbody');
   if(dbody && window.MutationObserver){
-    new MutationObserver(function(){ if(!tagging) tagSignals(dbody); })
+    new MutationObserver(function(){ if(!tagging){ tagSignals(dbody); tagTerms(dbody.closest('section.card') ? dbody.closest('.panel') : dbody); } })
       .observe(dbody, {childList:true, subtree:false});
   }
 
@@ -3125,6 +3469,9 @@ window.DEPTS=[
       '<div class="tnum">' + d[3] + '</div>' +
       '<div class="thint">คลิกเพื่อเปิดรายละเอียดเต็มในหน้า Signal View</div>';
     tip.classList.add('on');
+    place(el);
+  }
+  function place(el){
     var r = el.getBoundingClientRect();
     var tw = tip.offsetWidth, th = tip.offsetHeight;
     var x = r.left, y = r.bottom + 8;
@@ -3150,10 +3497,26 @@ window.DEPTS=[
       setTimeout(function(){ d.classList.remove('flash'); }, 1600);
     }, 60);
   }
+  function showTermTip(el){
+    var k = (el.textContent || '').trim();
+    var d = TERMS[k];
+    if(!d) return;
+    tipFor = el;
+    tip.innerHTML = '<div class="tid">' + k + '</div>' +
+      '<div class="tmeta">คำศัพท์เทคนิค</div>' +
+      '<div class="ttitle">' + d[0] + '</div>' +
+      '<div class="tnum">' + d[1] + '</div>' +
+      '<div class="thint">ดูคำอธิบายเต็มได้ที่หน้า 10 หัวข้อ 10.8 อธิบายคำศัพท์</div>';
+    tip.classList.add('on');
+    place(el);
+  }
   document.addEventListener('mouseover', function(e){
-    var el = e.target.closest ? e.target.closest('.sid') : null;
-    if(el){ if(el !== tipFor) showTip(el); }
-    else if(tipFor) hideTip();
+    if(!e.target.closest) return;
+    var el = e.target.closest('.sid');
+    if(el){ if(el !== tipFor) showTip(el); return; }
+    var tl = e.target.closest('.trm');
+    if(tl){ if(tl !== tipFor) showTermTip(tl); return; }
+    if(tipFor) hideTip();
   });
   document.addEventListener('click', function(e){
     var el = e.target.closest ? e.target.closest('.sid') : null;
@@ -3167,7 +3530,7 @@ window.DEPTS=[
     gotoSignal(id);
   });
   window.addEventListener('scroll', function(){
-    if(tipFor && document.body.contains(tipFor)) showTip(tipFor); else if(tipFor) hideTip();
+    if(tipFor && document.body.contains(tipFor)) place(tipFor); else if(tipFor) hideTip();
   }, true);
   document.documentElement.addEventListener('mouseleave', hideTip);
 })();
