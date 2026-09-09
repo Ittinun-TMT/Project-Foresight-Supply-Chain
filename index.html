@@ -53,16 +53,37 @@ header.hdr{background:var(--navy);color:var(--white);padding:20px 0 0}
 .statbar .v small{font-size:11.5px;font-weight:400;color:#bcd2d8}
 .statbar .s.hot .v{color:var(--orange)}
 
-/* ---------- NAV ---------- */
-nav.tabs{position:sticky;top:0;z-index:40;background:var(--white);border-bottom:2px solid var(--navy)}
-nav.tabs .wrap{padding-bottom:0;display:flex;gap:0;overflow-x:auto}
-nav.tabs button{
-  appearance:none;border:0;background:transparent;color:var(--navy-70);
-  font-family:inherit;font-size:13.5px;font-weight:600;padding:12px 15px;cursor:pointer;
-  border-bottom:3px solid transparent;white-space:nowrap
-}
-nav.tabs button:hover{color:var(--navy)}
-nav.tabs button.on{color:var(--navy);border-bottom-color:var(--orange)}
+/* ---------- SIDEBAR ---------- */
+#sb{position:fixed;top:0;left:0;bottom:0;width:252px;background:var(--navy);color:#fff;
+   z-index:60;display:flex;flex-direction:column;overflow:hidden;transition:width .18s ease}
+body.sbc #sb{width:58px}
+#sb .sbtop{display:flex;align-items:center;gap:10px;padding:11px 12px;
+   border-bottom:1px solid rgba(255,255,255,.16);min-height:54px}
+#sbt{appearance:none;border:1px solid rgba(255,255,255,.32);background:transparent;color:#fff;
+   width:34px;height:32px;min-width:34px;cursor:pointer;font-size:14px;line-height:1;font-family:inherit;
+   display:flex;align-items:center;justify-content:center;padding:0}
+#sbt:hover{border-color:var(--orange);color:var(--orange)}
+#sb .brand{font-size:12.5px;font-weight:600;letter-spacing:.3px;white-space:nowrap;overflow:hidden}
+#sb .brand small{display:block;font-size:10px;font-weight:400;color:#8bbade;letter-spacing:0}
+#sbnav{flex:1;overflow-y:auto;overflow-x:hidden;padding:8px 0}
+#sbnav button{display:flex;align-items:center;gap:11px;width:100%;appearance:none;border:0;
+   background:transparent;color:#c2d5da;font-family:inherit;font-size:12.5px;font-weight:500;
+   text-align:left;padding:8px 12px;cursor:pointer;border-left:3px solid transparent;white-space:nowrap}
+#sbnav button:hover{background:rgba(255,255,255,.08);color:#fff}
+#sbnav button.on{background:rgba(255,106,5,.16);color:#fff;border-left-color:var(--orange);font-weight:600}
+#sbnav button .num{flex:0 0 auto;min-width:24px;height:24px;line-height:24px;text-align:center;
+   background:rgba(255,255,255,.13);font-size:11.5px;font-weight:600;font-variant-numeric:tabular-nums}
+#sbnav button.on .num{background:var(--orange);color:#fff}
+#sbnav button .lbl{overflow:hidden;text-overflow:ellipsis;line-height:1.35}
+#sb .sbfoot{padding:10px 13px;border-top:1px solid rgba(255,255,255,.16);font-size:10.5px;
+   color:#8bbade;line-height:1.5}
+body.sbc #sbnav button .lbl,body.sbc #sb .brand,body.sbc #sb .sbfoot{display:none}
+body.sbc #sbnav button{justify-content:center;padding:8px 0;border-left-width:0;border-right:3px solid transparent}
+body.sbc #sbnav button.on{border-right-color:var(--orange)}
+#main{margin-left:252px;transition:margin-left .18s ease}
+body.sbc #main{margin-left:58px}
+@media(max-width:980px){#main,body.sbc #main{margin-left:58px}
+  #sb{box-shadow:0 0 24px rgba(0,0,0,.35)}}
 
 /* ---------- LAYOUT ---------- */
 .panel{display:none}
@@ -138,7 +159,7 @@ svg text{font-family:"Kanit","Leelawadee UI",Tahoma,sans-serif}
 footer{border-top:2px solid var(--navy);margin-top:30px;padding-top:14px;font-size:11.5px;color:var(--navy-70)}
 
 /* ---------- shared alignment strip ---------- */
-.align{border:1px solid var(--navy);background:var(--white);margin:0 0 16px;position:sticky;top:47px;z-index:30;box-shadow:0 6px 14px -10px rgba(12,56,67,.5)}
+.align{border:1px solid var(--navy);background:var(--white);margin:0 0 16px;position:sticky;top:0;z-index:30;box-shadow:0 6px 14px -10px rgba(12,56,67,.5)}
 .align .ah{background:var(--navy);color:#fff;padding:5px 12px;font-size:12.5px;font-weight:600;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .align .ah span{color:#bcd2d8;font-weight:400}
 .align .ag{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
@@ -176,10 +197,31 @@ footer{border-top:2px solid var(--navy);margin-top:30px;padding-top:14px;font-si
 .qlist{counter-reset:q;padding:0;margin:0;list-style:none}
 .qlist li{counter-increment:q;position:relative;padding:7px 0 7px 34px;border-bottom:1px solid var(--line);font-size:12.5px}
 .qlist li:before{content:counter(q);position:absolute;left:0;top:7px;width:22px;height:22px;line-height:22px;text-align:center;background:var(--navy);color:#fff;font-size:11px;font-weight:600}
-@media print{nav.tabs{display:none}.align{position:static}.panel{display:block!important}section.card{break-inside:avoid}}
+@media print{#sb{display:none}#main{margin-left:0}.align{position:static}.panel{display:block!important}section.card{break-inside:avoid}}
 </style>
 </head>
 <body>
+
+<aside id="sb">
+  <div class="sbtop">
+    <button id="sbt" type="button" title="ย่อ / ขยายเมนู" aria-label="ย่อหรือขยายเมนู">&#171;</button>
+    <div class="brand">TMT FORESIGHT<small>Supply Chain Dashboard</small></div>
+  </div>
+  <nav id="sbnav">
+    <button class="on" data-t="p1" title="ภาพรวมผู้บริหาร"><span class="num">1</span><span class="lbl">ภาพรวมผู้บริหาร</span></button>
+    <button data-t="p2" title="Scenario Radar"><span class="num">2</span><span class="lbl">Scenario Radar</span></button>
+    <button data-t="p9" title="Signal → Scenario ตามช่วงเวลา"><span class="num">3</span><span class="lbl">Signal &#8594; Scenario<br>ตามช่วงเวลา</span></button>
+    <button data-t="p3" title="Early Warning Tripwires"><span class="num">4</span><span class="lbl">Tripwires</span></button>
+    <button data-t="p4" title="กลไกตลาด และ Margin"><span class="num">5</span><span class="lbl">กลไกตลาด &amp; Margin</span></button>
+    <button data-t="p8" title="มุมมองรายแผนก และ Playbook"><span class="num">6</span><span class="lbl">มุมมองรายแผนก<br>&amp; Playbook</span></button>
+    <button data-t="p5" title="Signal View"><span class="num">7</span><span class="lbl">Signal View</span></button>
+    <button data-t="p6" title="โอกาส–อุปสรรค และ Convergence"><span class="num">8</span><span class="lbl">โอกาส–อุปสรรค<br>&amp; Convergence</span></button>
+    <button data-t="p7" title="Data Gap และเป้าหมาย"><span class="num">9</span><span class="lbl">Data Gap &amp; เป้าหมาย</span></button>
+  </nav>
+  <div class="sbfoot">อัปเดต 9 ก.ย. 2026<br>Signal 17 รายการ · 7 แผนก<br>Data Completeness 69%</div>
+</aside>
+
+<div id="main">
 
 <header class="hdr">
   <div class="wrap">
@@ -203,18 +245,6 @@ footer{border-top:2px solid var(--navy);margin-top:30px;padding-top:14px;font-si
     </div>
   </div>
 </header>
-
-<nav class="tabs"><div class="wrap">
-  <button class="on" data-t="p1">1 · ภาพรวมผู้บริหาร</button>
-  <button data-t="p2">2 · Scenario Radar</button>
-  <button data-t="p9">3 · Signal → Scenario ตามช่วงเวลา</button>
-  <button data-t="p3">4 · Tripwires</button>
-  <button data-t="p4">5 · กลไกตลาด &amp; Margin</button>
-  <button data-t="p8">6 · มุมมองรายแผนก &amp; Playbook</button>
-  <button data-t="p5">7 · Signal View</button>
-  <button data-t="p6">8 · โอกาส–อุปสรรค &amp; Convergence</button>
-  <button data-t="p7">9 · Data Gap &amp; เป้าหมาย</button>
-</div></nav>
 
 <div class="wrap">
 <!-- ============ PANEL 1 : EXECUTIVE ============ -->
@@ -1448,7 +1478,7 @@ window.DEPTS=[
     chips.innerHTML='<button class="'+(cur==='ALL'?'on':'')+'" data-d="ALL">ภาพรวมทุกแผนก</button>'+
       DEPTS.map(function(d){return '<button class="'+(cur===d.id?'on':'')+'" data-d="'+d.id+'">'+d.name.split(' — ')[0]+'<span class="c">'+d.n+'</span></button>'}).join('');
     chips.querySelectorAll('button').forEach(function(b){b.onclick=function(){cur=b.dataset.d;render();
-      document.getElementById('p8').scrollIntoView({block:'start'});}});
+      window.scrollTo({top:0,behavior:'instant'});}});
     if(cur==='ALL'){body.innerHTML=overview();return;}
     var d=DEPTS.filter(function(x){return x.id===cur})[0];
     body.innerHTML=detail(d);
@@ -2368,10 +2398,26 @@ window.DEPTS=[
   ไฟล์เดียวจบ เปิดใช้งานแบบออฟไลน์ได้ · ฟอนต์ Kanit ฝังในไฟล์ · รอบถัดไปให้สร้างไฟล์ใหม่ชื่อ TMT_Foresight_Dashboard_YYYY-MM-DD.html โดยไม่เขียนทับไฟล์นี้
 </footer>
 </div>
+</div><!-- /#main -->
 
 <script>
 (function(){
-  var tabs = document.querySelectorAll('nav.tabs button');
+  /* ---- sidebar collapse ---- */
+  var btn = document.getElementById('sbt');
+  function setCollapsed(c){
+    document.body.classList.toggle('sbc', c);
+    btn.innerHTML = c ? '&#187;' : '&#171;';
+    btn.title = c ? 'ขยายเมนู' : 'ย่อเมนู';
+    try{ localStorage.setItem('tmt_sb', c ? '1' : '0'); }catch(e){}
+  }
+  var start = false;
+  try{ var v = localStorage.getItem('tmt_sb'); if(v !== null) start = (v === '1'); else start = window.innerWidth < 980; }
+  catch(e){ start = window.innerWidth < 980; }
+  setCollapsed(start);
+  btn.addEventListener('click', function(){ setCollapsed(!document.body.classList.contains('sbc')); });
+
+  /* ---- panel switching ---- */
+  var tabs = document.querySelectorAll('#sbnav button');
   tabs.forEach(function(b){
     b.addEventListener('click', function(){
       tabs.forEach(function(x){x.classList.remove('on')});
@@ -2380,6 +2426,7 @@ window.DEPTS=[
       var el = document.getElementById(b.dataset.t);
       if(el) el.classList.add('on');
       window.scrollTo({top:0,behavior:'instant'});
+      if(window.innerWidth < 980) setCollapsed(true);
     });
   });
   var fd = document.querySelectorAll('#fdept button');
