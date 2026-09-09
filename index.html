@@ -269,6 +269,22 @@ details.sig.flash{outline:3px solid var(--orange);outline-offset:1px}
 .arow .due{font-size:12.5px;font-weight:600}
 .arow .txt{font-size:13px;line-height:1.7}
 .arow .txt b{color:var(--navy);display:block;margin-bottom:3px}
+
+/* ---------- plan readiness marks ---------- */
+.mk{display:inline-block;min-width:21px;height:21px;line-height:21px;text-align:center;
+  font-size:10.5px;font-weight:600;margin-right:3px;vertical-align:middle;cursor:help}
+.mk.on{background:var(--navy);color:#fff}
+.mk.part{background:var(--amber);color:var(--navy)}
+.mk.off{background:var(--gray);color:#b0bfc4;border:1px solid var(--line)}
+td.rm{text-align:center;white-space:nowrap}
+.lvl{display:inline-block;font-size:11px;font-weight:600;padding:3px 9px;white-space:nowrap}
+.lvl.now{background:var(--orange);color:#fff}
+.lvl.prep{background:var(--amber);color:var(--navy)}
+.lvl.guard{background:var(--blue);color:var(--navy)}
+.scorebar{display:grid;grid-template-columns:210px 1fr 110px;gap:12px;align-items:center;font-size:12.5px;margin:8px 0}
+@media(max-width:760px){.scorebar{grid-template-columns:1fr}}
+.scorebar .sb{height:24px;background:var(--gray);position:relative}
+.scorebar .sb i{position:absolute;left:0;top:0;bottom:0;display:block}
 @media print{#sb{display:none}#main{margin-left:0}.align{position:static}.panel{display:block!important}section.card{break-inside:avoid}}
 </style>
 </head>
@@ -881,6 +897,211 @@ details.sig.flash{outline:3px solid var(--orange);outline-offset:1px}
   ส่วนกรอบ 3 เดือน ขับเคลื่อนด้วย Signal เชิงคุณภาพจาก Sales ทั้งหมด ซึ่งยังไม่มีตัวเลขแม้แต่ตัวเดียว<br>
   <b>ควรทำอะไรต่อ:</b> ความเสี่ยงที่ใหญ่ที่สุดของการวางแผน 3 เดือน คือเราตัดสินใจจากข้อมูลเชิงคุณภาพล้วน — ต้องเร่งให้ Sales แปลง S07, S08, S15, S16, S17 เป็นตัวเลข (ตัน หรือ % ของยอดขาย) ภายในรอบหน้า</div>
 </section>
+<section class="card">
+  <h2><span class="n">3.4</span>สรุป Scenario ที่ต้องมีแผนรับมือ — ต้องมีอะไร มีแล้วแค่ไหน ขาดอะไร</h2>
+  <div class="callout">
+    <div class="ttl">ข้อสรุปของหัวข้อนี้</div>
+    <p>ทั้ง 4 Scenario <b>ต้องมีแผนรับมือครบทุกตัว</b> แต่ต่างกันที่ระดับความเร่งด่วน — 2 ตัวต้องใช้แผนอยู่แล้ววันนี้ 1 ตัวต้องเตรียมให้พร้อมก่อน 6 ต.ค. และ 1 ตัวต้องเริ่มสร้างกันชนตั้งแต่ตอนนี้</p>
+    <p style="margin-top:9px">เมื่อเทียบแผนใน Scenario Canvas กับสิ่งที่แผนกลงมือทำจริงในรอบนี้ (คอลัมน์ Corrective Action ในไฟล์ Signal) พบว่า
+    <em>แผนบนกระดาษพร้อม 18 จาก 20 ช่อง แต่มีคนลงมือทำจริงเพียง 3 จาก 20 ช่อง</em> — ช่องว่างนี้ไม่ใช่เรื่องขาดแผน แต่เป็นเรื่อง <b>แผนยังไม่ถูกแปลงเป็นการกระทำที่มีเจ้าของ</b></p>
+  </div>
+
+  <h3 class="sub">ก · ระดับความจำเป็นและสถานะแผนของแต่ละ Scenario</h3>
+  <div class="scroll"><table>
+    <thead><tr>
+      <th style="width:135px">Scenario</th><th style="width:130px">ระดับความจำเป็น</th><th style="width:120px">ต้องพร้อมเมื่อไร</th>
+      <th style="width:250px">ทำไมต้องมีแผน</th><th>สถานะแผนปัจจุบัน และช่องว่างที่ใหญ่ที่สุด</th>
+    </tr></thead>
+    <tbody>
+      <tr class="rowalarm">
+        <td><b>SUPPLY SHOCK</b></td>
+        <td><span class="lvl now">ใช้แผนอยู่แล้ว</span></td>
+        <td><b>วันนี้ – 6 ต.ค.</b></td>
+        <td>85% ในกรอบ 1 เดือน ซึ่งเป็นจุดสูงสุดของทั้งปีนี้ · ยืนยันข้ามแผนกครบ 6 แผนก · Trigger ที่ตั้งไว้ <b>ผ่านแล้วทั้ง 4 ข้อ</b></td>
+        <td>Canvas ครบ 3 สายงาน × 4 ช่วงเวลา · ลงมือจริง 8 Signal<br>
+        <b>ช่องว่าง:</b> Canvas ระบุ "จัดลำดับความสำคัญของการส่งมอบ" เป็นข้อแรก แต่ <span class="sid">S13</span> ซึ่งถือยอดค้างส่ง 33,643 ตัน <b>ไม่มี Corrective Action เลย</b> · และไม่มีแผนกใดลงมือเรื่องจัดลำดับหรือจำกัดลูกค้า</td>
+      </tr>
+      <tr class="rowalarm">
+        <td><b>OVER DEMAND</b></td>
+        <td><span class="lvl now">ใช้แผนอยู่แล้ว</span></td>
+        <td><b>วันนี้ – 9 ธ.ค.</b></td>
+        <td>70% ในกรอบ 1 เดือน · ยืนยัน 4 แผนก · ยอดขายจริงเกินประมาณการ 3.6% (<span class="sid">S09</span>) · ดีมานด์ถูกจำกัดด้วยกำลังผลิตของ TMT เอง</td>
+        <td>Canvas <b>ไม่แยกสายงาน</b> ทุกแผนกใช้ชุดเดียวกัน · ลงมือจริง 5 Signal<br>
+        <b>ช่องว่าง:</b> ไม่มี Forecast เป็นตันของ Beam SM520 / PEB / ท่อ GI จึงตัดสินใจสั่งของล่วงหน้าไม่ได้ ทั้งที่ของนำเข้าใช้เวลา 45–75 วัน</td>
+      </tr>
+      <tr class="rowwatch">
+        <td><b>PRICE WAR</b></td>
+        <td><span class="lvl prep">เตรียมแผนล่วงหน้า</span></td>
+        <td><b>ให้พร้อมก่อน 6 ต.ค.</b></td>
+        <td>40% ในกรอบ 3 เดือน และเป็น <b>Scenario เดียวที่ความน่าจะเป็นสูงขึ้นตามเวลา</b> · ตัวยับยั้งที่ทำงานอยู่ตอนนี้ (Mill หยุด + สต๊อกต่ำ) จะหมดฤทธิ์เมื่อ GJS กลับมาเดินเครื่อง 6 ต.ค.</td>
+        <td>Canvas ครบ 3 สายงาน × 4 ช่วงเวลา · ลงมือจริงเพียง 2 Signal และทั้งสองเป็นข้อความกว้าง (<span class="sid">S16</span> <span class="sid">S17</span>)<br>
+        <b>ช่องว่าง:</b> <b>ไม่มีเกณฑ์ราคาขั้นต่ำ (Price Floor)</b> ที่บอกว่าลดได้ถึงไหนจึงยังไม่ขาดทุน — เพราะยังไม่มีกำไรต่อตัน</td>
+      </tr>
+      <tr class="rowwatch">
+        <td><b>OVERSUPPLY</b></td>
+        <td><span class="lvl guard">เฝ้าระวัง + สร้างกันชน</span></td>
+        <td><b>เริ่มตั้งกันชนตอนนี้</b></td>
+        <td>25% ในกรอบ 3 เดือน · ความเสี่ยงจริงไม่ใช่ของนำเข้าทะลัก แต่คือ <b>TMT เติมสต๊อกรับ Shutdown แล้วดีมานด์ภาครัฐหายพร้อมกัน</b> (<span class="sid">S17</span>) — เป็นความเสี่ยงที่เราสร้างเอง</td>
+        <td>Canvas ละเอียดที่สุดในบรรดา 4 ตัว (มีตารางแยกครบ 3 สายงาน × 4 ช่วงเวลา) · <b>ลงมือจริง 0 Signal</b><br>
+        <b>ช่องว่าง:</b> ไม่มีเพดาน Inventory Days และ Days of Price Exposure ที่เป็นนโยบาย ทำให้การเติมสต๊อกวันนี้ไม่มีเบรก</td>
+      </tr>
+    </tbody>
+  </table></div>
+  <div class="cap"><b>ตารางนี้บอกอะไร:</b> ความเร่งด่วนไม่ได้เรียงตามความน่าจะเป็นอย่างเดียว — Oversupply มีโอกาสเกิดต่ำสุด (25%) แต่ต้องเริ่มลงมือตอนนี้ เพราะกันชนที่ต้องสร้างคือ<b>การไม่ทำอะไรมากเกินไปในเดือนนี้</b> ซึ่งต้องตัดสินใจก่อนที่จะเติมสต๊อก<br>
+  <b>ควรทำอะไรต่อ:</b> วาระ S&amp;OP รอบหน้าให้ปิดช่องว่าง 4 บรรทัดขวาสุดนี้ — ทั้งสี่ข้อไม่ใช่การเขียนแผนใหม่ แต่เป็นการมอบหมายเจ้าของและใส่ตัวเลขให้แผนที่มีอยู่แล้ว</div>
+</section>
+
+<section class="card">
+  <h2><span class="n">3.5</span>ความพร้อมของแผน 5 ด้าน — เทียบแผนบนกระดาษกับสิ่งที่ลงมือจริง</h2>
+  <div class="note">
+    ทุก Scenario ต้องมีแผนครบ 5 ด้านตาม Instruction ข้อ 4.3 · แต่ละช่องมี 2 สัญลักษณ์ —
+    <span class="mk on">C</span> = มีเขียนไว้ใน Scenario Canvas &nbsp;·&nbsp;
+    <span class="mk on">A</span> = มีแผนกลงมือทำจริงในรอบนี้ (จากคอลัมน์ Corrective Action ในไฟล์ Signal)<br>
+    <span class="mk on">เข้ม</span> = มี &nbsp;·&nbsp; <span class="mk part">เหลือง</span> = มีบางส่วน / ยังไม่ครบขนาด &nbsp;·&nbsp; <span class="mk off">เทา</span> = ยังไม่มี &nbsp;·&nbsp; ชี้เมาส์ที่สัญลักษณ์เพื่อดูเหตุผล
+  </div>
+  <div class="scroll"><table>
+    <thead><tr>
+      <th style="width:130px">Scenario</th>
+      <th class="rm" style="width:120px">จังหวะการซื้อ</th>
+      <th class="rm" style="width:120px">ระดับสต๊อกเป้าหมาย</th>
+      <th class="rm" style="width:120px">นโยบายราคา</th>
+      <th class="rm" style="width:120px">การจัดลำดับลูกค้า</th>
+      <th class="rm" style="width:120px">เงื่อนไขเครดิต</th>
+      <th>สิ่งที่ขาดมากที่สุดในแถวนี้</th>
+    </tr></thead>
+    <tbody>
+      <tr class="rowalarm"><td><b>SUPPLY SHOCK</b></td>
+        <td class="rm"><span class="mk on" title="Canvas: วางแผนจัดซื้อให้ตรงกลุ่มลูกค้าเป้าหมาย, ประเมินความเสี่ยง Supplier">C</span><span class="mk on" title="ลงมือจริง: S11 ส่ง Size สั่งผลิตล่วงหน้า · S12 Request รถเพิ่ม · S06 เจรจาราคา">A</span></td>
+        <td class="rm"><span class="mk on" title="Canvas: เพิ่ม Safety Stock เฉพาะสินค้าสำคัญ, ตรวจสอบ Inventory">C</span><span class="mk on" title="ลงมือจริง: S14 เปิด OT วันอาทิตย์ 2-4 สัปดาห์ · S03 ปรับแผนผลิตป้องกัน Group A">A</span></td>
+        <td class="rm"><span class="mk on" title="Canvas: ทบทวนการรับ Order ล่วงหน้าในราคาเก่า">C</span><span class="mk part" title="ลงมือจริงบางส่วน: S09 ขึ้น Price List 0.20 แต่ต้นทุนขึ้น 0.30 · S10 ขึ้น GI 0.10 แต่ต้นทุนนำเข้าขึ้น $20/ตัน">A</span></td>
+        <td class="rm"><span class="mk on" title="Canvas: จัดลำดับความสำคัญของลูกค้าให้ชัดเจน, จำกัดปริมาณขายให้เฉพาะกลุ่ม, จัดลำดับความสำคัญของการส่งมอบ">C</span><span class="mk off" title="ยังไม่มี: ไม่มี Corrective Action ใดใน 17 รายการที่เป็นการจัดลำดับหรือจำกัดลูกค้า · S13 ที่ถือยอดค้างส่ง 33,643 ตัน มีช่องนี้ว่าง">A</span></td>
+        <td class="rm"><span class="mk part" title="Canvas ระบุไว้เพียง 'วางแผนวงเงิน' ไม่มีเกณฑ์">C</span><span class="mk off" title="ยังไม่มี: ไม่มี Signal ด้าน Credit เข้ามาเลย 0/17">A</span></td>
+        <td>ยอดค้างส่ง 33,643 ตัน ไม่มีใครจัดลำดับ — ทั้งที่ Canvas ระบุเป็นข้อแรก และมี 3 กลุ่มลูกค้าที่อ่อนไหวต่อราคาไม่เท่ากัน</td></tr>
+
+      <tr class="rowalarm"><td><b>OVER DEMAND</b></td>
+        <td class="rm"><span class="mk on" title="Canvas: ขอ Allocation เพิ่มจาก Mill, เลือก Supplier ที่ Support ได้">C</span><span class="mk part" title="ลงมือจริงบางส่วน: มีการเจรจาซื้อ (S06) แต่ไม่มีการขอ Allocation เพิ่มที่ระบุเป็น Corrective Action">A</span></td>
+        <td class="rm"><span class="mk on" title="Canvas: Forecast สินค้าและ Safety Stock, วางแผนพื้นที่จัดเก็บ">C</span><span class="mk on" title="ลงมือจริง: S07 เพิ่มและบริหาร Stock Beam SM520 · S15 วางแผน Stock เกรดพิเศษ">A</span></td>
+        <td class="rm"><span class="mk part" title="Canvas ช่วง 7-14 วันของ Growth Market ไม่มีเรื่องนโยบายราคาเลย มีแต่การประชุมและประเมิน Demand">C</span><span class="mk off" title="ยังไม่มี: ไม่มี Corrective Action ใดใช้ภาวะดีมานด์เกินเป็นเหตุผลขึ้นราคา">A</span></td>
+        <td class="rm"><span class="mk on" title="Canvas: จัดสรรโควตาให้ลูกค้า, แบ่งกลุ่มลูกค้าตามปริมาณ Market Share Margin">C</span><span class="mk off" title="ยังไม่มี: ไม่มี Corrective Action ใดจัดสรรโควตาหรือแบ่งกลุ่มลูกค้า">A</span></td>
+        <td class="rm"><span class="mk on" title="Canvas: วางแผนเรื่องวงเงินของลูกค้า และเตือนว่าลูกค้าจะขาดสภาพคล่องจากการใช้เงินทุนหมุนเวียนเพิ่ม">C</span><span class="mk off" title="ยังไม่มี: ไม่มีข้อมูล Credit เข้ามาเลย">A</span></td>
+        <td>ไม่มี Forecast เป็นตัน จึงทำได้แค่ตั้งรับ — และไม่มีใครใช้ภาวะดีมานด์เกินเป็นเหตุผลขึ้นราคา ซึ่งเป็นโอกาสที่ตรงกับเป้าหมาย Margin ที่สุด</td></tr>
+
+      <tr class="rowwatch"><td><b>PRICE WAR</b></td>
+        <td class="rm"><span class="mk on" title="Canvas: กรณีราคาลงให้ค่อยๆเจรจา จบราคาให้ช้า, ลด Lot Size เพิ่มความถี่">C</span><span class="mk off" title="ยังไม่มี: Scenario ยังไม่เกิด จึงยังไม่มี Corrective Action รองรับ">A</span></td>
+        <td class="rm"><span class="mk on" title="Canvas: ลด Safety Stock กลุ่มอื่น เพิ่มเฉพาะ Group A, เร่งระบาย Slow Moving">C</span><span class="mk off" title="ยังไม่มี: ปัจจุบันกำลังทำตรงข้าม คือเร่งเติมสต๊อกด้วย OT">A</span></td>
+        <td class="rm"><span class="mk on" title="Canvas: ปรับราคาตาม Value ของสินค้า/ลูกค้า, ขาย Solution แทนสินค้า, วิเคราะห์ต้นทุนคู่แข่ง">C</span><span class="mk off" title="ยังไม่มี: ไม่มีเกณฑ์ราคาขั้นต่ำ (Price Floor) เพราะยังไม่มีกำไรต่อตันและต้นทุนแปรรูป">A</span></td>
+        <td class="rm"><span class="mk on" title="Canvas: Matching วัตถุดิบกับลูกค้าที่ไม่มีความเสี่ยงการเงิน, เลือกกลุ่มลูกค้าที่สร้าง Value">C</span><span class="mk part" title="ลงมือจริงบางส่วน: S16 รักษาฐานลูกค้าเดิม + เร่งหา Project ใหม่ แต่ไม่มีเกณฑ์คัดเลือก">A</span></td>
+        <td class="rm"><span class="mk on" title="Canvas: ความเสี่ยงด้านการเก็บเงินลูกค้าสูงขึ้น, เลือกลูกค้าที่ไม่มีความเสี่ยงการเงิน">C</span><span class="mk off" title="ยังไม่มี: ไม่มีข้อมูล DSO หรือหนี้ค้าง">A</span></td>
+        <td>ไม่มีเกณฑ์ราคาขั้นต่ำ — ถ้าถูกกดราคาจริงจะตัดสินใจด้วยความรู้สึก ทุก 0.10 บาท/กก. ที่ยอมลด = 5.18 ล้านบาท/เดือน</td></tr>
+
+      <tr class="rowwatch"><td><b>OVERSUPPLY</b></td>
+        <td class="rm"><span class="mk on" title="Canvas: เจรจา Supplier ขอความยืดหยุ่นปริมาณและกำหนดส่งมอบ, หลีกเลี่ยงสต๊อกเกิน">C</span><span class="mk off" title="ยังไม่มี">A</span></td>
+        <td class="rm"><span class="mk on" title="Canvas: Monitor Stock รายวัน, ลดการผลิต FG ที่สต๊อกสูง, ตั้งเป้าลด Inventory Day">C</span><span class="mk off" title="ยังไม่มี: ไม่มีเพดาน Inventory Days หรือ Days of Price Exposure เป็นนโยบาย">A</span></td>
+        <td class="rm"><span class="mk on" title="Canvas: เพิ่ม Value สินค้าเพื่อเลี่ยงการแข่งราคา, ทบทวน Pricing Policy">C</span><span class="mk off" title="ยังไม่มี">A</span></td>
+        <td class="rm"><span class="mk on" title="Canvas: เร่งระบาย Slow Moving, เจาะตลาดที่ยังโต เช่น Data Center">C</span><span class="mk off" title="ยังไม่มี">A</span></td>
+        <td class="rm"><span class="mk on" title="Canvas: เตือนว่าอาจเกิดการชำระเงินล่าช้าจากลูกค้า">C</span><span class="mk off" title="ยังไม่มี">A</span></td>
+        <td>แผนละเอียดที่สุดแต่ยังไม่มีใครแตะเลย — สิ่งที่ต้องทำตอนนี้คือตั้งเพดานสต๊อก ไม่ใช่รอให้ของล้นแล้วค่อยระบาย</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">คะแนนรวมความพร้อม</h3>
+  <div class="scorebar">
+    <div><b>แผนที่เขียนไว้ใน Canvas</b><br><span style="font-size:11.5px;color:var(--navy-70)">18 เต็ม + 2 บางส่วน จาก 20 ช่อง</span></div>
+    <div class="sb"><i style="width:90%;background:#0c3843"></i>
+      <span style="position:absolute;left:11px;top:3px;color:#fff;font-weight:600;font-size:12.5px">90% — แผนบนกระดาษพร้อมแล้ว</span></div>
+    <div class="mono" style="text-align:right"><b>18 / 20</b></div>
+
+    <div><b>แผนที่มีคนลงมือจริงในรอบนี้</b><br><span style="font-size:11.5px;color:var(--navy-70)">3 เต็ม + 3 บางส่วน จาก 20 ช่อง</span></div>
+    <div class="sb"><i style="width:15%;background:#ff6a05"></i>
+      <span style="position:absolute;left:calc(15% + 11px);top:3px;color:var(--orange);font-weight:600;font-size:12.5px">15% — ยังแปลงเป็นการกระทำน้อยมาก</span></div>
+    <div class="mono" style="text-align:right;color:#ff6a05"><b>3 / 20</b></div>
+  </div>
+  <div class="src"><span class="lab">ที่มาของคะแนน</span>
+    <div class="row">
+      <dt>ตัวหาร 20</dt><dd>4 Scenario × 5 ด้านของแผนตาม Instruction ข้อ 4.3 (จังหวะซื้อ / ระดับสต๊อก / นโยบายราคา / ลำดับลูกค้า / เงื่อนไขเครดิต)</dd>
+      <dt>แถว Canvas</dt><dd>นับจากเนื้อหาในไฟล์ Scenario Canvas ทั้ง 4 ไฟล์ · ช่องที่นับเป็น "บางส่วน" คือเงื่อนไขเครดิตของ Supply Shock (Canvas ระบุแค่ "วางแผนวงเงิน") และนโยบายราคาของ Over Demand (Growth Market Canvas ไม่มีเรื่องราคาในช่วง 7–14 วัน)</dd>
+      <dt>แถวลงมือจริง</dt><dd>นับจากคอลัมน์ Corrective Action ในไฟล์ Signal 17 รายการ · นับเป็น "มี" เมื่อมีข้อความที่ระบุการกระทำในด้านนั้นชัดเจน · "บางส่วน" เมื่อมีการกระทำแต่ขนาดไม่พอหรือไม่มีเกณฑ์</dd>
+      <dt>ข้อจำกัด</dt><dd><b>เป็นการให้คะแนนโดยผู้วิเคราะห์</b> จากข้อความในไฟล์ ไม่ใช่การตรวจสอบว่าลงมือทำสำเร็จหรือยัง — ต้องให้เจ้าของแผนแต่ละด้านรับรอง</dd>
+    </div>
+  </div>
+  <div class="cap"><b>ตัวเลขนี้บอกอะไร:</b> ปัญหาของ TMT ในรอบนี้ไม่ใช่ "ไม่มีแผน" — Canvas เขียนไว้ครบ 90% แล้ว
+  ปัญหาคือ <b>แผนที่มีไม่ได้ถูกแปลงเป็น Corrective Action ที่มีเจ้าของ ตัวเลขเป้าหมาย และวันครบกำหนด</b> · สังเกตว่าคอลัมน์ที่ว่างที่สุดคือ 2 ด้านขวาสุด (ลำดับลูกค้า และ เครดิต) ซึ่งเป็น 2 ด้านที่กระทบ Margin โดยตรงที่สุดในภาวะของขาด<br>
+  <b>ควรทำอะไรต่อ:</b> ไม่ต้องเขียนแผนใหม่ ให้ทำ 5 อย่างในหัวข้อถัดไปแทน — ทั้งหมดเป็นการมอบหมายเจ้าของและใส่ตัวเลขให้แผนที่มีอยู่แล้ว</div>
+</section>
+
+<section class="card">
+  <h2><span class="n">3.6</span>Trigger ที่จะสั่งให้เริ่มใช้แผน — ตอนนี้แต่ละ Scenario อยู่ตรงไหน</h2>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:130px">Scenario</th><th style="width:300px">เงื่อนไขที่จะสั่งให้เริ่มใช้แผน</th>
+      <th class="num" style="width:180px">ค่าปัจจุบัน</th><th style="width:120px">สถานะ</th><th>ถ้ายังวัดไม่ได้ ต้องได้อะไรมาก่อน</th></tr></thead>
+    <tbody>
+      <tr class="rowalarm"><td rowspan="3"><b>SUPPLY SHOCK</b><br><span class="lvl now">เริ่มแล้ว</span></td>
+        <td>Mill หลักหยุดผลิต ≥ 1 สัปดาห์</td><td class="num">GJS 14 วัน (23 ก.ย. – 6 ต.ค.)</td><td><span class="dot a"></span>ผ่านแล้ว</td><td>—</td></tr>
+      <tr class="rowalarm"><td>Inventory Days ของ HRC &lt; 20 วัน</td><td class="num">21.3 วัน · หลัง Shutdown เหลือ 7.3</td><td><span class="dot w"></span>ใกล้ผ่าน</td><td>ตารางรับมอบ P/O 24,670 ตัน รายสัปดาห์</td></tr>
+      <tr class="rowalarm"><td>ยอดค้างส่ง &gt; 12 วันของกำลังจัดส่ง</td><td class="num">10.4 วัน</td><td><span class="dot w"></span>เฝ้าระวัง</td><td>—</td></tr>
+
+      <tr class="rowalarm"><td rowspan="2"><b>OVER DEMAND</b><br><span class="lvl now">เริ่มแล้ว</span></td>
+        <td>ยอดขายจริงเกินประมาณการ ≥ 3% ติดต่อกัน 2 เดือน</td><td class="num">+3.6% (ส.ค. · 1 เดือน)</td><td><span class="dot w"></span>ผ่าน 1 จาก 2 เดือน</td><td>ยอดขายจริงเดือน ก.ย. เทียบประมาณการ</td></tr>
+      <tr class="rowalarm"><td>คิวแปรรูป Overload หรือลูกค้ารอของ</td><td class="num">คิวตัด Overload · ท่อ GI ไม่พอขาย</td><td><span class="dot a"></span>ผ่านแล้ว</td><td>จำนวนวันรอคิวตัดเฉลี่ย เพื่อวัดขนาด</td></tr>
+
+      <tr class="rowwatch"><td rowspan="2"><b>PRICE WAR</b><br><span class="lvl prep">ยังไม่เริ่ม</span></td>
+        <td>ราคา FG ในประเทศปรับลดต่อเนื่อง ≥ 2 รอบ</td><td class="num">1 รอบ (−0.30 บาท/กก. 17 ส.ค.)</td><td><span class="dot w"></span>ผ่าน 1 จาก 2 รอบ</td><td>—</td></tr>
+      <tr class="rowwatch"><td>ราคาเสนอขายนำเข้า CFR ต่ำกว่าต้นทุนสต๊อกเฉลี่ยเกิน 300 บาท/ตัน ติดต่อกัน 2 สัปดาห์</td><td class="num"><span class="wait">วัดไม่ได้</span></td><td><span class="dot w"></span>ไม่มีข้อมูล</td><td><b>ราคา HRC/Coil นำเข้า CFR ไทย รายสัปดาห์ + FX</b> — เป็น Trigger ที่สำคัญที่สุดของ Scenario นี้แต่ยังวัดไม่ได้เลย</td></tr>
+
+      <tr class="rowwatch"><td rowspan="2"><b>OVERSUPPLY</b><br><span class="lvl guard">ยังไม่เริ่ม</span></td>
+        <td>Days of Price Exposure &gt; 45 วัน</td><td class="num">35.0 วัน · รวม P/O = 49.3</td><td><span class="dot w"></span>เกินแล้วถ้านับ P/O</td><td>ยืนยันว่านับ P/O ที่จบราคาแล้วหรือไม่ (ปัจจุบันเป็นดุลพินิจ)</td></tr>
+      <tr class="rowwatch"><td>Inventory Days ของ FG &gt; 40 วัน พร้อมราคาตลาดกลับทิศลง</td><td class="num">13.7 วัน · ราคายังขาขึ้น</td><td><span class="dot ok"></span>ยังห่างไกล</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cap"><b>ตารางนี้บอกอะไร:</b> จาก 9 Trigger ที่ตั้งไว้ <b>ผ่านแล้ว 3 · ใกล้ผ่าน 5 · วัดไม่ได้ 1</b> · ตัวที่วัดไม่ได้คือราคานำเข้า CFR ซึ่งเป็น Trigger ที่สำคัญที่สุดของ Price War และเป็นตัวตั้งของราคาทั้งระบบตามสมมติฐาน Price Taker<br>
+  <b>ควรทำอะไรต่อ:</b> ทุก Scenario มี Trigger ที่ยังต้องเติมข้อมูลอย่างน้อย 1 ตัว · ที่คุ้มที่สุดคือขอราคานำเข้า CFR รายสัปดาห์ เพราะปลดล็อกทั้ง Trigger ของ Price War และ Import Parity Waterfall ในหน้า 5 พร้อมกัน</div>
+</section>
+
+<section class="card">
+  <h2><span class="n">3.7</span>ห้าสิ่งที่ต้องเติมให้แผนใช้งานได้จริง</h2>
+  <div class="arow">
+    <div class="no">1</div>
+    <div class="txt"><b>มอบหมายเจ้าของ "การจัดลำดับลูกค้า" ให้ชัด</b>
+      Canvas ระบุเป็นข้อแรกของทั้ง Supply Shock และ Over Demand แต่ไม่มี Corrective Action ใดใน 17 รายการรับผิดชอบ · เริ่มจากยอดค้างส่ง 33,643 ตัน แยก 3 กลุ่ม (Con&amp;Fab 12,525 · Factory 11,084 · Dealer 10,024) ซึ่งอ่อนไหวต่อราคาไม่เท่ากัน</div>
+    <div class="who">Sales + Services</div>
+    <div class="due" style="color:#ff6a05">ภายใน 16 ก.ย.</div>
+  </div>
+  <div class="arow">
+    <div class="no">2</div>
+    <div class="txt"><b>ตั้งเกณฑ์ราคาขั้นต่ำ (Price Floor) รายกลุ่มสินค้า</b>
+      เป็นสิ่งเดียวที่จะทำให้แผน Price War ใช้งานได้จริง — ต้องรู้ว่าลดราคาได้ถึงไหนจึงยังไม่ขาดทุน · ต้องการกำไรต่อตันและต้นทุนแปรรูปก่อน</div>
+    <div class="who">Finance + Sales</div>
+    <div class="due" style="color:#ff6a05">ภายใน 23 ก.ย.</div>
+  </div>
+  <div class="arow">
+    <div class="no">3</div>
+    <div class="txt"><b>ตั้งเพดาน Inventory Days และ Days of Price Exposure เป็นนโยบาย</b>
+      เป็นกันชนของ Oversupply ที่ต้องตั้งก่อนเติมสต๊อกรับ Shutdown ไม่ใช่หลังจากนั้น · ข้อเสนอเริ่มต้น: ไม่ให้ Days of Price Exposure เกิน 45 วัน (ปัจจุบัน 35.0 · รวม P/O แล้ว 49.3 ซึ่งเกินไปแล้ว)</div>
+    <div class="who">Planning + Finance</div>
+    <div class="due" style="color:#ff6a05">ภายใน 16 ก.ย.</div>
+  </div>
+  <div class="arow">
+    <div class="no">4</div>
+    <div class="txt"><b>เปิดช่อง Signal ด้านเครดิตให้มีคนส่งจริง</b>
+      Canvas ทั้ง 4 ไฟล์ระบุความเสี่ยงด้านเครดิตเป็น Trigger แต่ไฟล์ Signal มี 0 จาก 17 รายการ · ขอเป็นรายการประจำ: DSO, ยอดหนี้ค้าง, คำขอขยายเครดิต, การชำระล่าช้า</div>
+    <div class="who">Finance + Sales</div>
+    <div class="due">ภายใน 16 ก.ย. แล้วรายเดือน</div>
+  </div>
+  <div class="arow">
+    <div class="no">5</div>
+    <div class="txt"><b>เพิ่มคอลัมน์ "ตัวเลขเป้าหมาย" และ "วันครบกำหนด" ในช่อง Corrective Action</b>
+      ปัจจุบัน 15 รายการที่มีข้อมูล <b>ไม่มีรายการใดระบุตัวเลขเป้าหมาย</b> และมีเพียง 1 รายการที่ระบุกรอบเวลา (<span class="sid">S14</span> OT วันอาทิตย์ 2–4 สัปดาห์) จึงติดตามผลไม่ได้ว่าแผนได้ผลหรือไม่</div>
+    <div class="who">เจ้าของกระบวนการ Signal Log</div>
+    <div class="due">ก่อนรอบถัดไป</div>
+  </div>
+  <div class="src" style="margin-top:15px"><span class="lab">ที่มา</span>
+    ทั้ง 5 ข้อได้จากการเทียบ 3 แหล่งเข้าหากัน — <b>แผนใน Scenario Canvas ทั้ง 4 ไฟล์</b> เทียบกับ <b>คอลัมน์ Corrective Action ในไฟล์ Signal 17 รายการ</b> เทียบกับ <b>โครงสร้างแผน 5 ด้านตาม Instruction ข้อ 4.3</b> ·
+    ทุกข้อเป็นการเติมสิ่งที่แผนเดิมขาด <b>ไม่ใช่การเขียนแผนใหม่</b>
+  </div>
+  <div class="cap"><b>อ่านสั้น ๆ:</b> ข้อ 1 และ 3 ทำได้ทันทีโดยไม่ต้องรอข้อมูลใหม่ · ข้อ 2 รอกำไรต่อตัน · ข้อ 4 และ 5 เป็นการแก้ที่ตัวกระบวนการเก็บ Signal ซึ่งจะให้ผลต่อเนื่องทุกรอบ<br>
+  <b>ควรทำอะไรต่อ:</b> นำ 5 ข้อนี้เข้าวาระ S&amp;OP เป็นชุดเดียวกับรายการตัดสินใจ 6 ข้อในหน้า 1 — สองชุดนี้ไม่ทับกัน ชุดหน้า 1 คือการตัดสินใจเฉพาะหน้า ชุดนี้คือการทำให้แผนใช้ได้ในรอบต่อไป</div>
+</section>
+
 </div>
 
 <script id="ssmatrix">
