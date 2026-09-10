@@ -66,7 +66,7 @@ body.sbc #sb{width:58px}
 #sb .brand{font-size:12.5px;font-weight:600;letter-spacing:.3px;white-space:nowrap;overflow:hidden}
 #sb .brand small{display:block;font-size:10px;font-weight:400;color:#8bbade;letter-spacing:0}
 #sbnav{flex:1;overflow-y:auto;overflow-x:hidden;padding:8px 0}
-#sbnav2{border-top:1px solid rgba(255,255,255,.18);padding:7px 0;flex:0 0 auto}
+#sbnav2{border-top:1px solid rgba(255,255,255,.18);padding:7px 0;flex:0 0 auto;max-height:34vh;overflow-y:auto}
 #sbnav button,#sbnav2 button{display:flex;align-items:center;gap:11px;width:100%;appearance:none;border:0;
    background:transparent;color:#c2d5da;font-family:inherit;font-size:12.5px;font-weight:500;
    text-align:left;padding:8px 12px;cursor:pointer;border-left:3px solid transparent;white-space:nowrap}
@@ -313,7 +313,9 @@ td.rm{text-align:center;white-space:nowrap}
     <button data-t="p7" title="Data Gap และเป้าหมาย"><span class="num">9</span><span class="lbl">Data Gap &amp; เป้าหมาย</span></button>
   </nav>
   <nav id="sbnav2">
-    <button data-t="pglos" title="อภิธานศัพท์ — คำอธิบายศัพท์เทคนิคทั้งหมด"><span class="num"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><g fill="currentColor"><rect x="10.8" y="1" width="2.4" height="4" rx=".6"/><rect x="10.8" y="19" width="2.4" height="4" rx=".6"/><rect x="1" y="10.8" width="4" height="2.4" rx=".6"/><rect x="19" y="10.8" width="4" height="2.4" rx=".6"/><rect x="10.8" y="1" width="2.4" height="4" rx=".6" transform="rotate(45 12 12)"/><rect x="10.8" y="19" width="2.4" height="4" rx=".6" transform="rotate(45 12 12)"/><rect x="1" y="10.8" width="4" height="2.4" rx=".6" transform="rotate(45 12 12)"/><rect x="19" y="10.8" width="4" height="2.4" rx=".6" transform="rotate(45 12 12)"/></g><circle cx="12" cy="12" r="6.4" fill="none" stroke="currentColor" stroke-width="2.6"/></svg></span><span class="lbl">อภิธานศัพท์</span></button>
+    <button data-t="pset1" title="Setting 1 — โครงสร้างตารางเก็บข้อมูล Signal"><span class="num"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><g fill="currentColor"><rect x="10.8" y="1" width="2.4" height="4" rx=".6"/><rect x="10.8" y="19" width="2.4" height="4" rx=".6"/><rect x="1" y="10.8" width="4" height="2.4" rx=".6"/><rect x="19" y="10.8" width="4" height="2.4" rx=".6"/><rect x="10.8" y="1" width="2.4" height="4" rx=".6" transform="rotate(45 12 12)"/><rect x="10.8" y="19" width="2.4" height="4" rx=".6" transform="rotate(45 12 12)"/><rect x="1" y="10.8" width="4" height="2.4" rx=".6" transform="rotate(45 12 12)"/><rect x="19" y="10.8" width="4" height="2.4" rx=".6" transform="rotate(45 12 12)"/></g><circle cx="12" cy="12" r="6.4" fill="none" stroke="currentColor" stroke-width="2.6"/></svg></span><span class="lbl">Setting 1<br>โครงสร้างตาราง Signal</span></button>
+    <button data-t="pset2" title="Setting 2 — เงื่อนไขข้อมูลที่แต่ละแผนกต้องส่ง"><span class="num"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><g fill="currentColor"><rect x="10.8" y="1" width="2.4" height="4" rx=".6"/><rect x="10.8" y="19" width="2.4" height="4" rx=".6"/><rect x="1" y="10.8" width="4" height="2.4" rx=".6"/><rect x="19" y="10.8" width="4" height="2.4" rx=".6"/><rect x="10.8" y="1" width="2.4" height="4" rx=".6" transform="rotate(45 12 12)"/><rect x="10.8" y="19" width="2.4" height="4" rx=".6" transform="rotate(45 12 12)"/><rect x="1" y="10.8" width="4" height="2.4" rx=".6" transform="rotate(45 12 12)"/><rect x="19" y="10.8" width="4" height="2.4" rx=".6" transform="rotate(45 12 12)"/></g><circle cx="12" cy="12" r="6.4" fill="none" stroke="currentColor" stroke-width="2.6"/></svg></span><span class="lbl">Setting 2<br>เงื่อนไขรายแผนก</span></button>
+    <button data-t="pglos" title="อภิธานศัพท์ — คำอธิบายศัพท์เทคนิคทั้งหมด"><span class="num"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4.5A2.5 2.5 0 016.5 2H20v18H6.5A2.5 2.5 0 004 22V4.5z"/><path d="M4 17.5h16"/><path d="M8 7h8M8 11h6"/></svg></span><span class="lbl">อภิธานศัพท์</span></button>
   </nav>
   <div class="sbfoot">อัปเดต 9 ก.ย. 2026<br>Signal 17 รายการ · 7 แผนก<br>Data Completeness 69%</div>
 </aside>
@@ -3181,6 +3183,432 @@ window.DEPTS=[
 
 </div>
 
+<!-- ============ PANEL : SETTING 1 — SIGNAL TABLE SCHEMA ============ -->
+<div class="panel" id="pset1">
+
+<section class="card">
+  <h2>Setting 1 · โครงสร้างตารางเก็บข้อมูล Signal</h2>
+  <div class="callout">
+    <div class="ttl">ทำไมต้องออกแบบตารางใหม่</div>
+    <p>ไฟล์ Signal ปัจจุบันมี 19 คอลัมน์ แต่ <b>ขาดฟิลด์บังคับ 3 ตัวที่ทำให้แปลงข้อมูลเป็นเงินไม่ได้</b> — ไม่มีรหัส Signal, ไม่มีคอลัมน์กลไก และไม่มีช่องขนาดผลกระทบ
+    ผลคือ <em>0 จาก 17 รายการ ที่มีตัวเลขอยู่ในช่องที่แยกออกมา</em> ตัวเลขทั้งหมดฝังอยู่ในข้อความไทยอิสระ</p>
+    <p style="margin-top:9px">โครงสร้างใหม่นี้แยกเป็น 5 กลุ่ม 29 คอลัมน์ โดย <b>กรอกเองจริง ๆ เพียง 13 ช่องที่บังคับ</b> ที่เหลือเป็นช่องแนะนำและช่องที่คำนวณอัตโนมัติ ·
+    เป้าหมายคือให้ Data Completeness ขึ้นจาก 69% และทำให้ทุก Signal แปลงเป็น บาท/ตัน ได้</p>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi hot"><div class="k">คอลัมน์ทั้งหมดในโครงสร้างใหม่</div><div class="v">29</div><div class="u">คอลัมน์ · 5 กลุ่ม</div>
+      <div class="src"><b>เดิม:</b> 19 คอลัมน์ (มี 1 คอลัมน์ที่ว่างทุกแถว) · <b>ใหม่:</b> เพิ่ม 11 ตัด 1</div></div>
+    <div class="kpi"><div class="k">ช่องที่ต้องกรอกเองและบังคับ</div><div class="v">13</div><div class="u">ช่อง ต่อ 1 Signal</div>
+      <div class="src"><b>ออกแบบให้:</b> กรอกครบใน 3–5 นาที · ที่เหลือเป็นช่องแนะนำ 12 ช่อง และคำนวณอัตโนมัติ 4 ช่อง</div></div>
+    <div class="kpi hot"><div class="k">ช่องใหม่ที่ปลดล็อกการแปลงเป็นเงิน</div><div class="v">3</div><div class="u">กลไก · ทิศทางต่อ Margin · ขนาดผลกระทบ</div>
+      <div class="src"><b>ปัจจุบันมี 0 จาก 17 รายการ</b> ที่กรอก 3 ช่องนี้ได้ เพราะยังไม่มีช่องให้กรอก</div></div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>กลุ่ม A · ระบุตัวตนของ Signal</h2>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:48px">รหัส</th><th style="width:160px">ชื่อคอลัมน์</th><th style="width:105px">ประเภท</th><th style="width:90px">สถานะ</th><th style="width:230px">รูปแบบ / ตัวเลือก</th><th>ตัวอย่าง และเหตุผล</th></tr></thead>
+    <tbody>
+      <tr class="rowalarm"><td><b>A1</b></td><td><b>Signal ID</b></td><td>ข้อความ</td><td><span class="tag est">สูตรอัตโนมัติ</span></td>
+        <td><code>S-YYMM-NNN</code> · YY ปี · MM เดือน · NNN เลขลำดับในเดือนนั้น</td>
+        <td><b>S-2609-001</b> · <b>เป็นช่องที่ขาดหายไปมากที่สุดในปัจจุบัน (0/17)</b> — ไม่มีรหัสจึงติดตาม Signal เดิมข้ามรอบรายงานไม่ได้ และอ้างอิงกลับในที่ประชุมไม่ได้</td></tr>
+      <tr><td><b>A2</b></td><td>วันที่พบสัญญาณ</td><td>วันที่</td><td><span class="tag alarm">บังคับ</span></td><td><code>YYYY-MM-DD</code></td>
+        <td>2026-09-02 · ต้องเป็นวันที่<b>พบ</b> ไม่ใช่วันที่กรอก เพราะใช้คำนวณอายุของ Signal</td></tr>
+      <tr><td><b>A3</b></td><td>รอบรายงาน</td><td>ข้อความ</td><td><span class="tag est">สูตรอัตโนมัติ</span></td><td><code>=TEXT(A2,"yyyy-mm")</code></td>
+        <td>2026-09 · ปัจจุบันกรอกเองและว่าง 3 จาก 17 รายการ จึงควรทำเป็นสูตร</td></tr>
+      <tr><td><b>A4</b></td><td>แผนกเจ้าของ</td><td>Dropdown</td><td><span class="tag alarm">บังคับ</span></td><td>8 ค่า (ดูตารางค่ามาตรฐานด้านล่าง)</td>
+        <td>Procurement · <b>เพิ่ม Finance เป็นแผนกที่ 8</b> ซึ่งปัจจุบันยังไม่มีในระบบเลย</td></tr>
+      <tr><td><b>A5</b></td><td>ผู้กรอก</td><td>ข้อความ</td><td><span class="tag alarm">บังคับ</span></td><td>ชื่อ-นามสกุล</td>
+        <td>ปัจจุบันไม่มีช่องนี้ · จำเป็นเมื่อต้องสอบทานข้อมูลที่ขัดกัน เช่นกรณียอดรวมสต๊อกที่ไม่ตรงกัน</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card">
+  <h2>กลุ่ม B · สิ่งที่พบและหลักฐาน</h2>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:48px">รหัส</th><th style="width:160px">ชื่อคอลัมน์</th><th style="width:105px">ประเภท</th><th style="width:90px">สถานะ</th><th style="width:230px">รูปแบบ / ตัวเลือก</th><th>ตัวอย่าง และเหตุผล</th></tr></thead>
+    <tbody>
+      <tr><td><b>B1</b></td><td>ชื่อ Signal</td><td>ข้อความ ≤ 120 ตัวอักษร</td><td><span class="tag alarm">บังคับ</span></td><td>ประโยคเดียว อ่านแล้วเข้าใจทันที</td>
+        <td>"GJ Steel แจ้งหยุดเดินเครื่อง 23 ก.ย. – 6 ต.ค." · จำกัดความยาวเพื่อให้แสดงในตารางสรุปได้</td></tr>
+      <tr><td><b>B2</b></td><td>สิ่งที่สังเกตเห็น</td><td>ข้อความยาว</td><td><span class="tag alarm">บังคับ</span></td><td><b>ข้อเท็จจริงล้วน ห้ามใส่ความเห็นหรือการตีความ</b></td>
+        <td>"GJ Steel แจ้งแผนหยุดเดินเครื่องจักร 2 สัปดาห์ ตั้งแต่ 23 ก.ย. ถึง 6 ต.ค." · ปัจจุบันว่าง 1 จาก 17 รายการ</td></tr>
+      <tr><td><b>B3</b></td><td>แหล่งอ้างอิง</td><td>ข้อความ</td><td><span class="tag alarm">บังคับ</span></td><td>ระบุ<b>ชื่อเอกสาร ระบบ หรือรหัสรายงาน</b> ไม่ใช่แค่ชื่อฝ่าย</td>
+        <td>"SAP ZSDR0003_N รายงานค้างส่ง ณ 2 ก.ย." · ปัจจุบันหลายรายการระบุแค่ "Planning" ซึ่งย้อนกลับไปดูไม่ได้</td></tr>
+      <tr><td><b>B4</b></td><td>ความน่าเชื่อถือของแหล่ง</td><td>Dropdown</td><td><span class="tag alarm">บังคับ</span></td><td>สูง / กลาง / ต่ำ</td>
+        <td>สูง = เอกสารทางการหรือระบบ · กลาง = คำบอกเล่าจากคู่ค้า · ต่ำ = ข่าวลือในตลาด</td></tr>
+      <tr><td><b>B5</b></td><td>หลักฐานภายในที่ยืนยัน</td><td>ข้อความ</td><td><span class="tag watch">แนะนำ</span></td><td>ตัวเลขจากระบบของเราที่สอดคล้องกับ Signal</td>
+        <td>"Stock HRC 36,750 ตัน ต้นทุนเฉลี่ย 19.48 บาท/กก." · ช่องนี้คือที่ที่ตัวเลขสำคัญมักถูกฝังอยู่ จึงต้องแยกตัวเลขออกไปกลุ่ม C ด้วย</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card">
+  <h2>กลุ่ม C · แปลงเป็นตัวเลข <span style="font-size:12px;font-weight:400;color:var(--orange)">— กลุ่มใหม่ทั้งหมด เป็นหัวใจของการเปลี่ยนแปลงครั้งนี้</span></h2>
+  <div class="note act">กลุ่มนี้คือสิ่งที่ทำให้ Dashboard เปลี่ยนจาก "รายงานปริมาณ" เป็น "รายงานกำไร" · ปัจจุบันไม่มีคอลัมน์เหล่านี้เลยแม้แต่ช่องเดียว</div>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:48px">รหัส</th><th style="width:190px">ชื่อคอลัมน์</th><th style="width:105px">ประเภท</th><th style="width:90px">สถานะ</th><th style="width:230px">รูปแบบ / ตัวเลือก</th><th>ตัวอย่าง และเหตุผล</th></tr></thead>
+    <tbody>
+      <tr class="rowalarm"><td><b>C1</b></td><td><b>กลไกที่เกี่ยวข้อง</b></td><td>Dropdown</td><td><span class="tag alarm">บังคับ</span></td>
+        <td>Price / Volume / Cost / Policy / Logistics / <b>Credit</b></td>
+        <td>Cost · ทำให้สร้าง Heatmap ตามกลไกได้เอง ไม่ต้องให้ผู้วิเคราะห์ตีความ · <b>ช่อง Credit ปัจจุบันว่าง 0/17 เพราะยังไม่มีคอลัมน์ให้กรอก</b></td></tr>
+      <tr class="rowalarm"><td><b>C2</b></td><td><b>ทิศทางต่อ Margin</b></td><td>Dropdown</td><td><span class="tag alarm">บังคับ</span></td><td>บวก / ลบ / ไม่แน่นอน</td>
+        <td>ลบ · <b>ต้องแยกจากคอลัมน์ Direction เดิม</b> ซึ่งเป็นทิศทางของเหตุการณ์ · ปัจจุบันปนกันจนราคาขายที่ลดลงถูกจัดเป็น "Positive"</td></tr>
+      <tr class="rowalarm"><td><b>C3</b></td><td><b>ขนาดผลกระทบ (บาท/ตัน)</b></td><td>ตัวเลข</td><td><span class="tag alarm">บังคับ*</span></td>
+        <td>ตัวเลขล้วน ใส่เครื่องหมายลบได้ · <b>ห้ามใส่ 0 เพื่อผ่าน</b> ถ้าประเมินไม่ได้ให้ติ๊ก C4</td>
+        <td>−300 · เป็นช่องที่ให้ผลตอบแทนสูงสุด — ปลดล็อกการแปลงทุก Signal เป็นเงินได้ทันที</td></tr>
+      <tr><td><b>C4</b></td><td>ประเมินขนาดไม่ได้</td><td>ใช่ / ไม่ใช่</td><td><span class="tag watch">แนะนำ</span></td><td>ติ๊กเมื่อ C3 ว่าง</td>
+        <td>ใช่ · การยอมรับว่าประเมินไม่ได้ ดีกว่าใส่ตัวเลขมั่ว — และทำให้เห็นว่าต้องเติมข้อมูลอะไร</td></tr>
+      <tr><td><b>C5</b></td><td>เหตุผลที่ประเมินไม่ได้</td><td>ข้อความ</td><td><span class="tag alarm">บังคับเมื่อ C4 = ใช่</span></td><td>ระบุว่าขาดข้อมูลอะไร</td>
+        <td>"ไม่มีกำไรต่อตันของกลุ่มสินค้านี้" · ข้อความในช่องนี้จะกลายเป็นรายการใน Data Gap Register อัตโนมัติ</td></tr>
+      <tr><td><b>C6</b></td><td>ปริมาณที่เกี่ยวข้อง (ตัน)</td><td>ตัวเลข</td><td><span class="tag watch">แนะนำ</span></td><td>ตัวเลขล้วน ไม่ใส่หน่วยในช่อง</td>
+        <td>36,750 · <b>ห้ามเขียนรวมในข้อความ</b> เช่น "Stock HRC = 36,750 T" เพราะดึงออกมาคำนวณไม่ได้</td></tr>
+      <tr><td><b>C7</b></td><td>ราคา / ต้นทุนที่เกี่ยวข้อง (บาท/กก.)</td><td>ตัวเลข</td><td><span class="tag watch">แนะนำ</span></td><td>ทศนิยม 2 ตำแหน่ง</td>
+        <td>19.48 · ใช้คู่กับ C6 เพื่อคำนวณมูลค่าอัตโนมัติ</td></tr>
+      <tr><td><b>C8</b></td><td>มูลค่าผลกระทบ (บาท)</td><td>ตัวเลข</td><td><span class="tag est">สูตรอัตโนมัติ</span></td><td><code>= C3 × C6</code></td>
+        <td>−11,025,000 · ทำให้จัดลำดับความสำคัญของ Signal ด้วยเงินได้ทันทีโดยไม่ต้องคำนวณเอง</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><b>*กฎของ C3:</b> ต้องกรอก C3 <b>หรือ</b> ติ๊ก C4 พร้อมกรอก C5 อย่างใดอย่างหนึ่งเสมอ · ปล่อยว่างทั้งคู่ถือว่ากรอกไม่ครบ และ Signal นั้นจะไม่ถูกนับใน Data Completeness</div>
+</section>
+
+<section class="card">
+  <h2>กลุ่ม D · เวลาและ Scenario</h2>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:48px">รหัส</th><th style="width:190px">ชื่อคอลัมน์</th><th style="width:105px">ประเภท</th><th style="width:90px">สถานะ</th><th style="width:230px">รูปแบบ / ตัวเลือก</th><th>ตัวอย่าง และเหตุผล</th></tr></thead>
+    <tbody>
+      <tr class="rowalarm"><td><b>D1</b></td><td><b>เวลาหน่วง (จำนวนวัน)</b></td><td>ตัวเลข</td><td><span class="tag alarm">บังคับ</span></td><td>จำนวนวันจนกว่าจะกระทบ P&amp;L จริง</td>
+        <td>14 · <b>ต้องเป็นจำนวนวัน ไม่ใช่ช่วง</b> — ปัจจุบันใช้ช่วง "3–12 เดือน" ซึ่งกว้างเกินกว่าจะวางแผนได้</td></tr>
+      <tr><td><b>D2</b></td><td>ช่วงเวลาหน่วง</td><td>ข้อความ</td><td><span class="tag est">สูตรอัตโนมัติ</span></td><td>0–28 วัน / 29–84 วัน / 85–365 วัน</td>
+        <td>0–28 วัน · คำนวณจาก D1 เพื่อให้จัดกลุ่มตามกรอบ 2 สัปดาห์ / 1 เดือน / 3 เดือน ได้อัตโนมัติ</td></tr>
+      <tr><td><b>D3</b></td><td>Scenario ที่เกี่ยวข้อง</td><td>Dropdown เลือกได้หลายค่า</td><td><span class="tag watch">แนะนำ</span></td><td>Supply Shock / Over Demand / Price War / Oversupply</td>
+        <td>Supply Shock · ทำให้สร้าง Scenario Radar ได้เองโดยไม่ต้องตีความ</td></tr>
+      <tr><td><b>D4</b></td><td>ประเภทตัวชี้วัด</td><td>Dropdown</td><td><span class="tag watch">แนะนำ</span></td><td>Leading / Coincident / Lagging</td>
+        <td>Leading · ใช้ตรวจว่าระบบมีตัวชี้วัดที่นำหน้าเพียงพอหรือไม่ — ปัจจุบันแทบไม่มีเลย</td></tr>
+      <tr><td><b>D5</b></td><td>วันที่คาดว่าจะหมดอายุ</td><td>วันที่</td><td><span class="tag watch">แนะนำ</span></td><td>วันที่ Signal นี้ไม่เป็นจริงอีกต่อไป</td>
+        <td>2026-10-06 · แก้ปัญหาที่เจอในรอบนี้ ที่รายงานสถานะ Mill จากวันที่ 18 ส.ค. ยังถูกใช้อยู่ทั้งที่ล้าสมัยไปแล้ว</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card">
+  <h2>กลุ่ม E · การจัดการและติดตามผล</h2>
+  <div class="note act">กลุ่มนี้แก้ปัญหาที่พบในรอบนี้ — <b>Corrective Action 15 รายการที่มีข้อมูล ไม่มีรายการใดระบุตัวเลขเป้าหมาย</b> และมีเพียง 1 รายการที่ระบุกรอบเวลา จึงติดตามไม่ได้ว่าแผนได้ผลหรือไม่</div>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:48px">รหัส</th><th style="width:190px">ชื่อคอลัมน์</th><th style="width:105px">ประเภท</th><th style="width:90px">สถานะ</th><th style="width:230px">รูปแบบ / ตัวเลือก</th><th>ตัวอย่าง และเหตุผล</th></tr></thead>
+    <tbody>
+      <tr><td><b>E1</b></td><td>First Action</td><td>ข้อความ</td><td><span class="tag watch">แนะนำ</span></td><td>สิ่งที่ทำทันทีเมื่อพบ Signal</td>
+        <td>"แจ้ง Material Planning เพื่อจัดทำ Size ล่วงหน้า"</td></tr>
+      <tr><td><b>E2</b></td><td>Corrective Action</td><td>ข้อความ</td><td><span class="tag alarm">บังคับ</span></td><td>มาตรการแก้ไขที่จะทำ</td>
+        <td>"ส่ง Size สั่งผลิตล่วงหน้าให้ GJS ก่อนหยุด Shutdown" · ปัจจุบันว่าง 2 จาก 17 รายการ</td></tr>
+      <tr class="rowalarm"><td><b>E3</b></td><td><b>ตัวเลขเป้าหมายของ Corrective Action</b></td><td>ข้อความ + ตัวเลข</td><td><span class="tag alarm">บังคับ</span></td>
+        <td>ต้องมีตัวเลขและหน่วย · ห้ามเขียนลอย ๆ ว่า "ปรับแผน"</td>
+        <td>"สั่งผลิตล่วงหน้า 8,000 ตัน ให้ครบก่อน 20 ก.ย." · <b>ปัจจุบันไม่มีรายการใดกรอกช่องนี้ได้ เพราะยังไม่มีช่อง</b></td></tr>
+      <tr class="rowalarm"><td><b>E4</b></td><td><b>วันครบกำหนด</b></td><td>วันที่</td><td><span class="tag alarm">บังคับ</span></td><td><code>YYYY-MM-DD</code></td>
+        <td>2026-09-20 · ปัจจุบันมีเพียง 1 จาก 17 รายการที่ระบุกรอบเวลา</td></tr>
+      <tr><td><b>E5</b></td><td>ผู้รับผิดชอบ</td><td>ข้อความ</td><td><span class="tag watch">แนะนำ</span></td><td>ชื่อบุคคล ไม่ใช่ชื่อแผนก</td>
+        <td>ระบุชื่อคน เพราะ "ฝ่ายจัดซื้อ" ไม่มีใครรับผิดชอบจริง</td></tr>
+      <tr><td><b>E6</b></td><td>สถานะ</td><td>Dropdown</td><td><span class="tag alarm">บังคับ</span></td><td>Monitoring / Action Required / Closed / <b>Escalated</b></td>
+        <td>Monitoring · เพิ่มค่า Escalated สำหรับกรณีที่แผนกเดียวแก้ไม่ได้ ต้องยกขึ้นที่ประชุม S&amp;OP</td></tr>
+      <tr><td><b>E7</b></td><td>วันที่ปิด</td><td>วันที่</td><td><span class="tag alarm">บังคับเมื่อ E6 = Closed</span></td><td><code>YYYY-MM-DD</code></td>
+        <td>ใช้วัดว่าจากพบ Signal จนแก้เสร็จใช้เวลากี่วัน</td></tr>
+      <tr><td><b>E8</b></td><td>ผลลัพธ์หลังแก้ไข</td><td>ข้อความ</td><td><span class="tag alarm">บังคับเมื่อ E6 = Closed</span></td><td>เทียบกับตัวเลขเป้าหมายใน E3</td>
+        <td>"สั่งผลิตล่วงหน้าได้ 7,200 ตัน จากเป้า 8,000 ตัน" · <b>ช่องนี้ทำให้รอบหน้าตอบได้ว่าแผนรอบก่อนได้ผลหรือไม่</b></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card">
+  <h2>ค่ามาตรฐานของช่อง Dropdown — ตั้งเป็น Data Validation ในไฟล์</h2>
+  <div class="grid2">
+    <div>
+      <h3 class="sub">A4 · แผนกเจ้าของ (8 ค่า)</h3>
+      <table><tbody>
+        <tr><td>Procurement</td><td>จัดซื้อ</td></tr>
+        <tr><td>Sale &amp; Marketing</td><td>ขายและการตลาด</td></tr>
+        <tr><td>Product Planning</td><td>วางแผนสินค้า</td></tr>
+        <tr><td>Material Planning</td><td>วางแผนวัตถุดิบ</td></tr>
+        <tr><td>Logistics</td><td>โลจิสติกส์</td></tr>
+        <tr><td>Transportation</td><td>ขนส่ง</td></tr>
+        <tr><td>Services</td><td>บริการลูกค้า / ส่งมอบ</td></tr>
+        <tr class="rowalarm"><td><b>Finance</b></td><td><b>บัญชีและการเงิน — เพิ่มใหม่</b></td></tr>
+      </tbody></table>
+      <div class="note act">การเพิ่ม <b>Finance</b> เป็นแผนกที่ 8 คือการเปลี่ยนแปลงเชิงโครงสร้างที่ให้ผลสูงสุด — เพราะกำไรต่อตัน ต้นทุนแปรรูป และข้อมูลเครดิต ซึ่งเป็นข้อมูลที่ขาดอันดับ 1, 9 และ 11 ล้วนอยู่ที่แผนกนี้</div>
+    </div>
+    <div>
+      <h3 class="sub">C1 · กลไกที่เกี่ยวข้อง (6 ค่า)</h3>
+      <table><tbody>
+        <tr><td><b>Price</b></td><td>เกี่ยวกับราคาขายหรือราคาซื้อ</td></tr>
+        <tr><td><b>Volume</b></td><td>เกี่ยวกับปริมาณขาย ผลิต หรือสต๊อก</td></tr>
+        <tr><td><b>Cost</b></td><td>เกี่ยวกับต้นทุนวัตถุดิบหรือแปรรูป</td></tr>
+        <tr><td><b>Policy</b></td><td>กฎเกณฑ์ ภาษี มาตรฐาน นโยบายรัฐ</td></tr>
+        <tr><td><b>Logistics</b></td><td>การขนส่งและการส่งมอบ</td></tr>
+        <tr class="rowalarm"><td><b>Credit</b></td><td><b>การเก็บเงิน วงเงิน สภาพคล่องลูกค้า</b></td></tr>
+      </tbody></table>
+      <h3 class="sub">ช่อง Dropdown อื่น ๆ</h3>
+      <table><tbody>
+        <tr><td>B4 ความน่าเชื่อถือ</td><td>สูง / กลาง / ต่ำ</td></tr>
+        <tr><td>C2 ทิศทางต่อ Margin</td><td>บวก / ลบ / ไม่แน่นอน</td></tr>
+        <tr><td>D3 Scenario</td><td>Supply Shock / Over Demand / Price War / Oversupply</td></tr>
+        <tr><td>D4 ประเภทตัวชี้วัด</td><td>Leading / Coincident / Lagging</td></tr>
+        <tr><td>E6 สถานะ</td><td>Monitoring / Action Required / Closed / Escalated</td></tr>
+      </tbody></table>
+    </div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>ตัวอย่างแถวที่กรอกครบ — แปลง S09 จากไฟล์เดิมมาเป็นรูปแบบใหม่</h2>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:60px">ช่อง</th><th style="width:210px">ชื่อคอลัมน์</th><th>ค่าที่กรอก</th></tr></thead>
+    <tbody>
+      <tr><td>A1</td><td>Signal ID</td><td class="mono">S-2608-009</td></tr>
+      <tr><td>A2</td><td>วันที่พบสัญญาณ</td><td class="mono">2026-08-31</td></tr>
+      <tr><td>A3</td><td>รอบรายงาน</td><td class="mono">2026-08</td></tr>
+      <tr><td>A4</td><td>แผนกเจ้าของ</td><td>Procurement</td></tr>
+      <tr><td>A5</td><td>ผู้กรอก</td><td>(ระบุชื่อผู้กรอก)</td></tr>
+      <tr><td>B1</td><td>ชื่อ Signal</td><td>สั่งซื้อ HRC Shipment ก.ย. ราคาปรับขึ้น 0.30 บาท/กก.</td></tr>
+      <tr><td>B2</td><td>สิ่งที่สังเกตเห็น</td><td>G Group และ SSI ปรับราคาเหล็ก HRC เพิ่มขึ้น 0.30 บาท/กก. สำหรับ Shipment เดือน ก.ย.</td></tr>
+      <tr><td>B3</td><td>แหล่งอ้างอิง</td><td>หนังสือแจ้งราคาจาก NS-SUS และ SSI ลงวันที่ 31 ส.ค. 2026</td></tr>
+      <tr><td>B4</td><td>ความน่าเชื่อถือ</td><td>สูง</td></tr>
+      <tr><td>B5</td><td>หลักฐานภายในที่ยืนยัน</td><td>ยอดขาย FG จาก HRC เดือน ส.ค. จริง 51,800 ตัน เทียบประมาณการ 50,000 ตัน</td></tr>
+      <tr class="rowalarm"><td>C1</td><td><b>กลไกที่เกี่ยวข้อง</b></td><td>Cost</td></tr>
+      <tr class="rowalarm"><td>C2</td><td><b>ทิศทางต่อ Margin</b></td><td>ลบ</td></tr>
+      <tr class="rowalarm"><td>C3</td><td><b>ขนาดผลกระทบ (บาท/ตัน)</b></td><td class="mono">−100</td></tr>
+      <tr><td>C4</td><td>ประเมินขนาดไม่ได้</td><td>ไม่ใช่</td></tr>
+      <tr><td>C6</td><td>ปริมาณที่เกี่ยวข้อง (ตัน)</td><td class="mono">51,800</td></tr>
+      <tr><td>C7</td><td>ราคา / ต้นทุนที่เกี่ยวข้อง (บาท/กก.)</td><td class="mono">19.60</td></tr>
+      <tr class="rowalarm"><td>C8</td><td><b>มูลค่าผลกระทบ (บาท) — สูตร</b></td><td class="mono">−5,180,000</td></tr>
+      <tr><td>D1</td><td>เวลาหน่วง (วัน)</td><td class="mono">35</td></tr>
+      <tr><td>D2</td><td>ช่วงเวลาหน่วง — สูตร</td><td>29–84 วัน</td></tr>
+      <tr><td>D3</td><td>Scenario ที่เกี่ยวข้อง</td><td>Supply Shock, Over Demand</td></tr>
+      <tr><td>D4</td><td>ประเภทตัวชี้วัด</td><td>Coincident</td></tr>
+      <tr><td>E2</td><td>Corrective Action</td><td>ประกาศปรับราคา Price List ขึ้น 0.20 บาท/กก.</td></tr>
+      <tr class="rowalarm"><td>E3</td><td><b>ตัวเลขเป้าหมาย</b></td><td>ปิดช่องว่างการส่งผ่านต้นทุนให้เหลือไม่เกิน 0.10 บาท/กก. ภายในรอบราคาถัดไป</td></tr>
+      <tr><td>E4</td><td>วันครบกำหนด</td><td class="mono">2026-09-15</td></tr>
+      <tr><td>E6</td><td>สถานะ</td><td>Monitoring</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cap"><b>เปรียบเทียบให้เห็นชัด:</b> ข้อมูลชุดเดียวกันนี้ในไฟล์ปัจจุบัน ตัวเลข −100 บาท/ตัน และ −5.18 ล้านบาท <b>ไม่ปรากฏที่ไหนเลย</b> ต้องให้ผู้วิเคราะห์อ่านข้อความหลายช่องมาประกอบกันเอง<br>
+  <b>ควรทำอะไรต่อ:</b> ในโครงสร้างใหม่ ตัวเลขนี้อยู่ในช่อง C3 และ C8 ซึ่งโปรแกรมอ่านได้ทันที ทำให้รวมยอดผลกระทบทั้งเดือนและจัดลำดับ Signal ตามเงินได้เอง</div>
+</section>
+
+<section class="card">
+  <h2>กฎการกรอกและการตรวจสอบอัตโนมัติ</h2>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:44px">#</th><th style="width:250px">กฎ</th><th>เหตุผล และวิธีตั้งในไฟล์ Excel</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>ทุกช่องตัวเลขต้องเป็น<b>ตัวเลขล้วน</b> ห้ามพิมพ์หน่วยลงไปในช่อง</td><td>ตั้ง Data Validation เป็น Decimal · หน่วยให้ระบุไว้ที่หัวคอลัมน์แทน · แก้ปัญหาที่ตัวเลขถูกฝังในข้อความจนดึงออกมาไม่ได้</td></tr>
+      <tr><td>2</td><td>ต้องกรอก C3 <b>หรือ</b> ติ๊ก C4 พร้อมเหตุผลใน C5</td><td>ตั้ง Conditional Formatting ให้แถวขึ้นสีส้มถ้าว่างทั้งคู่ · ป้องกันการข้ามช่องสำคัญที่สุด</td></tr>
+      <tr><td>3</td><td>ถ้า E6 = Closed ต้องมี E7 และ E8</td><td>ปิดงานโดยไม่บอกผลลัพธ์ ทำให้รอบหน้าตรวจไม่ได้ว่าแผนได้ผลหรือไม่</td></tr>
+      <tr><td>4</td><td>D1 ต้องเป็นจำนวนเต็ม 1–365</td><td>ป้องกันการกรอกเป็นช่วงเวลาแบบข้อความ</td></tr>
+      <tr><td>5</td><td>B3 ต้องมีอย่างน้อย 10 ตัวอักษร</td><td>บังคับให้ระบุชื่อเอกสารจริง ไม่ใช่แค่ "Planning"</td></tr>
+      <tr><td>6</td><td>ห้ามแก้แถวเดิม ให้เพิ่มแถวใหม่แล้วอ้าง Signal ID เดิมในช่องหมายเหตุ</td><td>รักษาประวัติไว้ตรวจสอบ · ตรงกับหลักที่ว่าทุกครั้งที่อัปเดตให้สร้างไฟล์ใหม่</td></tr>
+      <tr><td>7</td><td>Data Completeness คำนวณจาก <b>13 ช่องบังคับ</b> เท่านั้น</td><td><code>= จำนวนช่องบังคับที่กรอก ÷ (13 × จำนวน Signal)</code> · ตั้งเป็นสูตรที่หัวไฟล์ให้เห็นทันทีก่อนส่ง</td></tr>
+    </tbody>
+  </table></div>
+  <div class="src"><span class="lab">การตั้งชื่อไฟล์และการเก็บประวัติ</span>
+    <div class="row">
+      <dt>ชื่อไฟล์</dt><dd><code>Supply_Chain_Foresight_Signal_Log_YYYY-MM-DD.xlsx</code> — เปลี่ยนชื่อตามวันที่ทุกครั้งที่อัปเดต ไม่เขียนทับไฟล์เดิม</dd>
+      <dt>ที่เก็บ</dt><dd>โฟลเดอร์ Project Foresight เดิม · ไฟล์เก่าไม่ต้องลบ เพราะเป็นฐานของการเปรียบเทียบข้ามรอบ</dd>
+      <dt>สิ่งที่ได้จากการเก็บประวัติ</dt><dd>ติดตามได้ว่าช่องว่างราคาแคบลงหรือกว้างขึ้น · Data Completeness ขยับไปทางไหน · อัตราเกิดจริงของราคาที่ Supplier ประกาศ · และ Corrective Action รอบก่อนทำจริงหรือไม่</dd>
+    </div>
+  </div>
+</section>
+
+</div>
+<!-- ============ PANEL : SETTING 2 — PER-DEPARTMENT DATA CONDITIONS ============ -->
+<div class="panel" id="pset2">
+
+<section class="card">
+  <h2>Setting 2 · เงื่อนไขข้อมูลที่แต่ละแผนกต้องส่ง</h2>
+  <div class="callout">
+    <div class="ttl">หน้านี้ใช้ทำอะไร</div>
+    <p>Setting 1 บอกว่า <b>ตารางมีช่องอะไรบ้าง</b> · หน้านี้บอกว่า <b>แต่ละแผนกต้องเติมอะไรลงไป ความถี่เท่าไร และเมื่อไรถึงต้องเปิด Signal ใหม่</b></p>
+    <p style="margin-top:9px">แบ่งเป็น 3 ส่วนต่อแผนก — <em>ข้อมูลประจำที่ต้องส่งทุกรอบ</em> · <em>เกณฑ์ที่ต้องยกเป็น Signal ทันที</em> · และ <em>ข้อมูลที่ยังขาดอยู่ตอนนี้</em>
+    ทั้งหมดตั้งเพื่อปิดช่องว่างที่พบในรอบนี้ — Data Completeness 69% และมีเพียง 11 จาก 17 รายการที่มีตัวเลขวัดได้</p>
+  </div>
+  <div class="note act"><b>สิ่งที่ต้องตัดสินใจก่อนใช้หน้านี้:</b> เพิ่ม <b>Finance</b> เป็นแผนกที่ 8 ที่ต้องส่ง Signal ·
+  ปัจจุบันข้อมูลที่ขาดอันดับ 1 (กำไรต่อตัน) อันดับ 9 (ต้นทุนแปรรูป) และอันดับ 11 (เครดิต) อยู่ที่แผนกนี้ทั้งหมด แต่แผนกนี้ยังไม่อยู่ในระบบ Signal เลย</div>
+</section>
+
+<section class="card">
+  <h2>ปฏิทินข้อมูล — ใครส่งอะไร ความถี่เท่าไร</h2>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:150px">แผนก</th><th class="num" style="width:80px">Signal<br>ขั้นต่ำ/รอบ</th>
+      <th style="width:230px">ทุกสัปดาห์</th><th style="width:230px">ทุกเดือน</th><th>ตามเหตุการณ์</th></tr></thead>
+    <tbody>
+      <tr class="rowalarm"><td><b>Finance</b><br><span style="font-size:11px;color:#5b7b84">เพิ่มใหม่</span></td><td class="num">2</td>
+        <td>—</td>
+        <td><b>กำไรต่อตัน แยกกลุ่มสินค้าและกลุ่มลูกค้า</b> · ต้นทุนแปรรูป ขนส่ง โสหุ้ย ต่อตัน · DSO และยอดหนี้ค้าง · FX ที่ใช้บันทึกบัญชี</td>
+        <td>ลูกค้าขอขยายวงเงิน · การชำระล่าช้าเกินกำหนด · การตั้งด้อยค่าสินค้า</td></tr>
+      <tr class="rowalarm"><td><b>Procurement</b></td><td class="num">3</td>
+        <td>ราคาซื้อ HRC ในประเทศ · <b>ราคานำเข้า CFR ไทย + Incoterm + ประเทศต้นทาง</b> · ค่าระวางเรือ · <b>FX ที่ใช้จริง</b> · สต๊อกม้วนและต้นทุนเฉลี่ย · P/O คงค้างและกำหนดรับมอบรายสัปดาห์</td>
+        <td>สถานะมาตรการ AD / CVD / Safeguard และ มอก.</td>
+        <td>ราคาที่ Supplier ประกาศ คู่กับราคาที่จบจริง · แผน Shutdown ของ Mill · การจำกัดโควตา · การเปลี่ยนโหมดขนส่ง</td></tr>
+      <tr class="rowalarm"><td><b>Sale &amp; Marketing</b></td><td class="num">3</td>
+        <td><b>ราคาขายเฉลี่ยจริงรายกลุ่มสินค้า</b> · ยอดขายจริงแยกกลุ่มสินค้าและกลุ่มลูกค้า · จำนวน Inquiry ที่เข้ามา</td>
+        <td>Forecast 3 เดือนข้างหน้าเป็นตัน แยกกลุ่มสินค้า · สัดส่วนยอดขายแยก Segment (โครงการ / OEM / Dealer / ราชการ)</td>
+        <td>การเปลี่ยนแปลง Price List ทุกครั้ง พร้อมกลุ่มสินค้าที่กระทบ · ราคาคู่แข่งที่ลูกค้าอ้างถึง · โครงการใหม่ขนาดใหญ่</td></tr>
+      <tr><td><b>Product Planning</b></td><td class="num">2</td>
+        <td>สต๊อก FG รายกลุ่มสินค้า พร้อมยอดรวมที่ตรวจสอบแล้ว · แผนผลิตเทียบผลผลิตจริงรายสถานี · Inventory Days เป้าหมายและจริง</td>
+        <td>ต้นทุน OT ต่อตัน · รายการสินค้า Slow Moving และ Non-active พร้อมอายุ</td>
+        <td>เครื่องจักรหยุดกระทบแผนผลิต · การปรับ Group สินค้า</td></tr>
+      <tr><td><b>Material Planning</b></td><td class="num">2</td>
+        <td>ม้วนคงคลังเทียบเพดาน · กำหนดรับมอบวัตถุดิบรายสัปดาห์ · จำนวนวันรอคิวแปรรูปเฉลี่ยและงานในคิว · สถานะความพร้อมของ Mill แต่ละราย พร้อมวันที่ยืนยัน</td>
+        <td>Forecast วัตถุดิบร่วมกับ Mill</td>
+        <td>Mill แจ้งเลื่อนส่งมอบ · คิวแปรรูปเกินกำลัง</td></tr>
+      <tr><td><b>Logistics</b></td><td class="num">1</td>
+        <td>สถานะเครื่องจักรหลัก พร้อมวันซ่อมเสร็จที่คาด · ปริมาณผลิตได้จริงเทียบกำลังผลิต</td>
+        <td>ประสิทธิภาพคลังสินค้า · พื้นที่จัดเก็บคงเหลือ</td>
+        <td>เครื่องจักรหยุดโดยไม่ได้วางแผน · ปริมาณกลุ่มสินค้าที่กระทบเป็นตัน</td></tr>
+      <tr><td><b>Transportation</b></td><td class="num">1</td>
+        <td>ปริมาณจัดส่งต่อวันจริง · จำนวนเที่ยวและอัตราการใช้รถ</td>
+        <td>ค่าขนส่งต่อตัน · จำนวนผู้ให้บริการขนส่งที่ใช้ได้</td>
+        <td><b>การเปลี่ยนแปลงราคา FG ทุกครั้ง พร้อมระบุกลุ่มสินค้า</b> · รถไม่พอต่อเนื่อง</td></tr>
+      <tr><td><b>Services</b></td><td class="num">1</td>
+        <td><b>ยอดค้างส่งรวมและรายกลุ่มลูกค้า พร้อมระบุกี่ตันเลยกำหนดแล้ว</b> · กำลังจัดส่งต่อวันจริง · จำนวนรายการที่ส่งช้ากว่ากำหนด</td>
+        <td>อัตราการส่งมอบตรงเวลา</td>
+        <td>ลูกค้ายกเลิกออเดอร์เพราะส่งช้า · ข้อร้องเรียนเรื่องกำหนดส่ง</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cap"><b>ตารางนี้บอกอะไร:</b> Signal ขั้นต่ำรวม 15 รายการต่อรอบ ซึ่งใกล้เคียงกับ 17 รายการที่ได้ในรอบนี้ — <b>ปัญหาจึงไม่ใช่จำนวน แต่เป็นคุณภาพและการกระจายตัว</b>
+  รอบนี้ Procurement กับ Sales ส่งรวมกัน 10 รายการ ขณะที่ 3 แผนกส่งแผนกละ 1 รายการ<br>
+  <b>ควรทำอะไรต่อ:</b> ข้อมูลตัวหนาคือรายการที่<b>ยังไม่เคยส่งเข้ามาเลย</b>และเป็นตัวปลดล็อกการคำนวณ — เริ่มจาก 4 ตัวนี้ก่อน คือ กำไรต่อตัน, ราคานำเข้า CFR, FX ที่ใช้จริง และราคาขายเฉลี่ยจริง</div>
+</section>
+
+<section class="card">
+  <h2>เกณฑ์ที่ต้องเปิด Signal ใหม่ทันที — แยกตามแผนก</h2>
+  <div class="note">เกณฑ์เหล่านี้ทำให้การส่ง Signal ไม่ขึ้นกับดุลพินิจว่า "เรื่องนี้สำคัญพอไหม" · ถ้าค่าจริงข้ามเกณฑ์ ให้เปิด Signal เสมอ แม้จะดูเป็นเรื่องปกติ<br>
+  <b>ตัวเลขเกณฑ์ทั้งหมดเป็นข้อเสนอเริ่มต้นจากการวิเคราะห์รอบนี้</b> ยังต้องให้เจ้าของแผนกและ Finance รับรองก่อนใช้จริง</div>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:150px">แผนก</th><th style="width:330px">เกณฑ์ที่ต้องเปิด Signal ทันที</th><th style="width:130px">กลไกที่ต้องระบุ</th><th>ที่มาของเกณฑ์</th></tr></thead>
+    <tbody>
+      <tr class="rowalarm"><td rowspan="4"><b>Procurement</b></td>
+        <td>ราคาซื้อวัตถุดิบเปลี่ยน <b>≥ 0.10 บาท/กก.</b></td><td>Cost</td>
+        <td>0.10 บาท/กก. = 100 บาท/ตัน = 5.18 ล้านบาท/เดือน ซึ่งเป็นระดับที่กระทบกำไรอย่างมีนัยสำคัญ</td></tr>
+      <tr class="rowalarm"><td>ราคานำเข้าอ้างอิงเปลี่ยน <b>≥ $10 / ตัน</b></td><td>Cost</td><td>ตรงกับขนาดการเปลี่ยนแปลงที่เกิดขึ้นจริงในรอบนี้</td></tr>
+      <tr class="rowalarm"><td>Mill รายใดแจ้งหยุดเดินเครื่อง <b>≥ 3 วัน</b> หรือจำกัดโควตา</td><td>Logistics</td><td>3 วัน = ประมาณ 5,000 ตันของการใช้ HRC ซึ่งเกินกว่าจะรับมือด้วยสต๊อกปกติ</td></tr>
+      <tr class="rowalarm"><td>เปลี่ยนโหมดขนส่งวัตถุดิบ หรือ Supplier เสนอทางเลือกใหม่</td><td>Logistics</td><td>เป็นสัญญาณนำของความตึงตัวฝั่ง Supply ตามที่พบในรอบนี้</td></tr>
+
+      <tr class="rowalarm"><td rowspan="4"><b>Sale &amp; Marketing</b></td>
+        <td>ราคาขายเปลี่ยน <b>≥ 0.10 บาท/กก.</b> ไม่ว่าขึ้นหรือลง</td><td>Price</td>
+        <td>ใช้เกณฑ์เดียวกับฝั่งซื้อ เพื่อให้เทียบช่องว่างการส่งผ่านต้นทุนได้ตรงกัน</td></tr>
+      <tr class="rowalarm"><td>ลูกค้ารายใดแจ้งเปลี่ยนแผนซื้อ <b>≥ 500 ตัน</b></td><td>Volume</td><td>ประมาณ 1% ของยอดขายรายเดือน 51,800 ตัน</td></tr>
+      <tr class="rowalarm"><td>คู่แข่งเสนอราคาต่ำกว่าเรา <b>≥ 0.20 บาท/กก.</b> จากคำบอกเล่าของลูกค้า</td><td>Price</td><td>เป็นสัญญาณนำของ Price War ซึ่งขณะนี้วัดไม่ได้เลย</td></tr>
+      <tr class="rowalarm"><td>โครงการใหม่ที่คาดว่าใช้เหล็ก <b>≥ 1,000 ตัน</b></td><td>Volume</td><td>ประมาณ 2% ของยอดขายรายเดือน มากพอที่จะต้องวางแผนวัตถุดิบล่วงหน้า</td></tr>
+
+      <tr class="rowwatch"><td rowspan="3"><b>Product Planning</b></td>
+        <td>ผลผลิตจริงต่ำกว่าแผน <b>≥ 10%</b> ในสถานีใดสถานีหนึ่ง</td><td>Volume</td><td>รอบนี้ผลผลิตท่ออยู่ที่ 85% ของแผน ซึ่งควรถูกเปิดเป็น Signal ตั้งแต่เดือน ก.ค.</td></tr>
+      <tr class="rowwatch"><td>สต๊อกกลุ่มสินค้าใดต่ำกว่าระดับ Minimum</td><td>Volume</td><td>รอบนี้มี 4 กลุ่มที่อยู่ระดับ Minimum พร้อมกัน</td></tr>
+      <tr class="rowwatch"><td>Inventory Days ของ FG ต่ำกว่า <b>15 วัน</b> หรือสูงกว่า <b>40 วัน</b></td><td>Volume</td><td>ตรงกับเส้นเตือนที่ตั้งไว้ในหน้า 4 — ต่ำเกินคือของขาด สูงเกินคือของล้น</td></tr>
+
+      <tr class="rowwatch"><td rowspan="3"><b>Material Planning</b></td>
+        <td>ม้วนคงคลังเกินเพดานที่กำหนด หรือต่ำกว่า <b>20 วัน</b> ของการใช้</td><td>Volume</td><td>รอบนี้สต๊อก 36,750 ตัน เกินเพดาน 35,000 ตันโดยไม่มีใครเปิด Signal</td></tr>
+      <tr class="rowwatch"><td>Mill แจ้งเลื่อนส่งมอบ <b>≥ 3 วัน</b></td><td>Logistics</td><td>สอดคล้องกับเกณฑ์ของ Procurement</td></tr>
+      <tr class="rowwatch"><td>คิวแปรรูปรอเกิน <b>7 วัน</b></td><td>Volume</td><td>รอบนี้รายงานว่าคิวตัด Overload แต่ไม่มีตัวเลข จึงประเมินขนาดไม่ได้</td></tr>
+
+      <tr class="rowwatch"><td rowspan="2"><b>Logistics</b></td>
+        <td>เครื่องจักรหลักหยุด <b>≥ 3 วัน</b></td><td>Volume</td><td>รอบนี้ CF2 หยุดเกิน 3 สัปดาห์</td></tr>
+      <tr class="rowwatch"><td>กำลังผลิตรวมหายไป <b>≥ 10%</b></td><td>Volume</td><td>ระดับที่เริ่มกระทบกำหนดส่งมอบ</td></tr>
+
+      <tr class="rowwatch"><td rowspan="2"><b>Transportation</b></td>
+        <td>ราคา FG เปลี่ยน <b>≥ 0.10 บาท/กก.</b> — ต้องระบุกลุ่มสินค้าที่กระทบเสมอ</td><td>Price</td>
+        <td>รอบนี้รายงานว่าลด 0.30 บาท/กก. แต่ไม่ระบุขอบเขตกลุ่มสินค้า ทำให้ตัวเลขพาดหัวยังต้องตั้งเป็นสมมติฐาน</td></tr>
+      <tr class="rowwatch"><td>ค่าขนส่งต่อตันเปลี่ยน <b>≥ 5%</b> หรือรถไม่พอ <b>≥ 2 วันติดกัน</b></td><td>Cost / Logistics</td><td>ระดับที่กระทบต้นทุนขายอย่างเห็นได้</td></tr>
+
+      <tr class="rowwatch"><td rowspan="2"><b>Services</b></td>
+        <td>ยอดค้างส่งเกิน <b>12 วัน</b> ของกำลังจัดส่งต่อวัน</td><td>Logistics</td><td>ตรงกับเส้นเตือนภัยในหน้า 4 · ปัจจุบันอยู่ที่ 10.4 วัน</td></tr>
+      <tr class="rowwatch"><td>ลูกค้ายกเลิกออเดอร์เพราะส่งช้า</td><td>Volume / Credit</td><td>เป็นสัญญาณที่รุนแรงที่สุดของ Supply Shock และปัจจุบันไม่มีการรายงาน</td></tr>
+
+      <tr class="rowalarm"><td rowspan="3"><b>Finance</b><br><span style="font-size:11px">เพิ่มใหม่</span></td>
+        <td>DSO เพิ่มขึ้น <b>≥ 5 วัน</b> จากเดือนก่อน</td><td>Credit</td>
+        <td>Scenario Canvas ระบุ "สัญญาณการชำระเงินของลูกค้าล่าช้า" เป็น Trigger แต่ยังไม่มีใครวัด</td></tr>
+      <tr class="rowalarm"><td>ลูกค้าขอขยายวงเงินเครดิต</td><td>Credit</td><td>Canvas ระบุเป็น Trigger ของทั้ง Cost Crisis และ Over Supply</td></tr>
+      <tr class="rowalarm"><td>กำไรต่อตันของกลุ่มสินค้าใดลดลง <b>≥ 10%</b> จากเดือนก่อน</td><td>Price / Cost</td><td>เป็นสัญญาณตามหลังที่ยืนยันว่า Scenario เกิดผลจริงแล้ว</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card">
+  <h2>ข้อมูลที่แต่ละแผนกยังขาดอยู่ตอนนี้ — เรียงตามผลกระทบต่อ Margin</h2>
+  <div class="scroll"><table>
+    <thead><tr><th style="width:150px">แผนก</th><th class="num" style="width:110px">รายการที่ยังขาด</th><th style="width:340px">รายการที่ต้องเติมก่อน</th><th style="width:110px">เส้นตาย</th><th>ปลดล็อกอะไร</th></tr></thead>
+    <tbody>
+      <tr class="rowalarm"><td><b>Finance</b></td><td class="num">4</td>
+        <td>กำไรต่อตันแยกกลุ่มสินค้าและลูกค้า · ต้นทุนแปรรูป ขนส่ง โสหุ้ย · DSO และหนี้ค้าง · FX ที่ใช้จริง</td>
+        <td><b>16 ก.ย.</b></td>
+        <td>เป็นตัวคูณที่ทำให้ทุกปริมาณบนรายงานแปลงเป็นเงินได้ · ปลดล็อกอีก 6 รายการทันที</td></tr>
+      <tr class="rowalarm"><td><b>Procurement</b></td><td class="num">6</td>
+        <td>ปริมาณ Pre-build กับ GJS · สัดส่วน Supply จาก GJS · Incoterm ของราคา GI Coil · ตารางรับมอบ P/O รายสัปดาห์ · ราคานำเข้า CFR รายสัปดาห์ · ค่าระวางและภาษีนำเข้า</td>
+        <td><b>12 ก.ย.</b></td>
+        <td>ประเมินความเสี่ยงขาดวัตถุดิบช่วง Shutdown · คำนวณ Import Parity ได้ทั้งชุด · สร้างตัวชี้วัดที่นำหน้าตัวแรก</td></tr>
+      <tr class="rowalarm"><td><b>Sale &amp; Marketing</b></td><td class="num">4</td>
+        <td>ขอบเขตกลุ่มสินค้าที่ปรับลดราคา · ราคาขายเฉลี่ยจริงรายกลุ่ม · Forecast เป็นตันของ Beam SM520 / PEB / ท่อ GI · สัดส่วนยอดขายกลุ่มภาครัฐ</td>
+        <td><b>16 ก.ย.</b></td>
+        <td>ยืนยันช่องว่าง 400 บาท/ตัน · คำนวณ Metal Spread เป็นระดับ · ประเมินโอกาสในกรอบ 3 เดือน</td></tr>
+      <tr class="rowwatch"><td><b>Product Planning</b></td><td class="num">3</td>
+        <td>ยอดรวมสต๊อก FG ที่ถูกต้อง · ต้นทุน OT ต่อตัน · Safety Stock Policy รายกลุ่มสินค้า</td>
+        <td>ทันที / 16 ก.ย.</td>
+        <td>แก้ Inventory Days ที่คลาดเคลื่อน 2.3 วัน · ตัดสินใจ OT ด้วยตัวเลข</td></tr>
+      <tr class="rowwatch"><td><b>Material Planning</b></td><td class="num">3</td>
+        <td>สถานะ Mill ณ วันปัจจุบัน · สถานะของเพดาน 35,000 ตัน ว่าเป็นนโยบายหรือไม่ · จำนวนวันรอคิวแปรรูป</td>
+        <td><b>12 ก.ย.</b></td>
+        <td>แก้ข้อมูลที่ขัดกันระหว่างแผนก · ตั้งเส้นเตือนที่มีที่มา</td></tr>
+      <tr class="rowwatch"><td><b>Services</b></td><td class="num">3</td>
+        <td>ยอดค้างส่งที่เลยกำหนดแล้วกี่ตัน · Corrective Action ที่ยังว่าง · การแยกตัวชี้วัดประสิทธิภาพจัดส่งออกจากความเสี่ยงส่งมอบ</td>
+        <td>ทันที / 16 ก.ย.</td>
+        <td>จัดลำดับการส่งมอบตามกำไรได้ · ประเมินความเสี่ยงเสียลูกค้าได้จริง</td></tr>
+      <tr class="rowwatch"><td><b>Transportation</b></td><td class="num">3</td>
+        <td>ข้อมูล 5 ช่องที่ว่างทั้งหมดใน Signal เดิม · ขอบเขตกลุ่มสินค้าที่ปรับราคา · การจัดทิศทางต่อ Margin ให้ถูกด้าน</td>
+        <td>ทันที</td>
+        <td>ยืนยันตัวเลขพาดหัวของรายงาน −400 บาท/ตัน</td></tr>
+      <tr class="rowwatch"><td><b>Logistics</b></td><td class="num">2</td>
+        <td>ปริมาณเป็นตันของกลุ่มสินค้าที่กระทบจากเครื่องจักรหยุด · กำหนดวันซ่อมเสร็จ</td>
+        <td><b>12 ก.ย.</b></td>
+        <td>แปลงผลกระทบของเครื่องจักรเป็น บาท/ตัน ได้</td></tr>
+    </tbody>
+  </table></div>
+  <div class="src"><span class="lab">ที่มา</span>ทุกรายการในตารางนี้มาจาก Data Gap Register 20 รายการในหน้า 9 · Divergence 6 จุดในหน้า 8 · และช่องที่ว่างในไฟล์ Signal ปัจจุบัน · แจกตามแผนกที่เป็นเจ้าของข้อมูลนั้น</div>
+</section>
+
+<section class="card">
+  <h2>ขั้นตอนการนำไปใช้ — 4 สัปดาห์</h2>
+  <div class="arow">
+    <div class="no">1</div>
+    <div class="txt"><b>สัปดาห์ที่ 1 — ปรับไฟล์และตกลงเกณฑ์</b>
+      สร้างไฟล์ Signal Log ตามโครงสร้างใน Setting 1 พร้อม Dropdown และกฎตรวจสอบ · นำเกณฑ์เปิด Signal ในหน้านี้เข้าที่ประชุม S&amp;OP ให้เจ้าของแผนกและ Finance รับรอง · เพิ่ม Finance เป็นแผนกที่ 8</div>
+    <div class="who">เจ้าของกระบวนการ Signal Log</div>
+    <div class="due" style="color:#ff6a05">สัปดาห์นี้</div>
+  </div>
+  <div class="arow">
+    <div class="no">2</div>
+    <div class="txt"><b>สัปดาห์ที่ 2 — ย้ายข้อมูลเดิมและเติมช่องว่าง</b>
+      แปลง Signal 17 รายการเดิมเข้าโครงสร้างใหม่ · แต่ละแผนกเติม 3 ช่องใหม่ย้อนหลัง คือ กลไก ทิศทางต่อ Margin และขนาดผลกระทบ · เติมข้อมูลที่ขาดตามตารางด้านบน</div>
+    <div class="who">ทุกแผนก</div>
+    <div class="due" style="color:#ff6a05">16 ก.ย.</div>
+  </div>
+  <div class="arow">
+    <div class="no">3</div>
+    <div class="txt"><b>สัปดาห์ที่ 3 — เดินระบบรอบแรก</b>
+      แต่ละแผนกส่ง Signal ตามจำนวนขั้นต่ำและใช้เกณฑ์ใหม่ · ตรวจ Data Completeness ก่อนส่ง เป้าหมายรอบแรก <b>ไม่ต่ำกว่า 85%</b> จากปัจจุบัน 69%</div>
+    <div class="who">ทุกแผนก</div>
+    <div class="due">23 ก.ย.</div>
+  </div>
+  <div class="arow">
+    <div class="no">4</div>
+    <div class="txt"><b>สัปดาห์ที่ 4 — ออกรายงานรอบใหม่และเทียบกับรอบนี้</b>
+      สร้างไฟล์ Dashboard ใหม่ตามวันที่ · เปรียบเทียบกับรอบ 9 ก.ย. ว่าช่องว่างราคาแคบลงหรือไม่ Completeness ขยับเท่าไร และ Corrective Action รอบก่อนทำจริงกี่ข้อ</div>
+    <div class="who">เจ้าของกระบวนการ + ผู้บริหาร</div>
+    <div class="due">30 ก.ย.</div>
+  </div>
+  <div class="cap"><b>เป้าหมายที่วัดได้หลังครบ 4 สัปดาห์:</b> Data Completeness ≥ 85% · Signal ที่มีตัวเลข บาท/ตัน ≥ 12 จาก 15 รายการ (ปัจจุบัน 0) · กลไก Credit มีข้อมูลอย่างน้อย 1 รายการ (ปัจจุบัน 0) · และมีตัวชี้วัดที่นำหน้าอย่างน้อย 3 ตัว (ปัจจุบันไม่มีเลย)<br>
+  <b>ควรทำอะไรต่อ:</b> ถ้าทำได้แค่อย่างเดียวในสัปดาห์นี้ ให้ทำขั้นที่ 1 เฉพาะส่วน "เพิ่ม Finance เป็นแผนกที่ 8" เพราะข้อมูลที่ขาดซึ่งกระทบกำไรมากที่สุดทั้งหมดอยู่ที่แผนกนี้</div>
+</section>
+
+</div>
 <!-- ============ PANEL : GLOSSARY ============ -->
 <div class="panel" id="pglos">
 <section class="card" id="glossary">
