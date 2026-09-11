@@ -337,6 +337,29 @@ td.rm{text-align:center;white-space:nowrap}
 .s3sum .b .u{font-size:11px;color:#5b7780;font-weight:400;margin-left:3px}
 #s3st{font-size:11.5px;color:var(--orange);font-weight:500;min-height:16px;margin:8px 0 0}
 @media (max-width:900px){.fmnote{margin-left:0;text-align:left;width:100%}}
+
+/* ===== Setting 3 : column guide + example cells ===== */
+.cguide{border:1px solid var(--line);border-left:3px solid var(--navy);background:#fff;margin:16px 0 4px}
+.cguide>summary{list-style:none;cursor:pointer;padding:11px 14px;font-size:12.5px;font-weight:500;color:var(--navy);
+  background:var(--gray);display:flex;align-items:center;gap:9px}
+.cguide>summary::-webkit-details-marker{display:none}
+.cguide>summary:before{content:'+';flex:0 0 auto;width:17px;height:17px;line-height:16px;text-align:center;
+  background:var(--navy);color:#fff;font-size:13px;font-weight:600}
+.cguide[open]>summary:before{content:'\2212'}
+.cguide>summary b{color:var(--orange);font-weight:500}
+.cguide .cgbody{padding:4px 14px 14px}
+.cgsec{margin-top:14px}
+.cgsec h4{font-size:12.5px;font-weight:600;color:var(--navy);margin:0 0 7px;padding-bottom:5px;
+  border-bottom:1px solid var(--line)}
+.cgmust td{background:#fff7f0 !important}
+td.exc{font-size:11.5px;color:#5b7780;line-height:1.5}
+td.exc .exv{font-family:var(--mono);font-size:11px;color:var(--navy);background:var(--gray);
+  padding:2px 6px;display:inline-block;line-height:1.5;border-left:2px solid var(--blue)}
+.fmtb th .rq{display:inline-block;background:var(--orange);color:#fff;font-size:9.5px;font-weight:600;
+  padding:1px 5px;margin-left:5px;letter-spacing:.02em;vertical-align:1px}
+.exwarn{border:1px solid var(--orange);border-left-width:3px;background:#fff7f0;padding:11px 14px;
+  font-size:12px;color:var(--navy);line-height:1.6;margin:12px 0 0}
+.exwarn b{font-weight:600}
 </style>
 </head>
 <body>
@@ -3717,6 +3740,11 @@ window.S2 = [
     · <b>C ฟิลด์ Signal เพิ่มเติมเฉพาะแผนก</b> (กรอกต่อ 1 Signal ที่พบ · เพิ่มจากช่อง A–E กลางใน Setting 1)</p>
   </div>
 
+  <div class="exwarn">อ่านก่อนใช้ตาราง — ทุกตารางมีคอลัมน์ <b>ตัวอย่างการกรอก</b> และมีปุ่ม <b>คำอธิบายหัวคอลัมน์</b> อยู่หัวหน้าฟอร์มของแต่ละแผนก
+  บอกทีละช่องว่าต้องกรอกอะไร หน่วยอะไร และหน้าตาที่ถูกต้องเป็นแบบไหน · ช่องที่ติดป้ายส้ม <b>ต้องกรอก</b> คือช่องที่แผนกต้องตอบ ที่เหลือเป็นคำอธิบาย
+  <br>ตัวเลขในคอลัมน์ตัวอย่างเป็น <b>ตัวอย่างรูปแบบเท่านั้น ไม่ใช่ค่าจริงของ TMT</b> และห้ามคัดลอกลงช่องกรอก —
+  ยกเว้นบรรทัดที่ติดป้าย <b>ค่าจริงรอบนี้</b> ซึ่งดึงมาจากไฟล์ Signal รอบนี้จริง</div>
+
   <div class="chips" id="s3chips"></div>
 
   <div class="fmtool">
@@ -4191,9 +4219,108 @@ window.XLSX = (function(){
 })();
 </script>
 
+<script id="set3ex">
+/* ตัวอย่างการกรอก — เป็น "รูปแบบ" ที่ถูกต้องเท่านั้น ไม่ใช่ค่าจริงของ TMT
+   ยกเว้นที่ระบุว่ามาจากไฟล์ Signal รอบนี้ (มีเครื่องหมาย * กำกับ)          */
+window.S3EX = {
+"FN-P1":"หลังหักวัตถุดิบ + แปรรูป ก่อน SG&A","FN-P2":"2500","FN-P3":"17.80","FN-P4":"ถัวเฉลี่ยถ่วงน้ำหนัก",
+"FN-P5":"8","FN-P6":"3","FN-P7":"5.5","FN-P8":"60","FN-P9":"30000000","FN-P10":"50000000",
+"FN-P11":"15000000","FN-P12":"400",
+"FN-D1":"2380","FN-D2":"2150","FN-D3":"180","FN-D4":"220","FN-D5":"350","FN-D6":"410",
+"FN-D7":"32.85","FN-D8":"58","FN-D9":"12500000","FN-D10":"18.40","FN-D11":"19.10",
+"FN-S1":"กลุ่มลูกค้า","FN-S2":"2380","FN-S3":"18.40","FN-S4":"32.85 บาท/USD · Spot",
+"FN-S5":"-8500000  (ใส่ค่าลบเมื่อเงินออก)","FN-S6":"+4","FN-S7":"ยังประเมินไม่ได้",
+
+"PC-P1":"35000   * ตัวเลขนี้มาจากไฟล์ Signal รอบนี้ รอยืนยันสถานะ","PC-P2":"18000","PC-P3":"45","PC-P4":"60",
+"PC-P5":"21","PC-P6":"40","PC-P7":"2","PC-P8":"70","PC-P9":"10","PC-P10":"5000000","PC-P11":"20000000","PC-P12":"0.50",
+"PC-D1":"19.20","PC-D2":"540","PC-D3":"38","PC-D4":"12.5","PC-D5":"120","PC-D6":"85",
+"PC-D7":"36750   * ค่าจริงรอบนี้","PC-D8":"18.60",
+"PC-D9":"W38 1,200 ตัน @19.10 · W40 800 ตัน @18.95 · W42 1,500 ตัน @ยังไม่จบราคา",
+"PC-D10":"ประกาศขึ้น 0.40 เมื่อ 15 ส.ค. · จบจริง 0.15 เมื่อ 22 ส.ค.",
+"PC-D11":"Mill A หยุดซ่อม 5–12 ต.ค. · สัดส่วน Supply 22%",
+"PC-S1":"CFR","PC-S2":"เวียดนาม · ระบุชื่อโรงงานตามที่อยู่ในใบเสนอราคา","PC-S3":"SS400 หนา 3.0 มม. กว้าง 1,219 มม.",
+"PC-S4":"545  (ระบุหน่วย USD/ตัน)","PC-S5":"538 USD/ตัน · จบราคา 2026-08-22","PC-S6":"38","PC-S7":"55",
+"PC-S8":"1500","PC-S9":"22","PC-S10":"AD",
+
+"SM-P1":"ลูกค้าที่ซื้อตั้งแต่ 500 ตัน/ปี และสั่งต่อเนื่องอย่างน้อย 9 เดือนใน 12 เดือนที่ผ่านมา",
+"SM-P2":"ผสมหลายเกณฑ์","SM-P3":"0.20","SM-P4":"0.50","SM-P5":"0.30","SM-P6":"10","SM-P7":"7",
+"SM-P8":"กำไรต่อตันสูงสุดก่อน","SM-P9":"สูง","SM-P10":"ต่ำ","SM-P11":"สูง","SM-P12":"14",
+"SM-D1":"4200","SM-D2":"1850","SM-D3":"20.10","SM-D4":"126","SM-D5":"34","SM-D6":"9800",
+"SM-D7":"19.70","SM-D8":"ยกเลิก 3 ราย 620 ตัน · เลื่อนรับ 5 ราย 1,180 ตัน",
+"SM-S1":"Con&Fab","SM-S2":"C-10245 · Group A","SM-S3":"คู่แข่งตัดราคา","SM-S4":"250 ตัน · SS400 หนา 4.5 มม.",
+"SM-S5":"19.30","SM-S6":"ใบเสนอราคาที่ลูกค้าให้ดู","SM-S7":"19.80","SM-S8":"กลาง","SM-S9":"2026-11",
+"SM-S10":"ลูกค้าแจ้งว่าได้ราคา 19.30 จากผู้ขายอีกราย และขอให้เราลดให้เท่ากัน — บันทึกคำพูดลูกค้า ไม่ต้องสรุปแทน",
+
+"PP-P1":"92","PP-P2":"6500","PP-P3":"10","PP-P4":"25","PP-P5":"8000","PP-P6":"ลูกค้า Group A ก่อน",
+"PP-P7":"14","PP-P8":"10",
+"PP-D1":"6100","PP-D2":"5880","PP-D3":"90.5","PP-D4":"620","PP-D5":"7350",
+"PP-D6":"รวม 33,643 ตัน * ค่าจริงรอบนี้ · ในนั้นเกิน 30 วัน 8,200 ตัน",
+"PP-S1":"ม้วนดำ SS400 หนา 3.0 มม.","PP-S2":"1,200 → 850 ตัน","PP-S3":"วัตถุดิบไม่พอ",
+"PP-S4":"ใช้วางแผน 92% → เกิดจริง 89.4%","PP-S5":"2026-09-28","PP-S6":"350","PP-S7":"420",
+
+"MP-P1":"4000","MP-P2":"30","MP-P3":"5500","MP-P4":"500","MP-P5":"14","MP-P6":"60","MP-P7":"15","MP-P8":"14",
+"MP-D1":"36750   * ค่าจริงรอบนี้","MP-D2":"35   * ค่าจริงรอบนี้",
+"MP-D3":"W37 1,200 · W39 800 · W41 1,500 ตัน","MP-D4":"W37 1,450 · W39 1,380 · W41 1,500 ตัน",
+"MP-D5":"-980   (ใส่ค่าลบเมื่อขาด)","MP-D6":"47",
+"MP-S1":"SS400 หนา 3.0 มม. · Mill A","MP-S2":"2,150 ตัน · Coverage 21 วัน","MP-S3":"W39 800 ตัน · W41 1,500 ตัน",
+"MP-S4":"2026-10-08","MP-S5":"มี แต่ต้องอนุมัติสเปก","MP-S6":"980",
+
+"LG-P1":"7","LG-P2":"3","LG-P3":"50000","LG-P4":"800","LG-P5":"12000","LG-P6":"3",
+"LG-D1":"1,500 ตัน · เรือถึงท่า 2026-09-26","LG-D2":"620","LG-D3":"5","LG-D4":"185000","LG-D5":"88",
+"LG-S1":"ศุลกากร","LG-S2":"620","LG-S3":"5","LG-S4":"185000","LG-S5":"2026-09-19",
+"LG-S6":"C-10245 / PO-2609-118",
+
+"TR-P1":"450","TR-P2":"85","TR-P3":"30","TR-P4":"5","TR-P5":"2","TR-P6":"40",
+"TR-D1":"478","TR-D2":"3200","TR-D3":"78","TR-D4":"36","TR-D5":"12","TR-D6":"31.50",
+"TR-S1":"โซนตะวันออก (ระยอง–ชลบุรี)","TR-S2":"14 เที่ยว · 380 ตัน","TR-S3":"520 → 585 บาท/ตัน",
+"TR-S4":"ขาดคนขับ","TR-S5":"2","TR-S6":"ต่อเนื่อง 1 เดือนขึ้นไป",
+
+"SV-P1":"วันที่ระบุในสัญญา","SV-P2":"95","SV-P3":"3",
+"SV-P4":"เรื่องที่กระทบตั้งแต่ 100 ตัน หรือ 2 ล้านบาทขึ้นไป หรือลูกค้ารายเดิมร้องเรียนซ้ำ 2 ครั้งใน 3 เดือน",
+"SV-P5":"0.5","SV-P6":"2",
+"SV-D1":"รวม 33,643 ตัน * ค่าจริงรอบนี้ · ในนั้นเกิน 30 วัน 8,200 ตัน","SV-D2":"91.2","SV-D3":"18",
+"SV-D4":"740000","SV-D5":"4",
+"SV-S1":"ส่งช้า","SV-S2":"C-10245 · Group A · 640 ตัน/ปี","SV-S3":"120 ตัน · 2,400,000 บาท","SV-S4":"6",
+"SV-S5":"วัตถุดิบไม่พอ","SV-S6":"สูง","SV-S7":"ใช่ · ลูกค้าแจ้งว่าได้ราคา 19.30 บาท/กก."
+};
+
+/* คำอธิบายหัวคอลัมน์ของแต่ละส่วน — [หัวคอลัมน์, ต้องกรอกอะไร, ตัวอย่าง, ต้องกรอกหรือไม่] */
+window.S3COLS = {
+A:[
+["รหัส","รหัสอ้างอิงของพารามิเตอร์ ใช้เวลาคุยกันข้ามแผนกและใช้อ้างในสูตรคำนวณ","FN-P3","ไม่ต้องกรอก"],
+["พารามิเตอร์","ชื่อเกณฑ์ที่ต้องตกลงกัน หนึ่งบรรทัดคือหนึ่งเรื่องที่ต้องมีมติ","Price Floor — ราคาขายต่ำสุดที่ยังไม่ขาดทุน","ไม่ต้องกรอก"],
+["หน่วย","หน่วยที่ต้องใช้ ถ้ากรอกคนละหน่วยระบบจะคำนวณผิดทันทีโดยไม่มีใครเห็น","บาท/กก.","ไม่ต้องกรอก"],
+["ตัวเลือกที่กำหนดไว้","ถ้าช่องนี้มีรายการ ต้องเลือกจากรายการเท่านั้น ห้ามพิมพ์คำใหม่เพราะระบบจับคู่ด้วยข้อความตรงตัว","หลังหักวัตถุดิบ + แปรรูป ก่อน SG&A / หลังหักวัตถุดิบเท่านั้น","ไม่ต้องกรอก"],
+["ค่าที่กรอก","ช่องที่ต้องกรอก — ใส่เฉพาะตัวเลข ไม่ต้องใส่หน่วยหรือเครื่องหมายจุลภาค ถ้ายังไม่ได้ตกลงกัน ให้เว้นว่างไว้","17.80","ต้องกรอก"],
+["ค่าที่ใช้อยู่ / สถานะ","บอกว่าวันนี้มีค่านี้อยู่แล้วหรือยัง ถ้าเขียนว่า ยังไม่กำหนด แปลว่าต้องนำเข้าที่ประชุมเพื่อขอมติ","ยังไม่กำหนด","ไม่ต้องกรอก"],
+["ผู้อนุมัติ","คนที่ต้องรับรองค่านี้ ถ้าไม่ใช่คนนี้อนุมัติ ค่าที่กรอกยังนำไปใช้ตัดสินใจไม่ได้","CFO","ไม่ต้องกรอก"],
+["ตัวอย่างการกรอก","รูปแบบที่ถูกต้องของช่อง ค่าที่กรอก","17.80","ไม่ต้องกรอก"],
+["ระบบนำไปใช้คำนวณอะไร","บอกว่าถ้าไม่กรอกช่องนี้ จะเสียความสามารถอะไรไปบ้าง ใช้จัดลำดับว่าควรทำอะไรก่อน","หัวใจของแผนรับมือ Price War","ไม่ต้องกรอก"]
+],
+B:[
+["รหัส","รหัสอ้างอิงของข้อมูล ใช้ผูกกับช่องเดียวกันในไฟล์งวดก่อน เพื่อให้เทียบข้ามงวดได้","PC-D2","ไม่ต้องกรอก"],
+["ข้อมูลที่ต้องส่ง","ชื่อตัวเลขที่ต้องส่งเข้าระบบในงวดนั้น","ราคานำเข้าอ้างอิง CFR ไทย","ไม่ต้องกรอก"],
+["หน่วย","หน่วยบังคับของช่องนี้ ถ้าจำเป็นต้องเปลี่ยนหน่วย ให้แจ้งก่อน อย่าเปลี่ยนเองในไฟล์","USD/ตัน","ไม่ต้องกรอก"],
+["ความถี่","รอบที่ต้องส่ง ถ้าส่งถี่กว่านี้ได้ยิ่งดี แต่ห้ามห่างกว่านี้ เพราะสัญญาณจะมาช้ากว่าที่ตัดสินใจได้ทัน","รายสัปดาห์","ไม่ต้องกรอก"],
+["ค่างวดล่าสุด","ช่องที่ต้องกรอก — ค่าของงวดที่กำลังส่ง ถ้างวดนี้ยังไม่มีข้อมูล ให้เว้นว่าง ห้ามใส่ค่าเดิมซ้ำหรือประมาณเอา","540","ต้องกรอก"],
+["งวดที่อ้างถึง","ระบุงวดของค่าที่กรอก เพื่อไม่ให้สับสนเวลาส่งย้อนหลัง","2026-W37 หรือ 2026-09","ต้องกรอก (ในไฟล์ Excel)"],
+["ตัวอย่างการกรอก","รูปแบบที่ถูกต้องของช่อง ค่างวดล่าสุด","540","ไม่ต้องกรอก"],
+["ระบบนำไปใช้คำนวณอะไร","บอกว่าตัวเลขนี้ไปโผล่ที่ไหนบนรายงาน จะได้รู้ว่าถ้าส่งช้าแล้วอะไรจะพัง","Import Parity และเป็น Leading Indicator ตัวแรกของระบบ","ไม่ต้องกรอก"]
+],
+C:[
+["รหัส","รหัสของฟิลด์เพิ่มเติม ใช้เป็นชื่อคอลัมน์ในไฟล์ Signal Log","PC-S1","ไม่ต้องกรอก"],
+["ชื่อฟิลด์","สิ่งที่ต้องบันทึกเพิ่ม ตอนพบสัญญาณหนึ่งเรื่อง","Incoterm","ไม่ต้องกรอก"],
+["ชนิดช่อง","บอกว่าต้องกรอกเป็นตัวเลข ข้อความ วันที่ หรือเลือกจากรายการ","ตัวเลือก","ไม่ต้องกรอก"],
+["ตัวเลือก / รูปแบบที่ต้องกรอก","ถ้าเป็นชนิดตัวเลือก คือรายการที่เลือกได้ ถ้าเป็นชนิดอื่น คือรูปแบบที่ต้องเขียน","FOB / CFR / CIF / EXW / ในประเทศ","ไม่ต้องกรอก"],
+["ตัวอย่างที่กรอกจริง","ตัวอย่างของการบันทึกหนึ่งเหตุการณ์ ให้เห็นภาพว่าเขียนละเอียดแค่ไหนถึงจะใช้งานได้","CFR","ไม่ต้องกรอก"],
+["ทำไมแผนกนี้ต้องกรอกเพิ่ม","เหตุผลที่ช่องกลางใน Setting 1 ไม่พอ และทำไมต้องเป็นแผนกนี้ที่กรอก","ราคาที่ไม่ระบุ Incoterm เทียบกันไม่ได้","ไม่ต้องกรอก"]
+]
+};
+</script>
+
 <script id="set3render">
 (function(){
-  var S3 = window.S3, COMMON = window.S3COMMON;
+  var S3 = window.S3, COMMON = window.S3COMMON, EX = window.S3EX || {}, COLS = window.S3COLS || {};
   var KEY = 'tmt_s3_v1';
   var VAL = {};
   try { var raw = localStorage.getItem(KEY); if(raw) VAL = JSON.parse(raw) || {}; } catch(e){ VAL = {}; }
@@ -4240,8 +4367,9 @@ window.XLSX = (function(){
     }
     var t = (type==='d') ? 'date' : 'text';
     var cls = (type==='n') ? 'fi num' : 'fi';
+    var exv = EX[code] ? ('เช่น ' + String(EX[code]).split('  ')[0].split(' *')[0]) : (ph||'');
     return '<input class="'+cls+'" type="'+t+'" data-k="'+esc(k)+'" value="'+esc(v).replace(/"/g,'&quot;')+
-           '" placeholder="'+esc(ph||'')+'">';
+           '" placeholder="'+esc(exv).replace(/"/g,'&quot;')+'">';
   }
   function bind(){
     Array.prototype.forEach.call(body.querySelectorAll('.fi'), function(el){
@@ -4295,20 +4423,55 @@ window.XLSX = (function(){
     return h;
   }
 
+
+  /* ---------- คำอธิบายหัวคอลัมน์ ---------- */
+  function colGuide(){
+    var names = {A:'ส่วน A · พารามิเตอร์การตัดสินใจ', B:'ส่วน B · ข้อมูลประจำงวด', C:'ส่วน C · ฟิลด์ Signal เพิ่มเติม'};
+    var h = '<details class="cguide"><summary>คำอธิบายหัวคอลัมน์ — แต่ละช่องต้องกรอกอะไร และตัวอย่างหน้าตาเป็นแบบไหน <b>(กดเพื่อเปิด)</b></summary><div class="cgbody">';
+    ['A','B','C'].forEach(function(sec){
+      var rows = COLS[sec] || [];
+      h += '<div class="cgsec"><h4>'+names[sec]+'</h4><div class="fmtb scroll"><table><thead><tr>'+
+           '<th style="width:17%">หัวคอลัมน์</th><th style="width:11%">ต้องกรอกไหม</th>'+
+           '<th style="width:42%">ต้องกรอกอะไร</th><th>ตัวอย่าง</th></tr></thead><tbody>';
+      rows.forEach(function(r){
+        var must = /ต้องกรอก/.test(r[3]) && r[3].indexOf('ไม่ต้อง')!==0;
+        h += '<tr'+(must?' class="cgmust"':'')+'><td class="fld">'+esc(r[0])+'</td>'+
+             '<td>'+(must?'<span class="tag alarm">'+esc(r[3])+'</span>':'<span class="tag">'+esc(r[3])+'</span>')+'</td>'+
+             '<td>'+esc(r[1])+'</td><td class="exc">'+esc(r[2])+'</td></tr>';
+      });
+      h += '</tbody></table></div></div>';
+    });
+    h += '<p class="cap"><b>กติกาของคอลัมน์ตัวอย่าง</b> — ตัวเลขในคอลัมน์ «ตัวอย่างการกรอก» ทุกตัวเป็น<b>ตัวอย่างรูปแบบเท่านั้น ไม่ใช่ค่าจริงของ TMT</b> '+
+         'และห้ามนำไปใช้อ้างอิงหรือคัดลอกลงช่องกรอก · ยกเว้นบรรทัดที่มีเครื่องหมาย <b>*</b> กำกับ ซึ่งเป็นค่าที่มาจากไฟล์ Signal รอบนี้จริง '+
+         'เช่น สต๊อกม้วน 36,750 ตัน · ยอดค้างส่ง 33,643 ตัน · เพดานม้วน 35,000 ตัน · Days of Price Exposure 35 วัน</p>';
+    h += '</div></details>';
+    return h;
+  }
+
   /* ---------- department detail ---------- */
+  function exCell(code){
+    var v = EX[code]; if(!v) return '';
+    var star = String(v).indexOf('*') >= 0;
+    var txt = String(v).replace(/\s*\*\s*/, star ? '  ' : '');
+    return '<span class="exv">'+esc(txt)+'</span>' + (star ? ' <span class="tag real">ค่าจริงรอบนี้</span>' : '');
+  }
   function detail(d){
     var h = '', i;
+    h += colGuide();
     h += '<div class="fmsec"><div class="h"><span class="n">ส่วน A</span><h3>พารามิเตอร์การตัดสินใจ — สิ่งที่ระบบต้องเรียนรู้</h3>'+
          '<span class="sub2">กรอกครั้งเดียว ทบทวนรายไตรมาส</span></div>'+
          '<div class="d">'+d.why+'</div>'+
          '<div class="fmtb scroll"><table><thead><tr>'+
-         '<th style="width:8%">รหัส</th><th style="width:26%">พารามิเตอร์</th><th style="width:8%">หน่วย</th>'+
-         '<th style="width:16%">ค่าที่กรอก</th><th style="width:17%">ค่าที่ใช้อยู่ / สถานะ</th>'+
-         '<th style="width:10%">ผู้อนุมัติ</th><th>ระบบนำไปใช้คำนวณอะไร</th></tr></thead><tbody>';
+         '<th style="width:7%">รหัส</th><th style="width:23%">พารามิเตอร์</th><th style="width:7%">หน่วย</th>'+
+         '<th style="width:14%">ค่าที่กรอก <span class="rq">ต้องกรอก</span></th>'+
+         '<th style="width:13%">ตัวอย่างการกรอก</th>'+
+         '<th style="width:14%">ค่าที่ใช้อยู่ / สถานะ</th>'+
+         '<th style="width:9%">ผู้อนุมัติ</th><th>ระบบนำไปใช้คำนวณอะไร</th></tr></thead><tbody>';
     for(i=0;i<d.param.length;i++){
       var p = d.param[i];
       h += '<tr><td class="cd">'+esc(p[0])+'</td><td class="fld">'+esc(p[1])+'</td><td>'+esc(p[2])+'</td>'+
-           '<td>'+input(d,p[0],p[3],p[4],p[2])+'</td><td>'+esc(p[5])+'</td><td>'+esc(p[6])+'</td><td>'+p[7]+'</td></tr>';
+           '<td>'+input(d,p[0],p[3],p[4],p[2])+'</td><td class="exc">'+exCell(p[0])+'</td>'+
+           '<td>'+esc(p[5])+'</td><td>'+esc(p[6])+'</td><td>'+p[7]+'</td></tr>';
     }
     h += '</tbody></table></div></div>';
 
@@ -4317,12 +4480,14 @@ window.XLSX = (function(){
          '<div class="d">ช่องนี้คือตัวเลขที่นำไปคำนวณจริง · ถ้างวดใดยังไม่มีข้อมูล <b>ให้เว้นว่างไว้</b> อย่าใส่ตัวเลขประมาณเอง '+
          'ระบบจะแสดงเป็น «รอข้อมูล» ซึ่งอ่านง่ายกว่าและไม่ทำให้การตัดสินใจผิดทาง</div>'+
          '<div class="fmtb scroll"><table><thead><tr>'+
-         '<th style="width:8%">รหัส</th><th style="width:30%">ข้อมูลที่ต้องส่ง</th><th style="width:11%">หน่วย</th>'+
-         '<th style="width:11%">ความถี่</th><th style="width:16%">ค่างวดล่าสุด</th><th>ระบบนำไปใช้คำนวณอะไร</th></tr></thead><tbody>';
+         '<th style="width:7%">รหัส</th><th style="width:26%">ข้อมูลที่ต้องส่ง</th><th style="width:10%">หน่วย</th>'+
+         '<th style="width:10%">ความถี่</th><th style="width:15%">ค่างวดล่าสุด <span class="rq">ต้องกรอก</span></th>'+
+         '<th style="width:15%">ตัวอย่างการกรอก</th><th>ระบบนำไปใช้คำนวณอะไร</th></tr></thead><tbody>';
     for(i=0;i<d.period.length;i++){
       var q = d.period[i];
       h += '<tr><td class="cd">'+esc(q[0])+'</td><td class="fld">'+esc(q[1])+'</td><td>'+esc(q[2])+'</td>'+
-           '<td>'+esc(q[3])+'</td><td>'+input(d,q[0],q[4],'',q[2])+'</td><td>'+esc(q[5])+'</td></tr>';
+           '<td>'+esc(q[3])+'</td><td>'+input(d,q[0],q[4],'',q[2])+'</td>'+
+           '<td class="exc">'+exCell(q[0])+'</td><td>'+esc(q[5])+'</td></tr>';
     }
     h += '</tbody></table></div></div>';
 
@@ -4333,12 +4498,13 @@ window.XLSX = (function(){
          'และเป็นตัวที่ทำให้ Signal ของแผนกนี้แปลงเป็นตัวเลขผลกระทบได้ · '+
          'กดปุ่ม «ฟอร์ม Signal Log เปล่า» ด้านบนเพื่อได้ไฟล์ Excel ที่มีทั้งช่องกลางและช่องเฉพาะแผนกเรียงต่อกันพร้อมกรอก</div>'+
          '<div class="fmtb scroll"><table><thead><tr>'+
-         '<th style="width:8%">รหัส</th><th style="width:26%">ชื่อฟิลด์</th><th style="width:10%">ชนิดช่อง</th>'+
-         '<th style="width:24%">ตัวเลือก / ตัวอย่างที่ต้องกรอก</th><th>ทำไมแผนกนี้ต้องกรอกเพิ่ม</th></tr></thead><tbody>';
+         '<th style="width:7%">รหัส</th><th style="width:22%">ชื่อฟิลด์</th><th style="width:9%">ชนิดช่อง</th>'+
+         '<th style="width:22%">ตัวเลือก / รูปแบบที่ต้องกรอก</th><th style="width:17%">ตัวอย่างที่กรอกจริง</th>'+
+         '<th>ทำไมแผนกนี้ต้องกรอกเพิ่ม</th></tr></thead><tbody>';
     for(i=0;i<d.sig.length;i++){
       var g = d.sig[i];
       h += '<tr><td class="cd">'+esc(g[0])+'</td><td class="fld">'+esc(g[1])+'</td><td>'+esc(TYPE[g[2]]||g[2])+'</td>'+
-           '<td>'+esc(g[3])+'</td><td>'+g[4]+'</td></tr>';
+           '<td>'+esc(g[3])+'</td><td class="exc">'+exCell(g[0])+'</td><td>'+g[4]+'</td></tr>';
     }
     h += '</tbody></table></div></div>';
 
@@ -4354,7 +4520,8 @@ window.XLSX = (function(){
   }
 
   /* ================= Excel export ================= */
-  var W = [11, 40, 13, 26, 22, 24, 54];
+  var W = [11, 38, 12, 22, 20, 22, 22, 52];
+  var WG = [26, 16, 62, 40];
   var HDR = 3, SEC = 2, BODY = 4, IN = 5, INN = 8, NOTE = 6, CODE = 7, TITLE = 1;
 
   function stamp(){
@@ -4369,52 +4536,85 @@ window.XLSX = (function(){
     return {v:v, s:IN};
   }
 
+  function exPlain(code){ var v = EX[code]; if(!v) return ''; return String(v).replace(/\s*\*\s*/, '   * '); }
+
   function deptSheet(d){
-    var rows = [], m = [];
+    var rows = [], m = [], L = 'H';
     rows.push([{v:'ฟอร์มข้อมูลและเงื่อนไขการจัดการ — '+d.name, s:TITLE}]);
-    m.push('A1:G1');
+    m.push('A1:'+L+'1');
     rows.push([{v:'TMT Steel · Foresight Dashboard — Setting 3 · ส่งออกเมื่อ '+stamp()+
-      ' · กฎสำคัญ: ถ้ายังไม่ทราบให้เว้นว่างไว้ ห้ามใส่ตัวเลขประมาณเอง', s:NOTE}]);
-    m.push('A2:G2');
+      '   ·   กรอกเฉพาะช่องพื้นสีอ่อน   ·   ถ้ายังไม่ทราบให้เว้นว่างไว้ ห้ามใส่ตัวเลขประมาณเอง'+
+      '   ·   คอลัมน์ ตัวอย่างการกรอก เป็นตัวอย่างรูปแบบเท่านั้น ไม่ใช่ค่าจริงของ TMT ยกเว้นบรรทัดที่มีเครื่องหมาย * ซึ่งมาจากไฟล์ Signal รอบนี้', s:NOTE}]);
+    m.push('A2:'+L+'2');
     rows.push([]);
 
-    rows.push([{v:'ส่วน A · พารามิเตอร์การตัดสินใจ — กรอกครั้งเดียว ทบทวนรายไตรมาส', s:SEC},
-               {v:'',s:SEC},{v:'',s:SEC},{v:'',s:SEC},{v:'',s:SEC},{v:'',s:SEC},{v:'',s:SEC}]);
-    m.push('A'+rows.length+':G'+rows.length);
+    rows.push(secBar('ส่วน A · พารามิเตอร์การตัดสินใจ — กรอกครั้งเดียว ทบทวนรายไตรมาส', 8));
+    m.push('A'+rows.length+':'+L+rows.length);
     rows.push([{v:'รหัส',s:HDR},{v:'พารามิเตอร์',s:HDR},{v:'หน่วย',s:HDR},{v:'ตัวเลือกที่กำหนดไว้',s:HDR},
-               {v:'ค่าที่กรอก',s:HDR},{v:'ค่าที่ใช้อยู่ / สถานะ · ผู้อนุมัติ',s:HDR},{v:'ระบบนำไปใช้คำนวณอะไร',s:HDR}]);
+               {v:'ค่าที่กรอก  ← ต้องกรอก',s:HDR},{v:'ตัวอย่างการกรอก',s:HDR},
+               {v:'ค่าที่ใช้อยู่ / สถานะ · ผู้อนุมัติ',s:HDR},{v:'ระบบนำไปใช้คำนวณอะไร',s:HDR}]);
     d.param.forEach(function(p){
       rows.push([{v:p[0],s:CODE},{v:p[1],s:BODY},{v:p[2],s:BODY},
                  {v:(p[3]==='s'? String(p[4]||'').split('|').join(' / ') : TYPE[p[3]]||''), s:BODY},
                  numOrText(val(d,p[0])),
+                 {v:exPlain(p[0]), s:NOTE},
                  {v:p[5]+(p[6]?'  ·  ผู้อนุมัติ: '+p[6]:''), s:BODY},
                  {v:strip(p[7]), s:BODY}]);
     });
     rows.push([]);
 
-    rows.push([{v:'ส่วน B · ข้อมูลประจำงวด — กรอกทุกงวดตามความถี่ที่ระบุ', s:SEC},
-               {v:'',s:SEC},{v:'',s:SEC},{v:'',s:SEC},{v:'',s:SEC},{v:'',s:SEC},{v:'',s:SEC}]);
-    m.push('A'+rows.length+':G'+rows.length);
+    rows.push(secBar('ส่วน B · ข้อมูลประจำงวด — กรอกทุกงวดตามความถี่ที่ระบุ', 8));
+    m.push('A'+rows.length+':'+L+rows.length);
     rows.push([{v:'รหัส',s:HDR},{v:'ข้อมูลที่ต้องส่ง',s:HDR},{v:'หน่วย',s:HDR},{v:'ความถี่',s:HDR},
-               {v:'ค่างวดล่าสุด',s:HDR},{v:'งวดที่อ้างถึง',s:HDR},{v:'ระบบนำไปใช้คำนวณอะไร',s:HDR}]);
+               {v:'ค่างวดล่าสุด  ← ต้องกรอก',s:HDR},{v:'ตัวอย่างการกรอก',s:HDR},
+               {v:'งวดที่อ้างถึง  ← ต้องกรอก',s:HDR},{v:'ระบบนำไปใช้คำนวณอะไร',s:HDR}]);
     d.period.forEach(function(q){
       rows.push([{v:q[0],s:CODE},{v:q[1],s:BODY},{v:q[2],s:BODY},{v:q[3],s:BODY},
                  numOrText(val(d,q[0])),
+                 {v:exPlain(q[0]), s:NOTE},
                  {v:'', s:IN},
                  {v:strip(q[5]), s:BODY}]);
     });
     rows.push([]);
 
-    rows.push([{v:'ส่วน C · ฟิลด์ Signal เพิ่มเติมเฉพาะแผนกนี้ — กรอกต่อ 1 Signal ที่พบ', s:SEC},
-               {v:'',s:SEC},{v:'',s:SEC},{v:'',s:SEC},{v:'',s:SEC},{v:'',s:SEC},{v:'',s:SEC}]);
-    m.push('A'+rows.length+':G'+rows.length);
-    rows.push([{v:'รหัส',s:HDR},{v:'ชื่อฟิลด์',s:HDR},{v:'ชนิดช่อง',s:HDR},{v:'ตัวเลือก / ตัวอย่างที่ต้องกรอก',s:HDR},
-               {v:'',s:HDR},{v:'',s:HDR},{v:'ทำไมแผนกนี้ต้องกรอกเพิ่ม',s:HDR}]);
+    rows.push(secBar('ส่วน C · ฟิลด์ Signal เพิ่มเติมเฉพาะแผนกนี้ — ไม่ต้องกรอกในชีตนี้ ใช้เป็นคู่มือตอนบันทึก Signal', 8));
+    m.push('A'+rows.length+':'+L+rows.length);
+    rows.push([{v:'รหัส',s:HDR},{v:'ชื่อฟิลด์',s:HDR},{v:'ชนิดช่อง',s:HDR},{v:'ตัวเลือก / รูปแบบที่ต้องกรอก',s:HDR},
+               {v:'ตัวอย่างที่กรอกจริง',s:HDR},{v:'',s:HDR},{v:'',s:HDR},{v:'ทำไมแผนกนี้ต้องกรอกเพิ่ม',s:HDR}]);
     d.sig.forEach(function(g){
       rows.push([{v:g[0],s:CODE},{v:g[1],s:BODY},{v:TYPE[g[2]]||g[2],s:BODY},{v:g[3],s:BODY},
-                 {v:'',s:BODY},{v:'',s:BODY},{v:strip(g[4]),s:BODY}]);
+                 {v:exPlain(g[0]),s:NOTE},{v:'',s:BODY},{v:'',s:BODY},{v:strip(g[4]),s:BODY}]);
     });
     return {name:d.short, cols:W, rows:rows, merges:m};
+  }
+
+  function secBar(txt, n){
+    var r = [{v:txt, s:SEC}];
+    for(var i=1;i<n;i++) r.push({v:'', s:SEC});
+    return r;
+  }
+
+  function guideSheet(){
+    var rows=[], m=[], names={A:'ส่วน A · พารามิเตอร์การตัดสินใจ', B:'ส่วน B · ข้อมูลประจำงวด', C:'ส่วน C · ฟิลด์ Signal เพิ่มเติม'};
+    rows.push([{v:'คำอธิบายหัวคอลัมน์ — แต่ละช่องต้องกรอกอะไร', s:TITLE}]); m.push('A1:D1');
+    rows.push([{v:'อ่านหน้านี้ก่อนกรอกครั้งแรก · ช่องที่เขียนว่า ต้องกรอก คือช่องพื้นสีอ่อนในชีตของแต่ละแผนก ที่เหลือเป็นคำอธิบาย ไม่ต้องแก้', s:NOTE}]); m.push('A2:D2');
+    ['A','B','C'].forEach(function(sec){
+      rows.push([]);
+      rows.push([{v:names[sec], s:SEC},{v:'',s:SEC},{v:'',s:SEC},{v:'',s:SEC}]);
+      m.push('A'+rows.length+':D'+rows.length);
+      rows.push([{v:'หัวคอลัมน์',s:HDR},{v:'ต้องกรอกไหม',s:HDR},{v:'ต้องกรอกอะไร',s:HDR},{v:'ตัวอย่าง',s:HDR}]);
+      (COLS[sec]||[]).forEach(function(r){
+        rows.push([{v:r[0],s:BODY},{v:r[3],s:BODY},{v:r[1],s:BODY},{v:r[2],s:NOTE}]);
+      });
+    });
+    rows.push([]);
+    rows.push([{v:'กติกาของคอลัมน์ตัวอย่าง', s:SEC},{v:'',s:SEC},{v:'',s:SEC},{v:'',s:SEC}]);
+    m.push('A'+rows.length+':D'+rows.length);
+    rows.push([{v:'ตัวเลขในคอลัมน์ ตัวอย่างการกรอก ทุกตัวเป็นตัวอย่างรูปแบบเท่านั้น ไม่ใช่ค่าจริงของ TMT และห้ามคัดลอกลงช่องกรอก '+
+      'ยกเว้นบรรทัดที่มีเครื่องหมาย * กำกับ ซึ่งเป็นค่าที่มาจากไฟล์ Signal รอบนี้จริง เช่น สต๊อกม้วน 36,750 ตัน · '+
+      'ยอดค้างส่ง 33,643 ตัน · เพดานม้วน 35,000 ตัน · Days of Price Exposure 35 วัน', s:BODY},{v:'',s:BODY},{v:'',s:BODY},{v:'',s:BODY}]);
+    m.push('A'+rows.length+':D'+rows.length);
+    return {name:'คำอธิบายหัวคอลัมน์', cols:WG, rows:rows, merges:m};
   }
 
   function strip(s){ return String(s==null?'':s).replace(/<[^>]+>/g,'')
@@ -4434,7 +4634,9 @@ window.XLSX = (function(){
       ['5','ส่วน C ฟิลด์ Signal เพิ่มเติม ไม่ต้องกรอกในไฟล์นี้ ใช้เป็นคู่มือว่าตอนพบสัญญาณต้องบันทึกอะไรเพิ่ม'],
       ['6','ค่าที่เป็นตัวเลข ให้กรอกเฉพาะตัวเลข ไม่ต้องใส่หน่วยหรือเครื่องหมายจุลภาค'],
       ['7','ทุกค่าที่กรอก ต้องมีที่มาอ้างอิงกลับได้ เช่น เลขที่เอกสาร ชื่อรายงาน หรือมติที่ประชุม'],
-      ['8','ส่งไฟล์กลับตามรอบที่ตกลงกัน แล้วเปลี่ยนชื่อไฟล์ให้มีวันที่กำกับเสมอ ห้ามเขียนทับไฟล์เดิม']
+      ['8','ส่งไฟล์กลับตามรอบที่ตกลงกัน แล้วเปลี่ยนชื่อไฟล์ให้มีวันที่กำกับเสมอ ห้ามเขียนทับไฟล์เดิม'],
+      ['9','ไม่แน่ใจว่าคอลัมน์ไหนต้องกรอกอะไร ให้เปิดชีต คำอธิบายหัวคอลัมน์ ซึ่งอธิบายทีละช่องพร้อมตัวอย่าง'],
+      ['10','คอลัมน์ ตัวอย่างการกรอก เป็นตัวอย่างรูปแบบเท่านั้น ไม่ใช่ค่าจริงของ TMT ห้ามคัดลอกลงช่องกรอก ยกเว้นบรรทัดที่มีเครื่องหมาย * ซึ่งมาจากไฟล์ Signal รอบนี้']
     ];
     rows.push([{v:'ข้อ',s:HDR},{v:'กติกา',s:HDR},{v:'',s:HDR}]);
     lines.forEach(function(l){ rows.push([{v:l[0],s:CODE},{v:l[1],s:BODY},{v:'',s:BODY}]); });
@@ -4459,7 +4661,11 @@ window.XLSX = (function(){
       head3.push({v:g[1]+'  ['+(TYPE[g[2]]||g[2])+']', s:HDR});
       blank.push({v:'', s:IN}); cols.push(28);
     });
-    rows.push(head1); rows.push(head2); rows.push(head3);
+    var exrow = [];
+    COMMON.forEach(function(c){ exrow.push({v:'', s:NOTE}); });
+    d.sig.forEach(function(g){ exrow.push({v:exPlain(g[0]), s:NOTE}); });
+    exrow[0] = {v:'ตัวอย่าง — ลบแถวนี้ก่อนใช้งานจริง', s:NOTE};
+    rows.push(head1); rows.push(head2); rows.push(head3); rows.push(exrow);
     for(var i=0;i<12;i++) rows.push(blank.slice());
     m.push('A1:'+colLetter(COMMON.length-1)+'1');
     m.push(colLetter(COMMON.length)+'1:'+colLetter(COMMON.length+d.sig.length-1)+'1');
@@ -4477,15 +4683,15 @@ window.XLSX = (function(){
   }
 
   document.getElementById('x1').addEventListener('click', function(){
-    if(cur<0){ go([coverSheet()].concat(S3.map(deptSheet)), 'TMT_Signal_Form_ALL_DEPTS_'+stamp()+'.xlsx'); return; }
+    if(cur<0){ go([coverSheet(), guideSheet()].concat(S3.map(deptSheet)), 'TMT_Signal_Form_ALL_DEPTS_'+stamp()+'.xlsx'); return; }
     var d = S3[cur];
-    go([coverSheet(), deptSheet(d), signalSheet(d)], 'TMT_Signal_Form_'+d.id.replace(/[^A-Za-z0-9]+/g,'_')+'_'+stamp()+'.xlsx');
+    go([coverSheet(), guideSheet(), deptSheet(d), signalSheet(d)], 'TMT_Signal_Form_'+d.id.replace(/[^A-Za-z0-9]+/g,'_')+'_'+stamp()+'.xlsx');
   });
   document.getElementById('x2').addEventListener('click', function(){
-    go([coverSheet()].concat(S3.map(deptSheet)), 'TMT_Signal_Form_ALL_DEPTS_'+stamp()+'.xlsx');
+    go([coverSheet(), guideSheet()].concat(S3.map(deptSheet)), 'TMT_Signal_Form_ALL_DEPTS_'+stamp()+'.xlsx');
   });
   document.getElementById('x3').addEventListener('click', function(){
-    go([coverSheet()].concat(S3.map(signalSheet)), 'TMT_Signal_Log_BLANK_'+stamp()+'.xlsx');
+    go([coverSheet(), guideSheet()].concat(S3.map(signalSheet)), 'TMT_Signal_Log_BLANK_'+stamp()+'.xlsx');
   });
   document.getElementById('x4').addEventListener('click', function(){
     VAL = {}; save(); drawChips(); draw(); say('ล้างค่าที่กรอกทั้งหมดแล้ว');
